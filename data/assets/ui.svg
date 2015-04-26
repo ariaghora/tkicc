@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="ui.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4748">
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="0"
+         id="stop4750" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0.14655173;"
+         offset="1"
+         id="stop4752" />
+    </linearGradient>
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect4735"
+       effect="spiro" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4709"
+       is_visible="true" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4748"
+       id="linearGradient4754"
+       x1="130"
+       y1="647.36218"
+       x2="140"
+       y2="647.36218"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.25,0,0,0.54347827,-33.75,263.03491)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="126.41905"
+     inkscape:cy="505.91055"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:snap-bbox="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="713"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3763" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       y="577.36218"
+       x="150"
+       height="70"
+       width="70"
+       id="rect4744"
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       inkscape:export-filename="/media/ghora/0fdbe14d-c946-46a6-8286-b9313b9537e4/home/ghora/Documents/kampus/KAWAL/artwork/ondemand.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect4742"
+       width="70"
+       height="70"
+       x="150"
+       y="647.36218"
+       inkscape:export-filename="/media/ghora/0fdbe14d-c946-46a6-8286-b9313b9537e4/home/ghora/Documents/kampus/KAWAL/artwork/monitor.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g3805"
+       inkscape:export-filename="/media/ghora/0fdbe14d-c946-46a6-8286-b9313b9537e4/home/ghora/Documents/kampus/KAWAL/artwork/logo header.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         y="332.36218"
+         x="-150"
+         height="72"
+         width="260"
+         id="rect2985"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:none;fill-opacity:1;opacity:0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755"
+         y="380.22546"
+         x="-85.642082"
+         style="font-size:32.32501221px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Montserrat;-inkscape-font-specification:Montserrat"
+           y="380.22546"
+           x="-85.642082"
+           id="tspan3757"
+           sodipodi:role="line"><tspan
+   id="tspan3759"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#be0e46;fill-opacity:1;font-family:Montserrat;-inkscape-font-specification:Montserrat">Kawal</tspan>TKI</tspan></text>
+      <g
+         transform="matrix(0.28264209,0,0,0.28264209,-28.087556,240.08162)"
+         id="g3798">
+        <path
+           style="fill:#be0e46;fill-opacity:1;stroke:none"
+           d="m -360,407.36218 c 0,65.19506 32.71572,93 52.5,93 19.78428,0 52.5,-27.45138 52.5,-93 l -52.5,0 z"
+           id="rect3765"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="czccc" />
+        <path
+           id="path3779"
+           d="m -353.29043,413.30494 c 0,56.85749 32.57023,81.11448 45.79043,81.11448 13.2202,0 45.79043,-23.90344 45.79043,-81.11448 l -45.79043,0 z"
+           style="fill:#ececec;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="czccc" />
+        <g
+           id="g3794"
+           transform="matrix(1.0175651,0,0,0.99999997,-83.629529,-30.512802)">
+          <path
+             sodipodi:nodetypes="sccss"
+             inkscape:connector-curvature="0"
+             id="rect3781"
+             d="m -230.00604,462.375 c -5.52285,0 -10,4.47715 -10,10 -0.36066,12.14604 15.53395,24.6756 20,26 l 0,-26 c 0,-5.52285 -4.47715,-10 -10,-10 z"
+             style="fill:#be0e46;fill-opacity:1;stroke:none" />
+          <path
+             sodipodi:nodetypes="sccss"
+             inkscape:connector-curvature="0"
+             style="fill:#be0e46;fill-opacity:1;stroke:none"
+             d="m -210.00604,462.375 c 5.52285,0 10,4.47715 10,10 0.36066,12.14604 -15.53395,24.6756 -20,26 l 0,-26 c 0,-5.52285 4.47715,-10 10,-10 z"
+             id="path3792" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:20.22228432px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-296.98022"
+       y="485.56223"
+       id="text3021"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3023"
+         x="-296.98022"
+         y="485.56223"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Montserrat;-inkscape-font-specification:Montserrat">Aspek 1</tspan></text>
+    <rect
+       style="fill:#be0e46;fill-opacity:1;stroke:none"
+       id="rect3025"
+       width="30"
+       height="20"
+       x="-190"
+       y="467.36218" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3795"
+       y="515.89569"
+       x="-296.98022"
+       style="font-size:20.22228432px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Montserrat;-inkscape-font-specification:Montserrat"
+         y="515.89569"
+         x="-296.98022"
+         id="tspan3797"
+         sodipodi:role="line">Aspek 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20.22228432px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-296.98022"
+       y="546.22906"
+       id="text3801"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3803"
+         x="-296.98022"
+         y="546.22906"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Montserrat;-inkscape-font-specification:Montserrat">Aspek 3</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3807"
+       y="576.5625"
+       x="-296.98022"
+       style="font-size:20.22228432px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Montserrat;-inkscape-font-specification:Montserrat"
+         y="576.5625"
+         x="-296.98022"
+         id="tspan3809"
+         sodipodi:role="line">Aspek 4</tspan></text>
+    <g
+       id="g3821"
+       transform="translate(35,0)">
+      <rect
+         style="fill:#be0e46;fill-opacity:1;stroke:none"
+         id="rect3815"
+         width="30"
+         height="20"
+         x="-155"
+         y="467.36218" />
+      <rect
+         y="469.58438"
+         x="-152.5"
+         height="15.555555"
+         width="25"
+         id="rect3817"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    </g>
+    <rect
+       y="467.36218"
+       x="-155"
+       height="20"
+       width="30"
+       id="rect3819"
+       style="fill:#be0e46;fill-opacity:1;stroke:none" />
+    <g
+       transform="translate(70,0)"
+       id="g3825">
+      <rect
+         y="467.36218"
+         x="-155"
+         height="20"
+         width="30"
+         id="rect3827"
+         style="fill:#be0e46;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect3829"
+         width="25"
+         height="15.555555"
+         x="-152.5"
+         y="469.58438" />
+    </g>
+    <g
+       id="g3831"
+       transform="translate(105,0)">
+      <rect
+         style="fill:#be0e46;fill-opacity:1;stroke:none"
+         id="rect3833"
+         width="30"
+         height="20"
+         x="-155"
+         y="467.36218" />
+      <rect
+         y="469.58438"
+         x="-152.5"
+         height="15.555555"
+         width="25"
+         id="rect3835"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    </g>
+    <rect
+       y="502.36218"
+       x="-190"
+       height="20"
+       width="30"
+       id="rect3837"
+       style="fill:#be0e46;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#be0e46;fill-opacity:1;stroke:none"
+       id="rect3839"
+       width="30"
+       height="20"
+       x="-155"
+       y="502.36218" />
+    <rect
+       style="fill:#be0e46;fill-opacity:1;stroke:none"
+       id="rect3841"
+       width="30"
+       height="20"
+       x="-120"
+       y="502.36218" />
+    <rect
+       y="502.36218"
+       x="-85"
+       height="20"
+       width="30"
+       id="rect3843"
+       style="fill:#be0e46;fill-opacity:1;stroke:none" />
+    <g
+       transform="translate(105,35)"
+       id="g3845">
+      <rect
+         y="467.36218"
+         x="-155"
+         height="20"
+         width="30"
+         id="rect3847"
+         style="fill:#be0e46;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect3849"
+         width="25"
+         height="15.555555"
+         x="-152.5"
+         y="469.58438" />
+    </g>
+    <g
+       id="g4086"
+       transform="translate(364.10261,305.06428)"
+       inkscape:export-filename="/media/ghora/0fdbe14d-c946-46a6-8286-b9313b9537e4/home/ghora/Documents/kampus/KAWAL/presentasi/sempro/ilustrasi/noticed.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3299"
+         d="m -36.720843,128.34787 c -25.768,0 -46.65992,17.03491 -46.65992,38.04396 0,21.00904 20.89192,38.04395 46.65992,38.04395 12.64451,0 24.10413,-4.11225 32.5072901,-10.77186 l 25.4309899,5.4015 -18.4483999,-12.42188 c 4.53579,-5.86584 7.17004,-12.80511 7.17004,-20.25171 0,-21.00905 -20.8919201,-38.04396 -46.6599201,-38.04396 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#be0e46;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0017565,0.9982466)"
+         sodipodi:linespacing="125%"
+         id="text3295"
+         y="187.62689"
+         x="-44.025276"
+         style="font-size:61.42457962px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#be0e46;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#be0e46;fill-opacity:1;font-family:Montserrat;-inkscape-font-specification:Montserrat"
+           y="187.62689"
+           x="-44.025276"
+           id="tspan3297"
+           sodipodi:role="line">!</tspan></text>
+    </g>
+    <rect
+       style="fill:#be0e46;fill-opacity:1;stroke:none"
+       id="rect4682"
+       width="70"
+       height="70"
+       x="30"
+       y="577.36218"
+       inkscape:export-filename="/media/ghora/0fdbe14d-c946-46a6-8286-b9313b9537e4/home/ghora/Documents/kampus/KAWAL/artwork/ondemand_pressed.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g4698"
+       transform="translate(-40.52095,-1.9489746)">
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 102.84697,596.41216 c -12.218625,0 -22.12512,8.01462 -22.12512,17.89898 0,9.88437 9.906495,17.89899 22.12512,17.89899 5.99575,0 11.42965,-1.93474 15.41425,-5.06796 l 12.05883,2.54131 -8.74783,-5.84429 c 2.15076,-2.75976 3.39989,-6.02455 3.39989,-9.52805 0,-9.88436 -9.90652,-17.89898 -22.12514,-17.89898 z"
+         id="path4686"
+         inkscape:connector-curvature="0" />
+      <g
+         id="text4688"
+         style="font-size:61.42457962px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+         transform="matrix(0.47501123,0,0,0.46965676,28.219948,298.40332)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4696"
+           style="font-variant:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Montserrat;-inkscape-font-specification:Montserrat"
+           d="m 160.42488,661.69895 0,-10.56503 -6.69528,0 0,10.56503 1.10564,18.18168 4.48399,0 1.10565,-18.18168 m -3.31693,24.32413 c -2.21128,0 -3.86975,1.65847 -3.86975,3.9926 0,2.39556 1.65847,4.11545 3.86975,4.11545 2.21128,0 3.86975,-1.71989 3.86975,-4.11545 0,-2.33413 -1.65847,-3.9926 -3.86975,-3.9926" />
+      </g>
+    </g>
+    <rect
+       y="647.36218"
+       x="30"
+       height="70"
+       width="70"
+       id="rect4703"
+       style="fill:#be0e46;fill-opacity:1;stroke:none"
+       inkscape:export-filename="/media/ghora/0fdbe14d-c946-46a6-8286-b9313b9537e4/home/ghora/Documents/kampus/KAWAL/artwork/monitor_pressed.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4705"
+       width="44.5"
+       height="35"
+       x="42.75"
+       y="664.86218"
+       ry="5"
+       rx="5" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 43,682.36218 12,0 5,-10 5,15 5,-7.875 3,2.875 14,0"
+       id="path4707"
+       inkscape:path-effect="#path-effect4709"
+       inkscape:original-d="m 43,682.36218 12,0 5,-10 5,15 5,-7.875 3,2.875 14,0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#be0e46;fill-opacity:1;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 167.75,663.875 c -3.3067,0 -6,2.6933 -6,6 l 0,25 c 0,3.3067 2.6933,6 6,6 l 34.5,0 c 3.3067,0 6,-2.6933 6,-6 l 0,-25 c 0,-3.3067 -2.6933,-6 -6,-6 l -34.5,0 z m 0,2 34.5,0 c 2.2333,0 4,1.7667 4,4 l 0,25 c 0,2.2333 -1.7667,4 -4,4 l -34.5,0 c -2.2333,0 -4,-1.7667 -4,-4 l 0,-25 c 0,-2.2333 1.7667,-4 4,-4 z"
+       id="rect4711"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#be0e46;fill-opacity:1;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 182.3125,593.46875 c -12.65592,0 -23.125,8.35373 -23.125,18.90625 0,10.55253 10.46908,18.875 23.125,18.875 6.02098,0 11.49157,-1.89446 15.625,-5 l 11.65625,2.46875 0.75,-1.8125 -7.96875,-5.34375 c 1.87617,-2.72461 3.0625,-5.81668 3.0625,-9.1875 0,-10.55252 -10.46909,-18.90625 -23.125,-18.90625 z m 0,2 c 11.78133,0 21.125,7.69005 21.125,16.90625 0,3.26581 -1.1564,6.30003 -3.1875,8.90625 l -0.65625,0.84375 0.90625,0.59375 4.4375,2.96875 -7,-1.46875 -0.4375,-0.0937 -0.375,0.28125 c -3.79458,2.9838 -9.03187,4.84375 -14.8125,4.84375 -11.78134,0 -21.125,-7.65879 -21.125,-16.875 0,-9.2162 9.34366,-16.90625 21.125,-16.90625 z"
+       id="path4715"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 183.90262,607.22573 0,-4.96193 -3.18033,0 0,4.96193 0.52519,8.53915 2.12994,0 0.5252,-8.53915 m -1.57558,11.424 c -1.05038,0 -1.83817,0.77891 -1.83817,1.87515 0,1.12509 0.78779,1.93285 1.83817,1.93285 1.05038,0 1.83818,-0.80776 1.83818,-1.93285 0,-1.09624 -0.7878,-1.87515 -1.83818,-1.87515"
+       style="font-size:61.42457962000000293px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#be0e46;fill-opacity:1;stroke:none;font-family:Montserrat;-inkscape-font-specification:Montserrat"
+       id="path4719"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#be0e46;fill-opacity:1;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 180.1875,669.75 -1.09375,2.15625 -4.71875,9.46875 -11.375,0 0,2 12,0 0.625,0 0.28125,-0.5625 3.90625,-7.84375 4.25,12.71875 0.65625,2 1.125,-1.78125 4.34375,-6.84375 2.125,2.03125 0.28125,0.28125 0.40625,0 14,0 0,-2 -13.5625,0 -2.75,-2.625 -0.875,-0.84375 -0.65625,1.03125 -3.875,6.125 -4.34375,-13.03125 -0.75,-2.28125 z"
+       id="path4733"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:url(#linearGradient4754);fill-opacity:1;stroke:none"
+       id="rect4746"
+       width="10"
+       height="75"
+       x="130"
+       y="577.36218" />
+  </g>
+</svg>

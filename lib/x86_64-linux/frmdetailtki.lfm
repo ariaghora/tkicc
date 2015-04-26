@@ -1,0 +1,153 @@
+object formDetailTKI: TformDetailTKI
+  Left = 454
+  Height = 435
+  Top = 176
+  Width = 605
+  Caption = 'formDetailTKI'
+  ClientHeight = 435
+  ClientWidth = 605
+  Font.Height = -13
+  Font.Name = 'Montserrat'
+  LCLVersion = '1.2.6.0'
+  object pnlContent: TPanel
+    Left = 0
+    Height = 435
+    Top = 0
+    Width = 605
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 435
+    ClientWidth = 605
+    TabOrder = 0
+    object Panel3: TPanel
+      Left = 0
+      Height = 48
+      Top = 0
+      Width = 605
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 48
+      ClientWidth = 605
+      TabOrder = 0
+      object SpeedButton1: TSpeedButton
+        Left = 10
+        Height = 28
+        Top = 10
+        Width = 158
+        Align = alLeft
+        BorderSpacing.Around = 10
+        Caption = 'Kembali ke Daftar'
+        Glyph.Data = {
+          F6030000424DF60300000000000036000000280000000F000000100000000100
+          200000000000C003000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+          003800000088000000B1000000CD00000056FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000003C000000BA000000FF0000
+          00FF000000FF000000FF000000F30000000BFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF0000000035000000BE000000FF000000FF000000ED000000850000
+          0051000000C9000000FF0000005EFFFFFF00FFFFFF00FFFFFF00000000060000
+          0084000000FC000000FF000000EC000000790000000DFFFFFF00FFFFFF000000
+          0065000000FF000000ABFFFFFF00FFFFFF000000002F000000D0000000FF0000
+          00FC000000870000000CFFFFFF00FFFFFF00FFFFFF00FFFFFF000000003A0000
+          00FF000000C2FFFFFF0000000049000000FA000000FF000000DA00000038FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000026000000FF0000
+          00D400000022000000EF000000FF000000980000000AFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000013000000FF000000E60000
+          00B7000000FF000000A6FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF0000000002000000FD000000F8000000B90000
+          00FF000000A7FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF0000000002000000FD000000F800000026000000F10000
+          00FF0000009500000008FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF0000000013000000FF000000E6FFFFFF000000004E000000FA0000
+          00FF000000D600000034FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF0000000026000000FF000000D4FFFFFF00FFFFFF000000002F000000D20000
+          00FF000000FB000000830000000CFFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+          003A000000FF000000C2FFFFFF00FFFFFF00FFFFFF0000000006000000880000
+          00FD000000FF000000EB000000780000000CFFFFFF00FFFFFF00000000650000
+          00FF000000ABFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000390000
+          00C5000000FF000000FF000000EB0000008300000050000000C9000000FF0000
+          005CFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+          0042000000BF000000FF000000FF000000FF000000FF000000F000000009FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF000000003B00000089000000B2000000CD00000052FFFFFF00
+        }
+        OnClick = SpeedButton1Click
+      end
+    end
+    object ScrollBox1: TScrollBox
+      Left = 0
+      Height = 387
+      Top = 48
+      Width = 605
+      HorzScrollBar.Page = 328
+      VertScrollBar.Page = 233
+      Align = alClient
+      BorderStyle = bsNone
+      ClientHeight = 387
+      ClientWidth = 605
+      TabOrder = 1
+      object lblNama: TLabel
+        Left = 10
+        Height = 24
+        Top = 8
+        Width = 93
+        Caption = 'Nama TKI'
+        Font.Height = -19
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+      end
+      object BGRAFlashProgressBar1: TBGRAFlashProgressBar
+        Left = 176
+        Height = 33
+        Top = 40
+        Width = 152
+        MinValue = 0
+        MaxValue = 4
+        Value = 3
+        OnClick = BGRAFlashProgressBar1Click
+        Color = 4591294
+      end
+      object BGRAFlashProgressBar2: TBGRAFlashProgressBar
+        Left = 176
+        Height = 33
+        Top = 80
+        Width = 152
+        MinValue = 0
+        MaxValue = 4
+        Value = 2
+        Color = 4591294
+      end
+      object BGRAFlashProgressBar3: TBGRAFlashProgressBar
+        Left = 176
+        Height = 33
+        Top = 120
+        Width = 152
+        MinValue = 0
+        MaxValue = 4
+        Value = 3
+        Color = 4591294
+      end
+      object BGRAFlashProgressBar4: TBGRAFlashProgressBar
+        Left = 176
+        Height = 33
+        Top = 160
+        Width = 152
+        MinValue = 0
+        MaxValue = 4
+        Value = 2
+        Color = 4591294
+      end
+      object BGRAFlashProgressBar5: TBGRAFlashProgressBar
+        Left = 176
+        Height = 33
+        Top = 200
+        Width = 152
+        MinValue = 0
+        MaxValue = 4
+        Value = 1
+        Color = 4591294
+      end
+    end
+  end
+end

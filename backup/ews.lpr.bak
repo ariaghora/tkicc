@@ -1,0 +1,28 @@
+program ews;
+
+{$mode objfpc}{$H+}
+
+uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
+  cthreads, cmem{$ENDIF} {$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms,
+  frmMain,
+  tachartlazaruspkg,
+  beautify,
+  helper,
+  globals,
+  frmlogin,
+  bgrabitmappack,
+  frmMonitoring, threadutils { you can add units after this };
+
+{$R *.res}
+
+begin
+  init(False);
+  RequireDerivedFormResource := True;
+  Application.Initialize;
+  Application.CreateForm(TformLogin, formLogin);
+  Application.CreateForm(TformMain, formMain);
+  Application.CreateForm(TformMonitoring, formMonitoring);
+  Application.Run;
+end.

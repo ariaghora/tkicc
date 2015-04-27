@@ -125,7 +125,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="ews"/>
+      <Filename Value="../ews-release/ews"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

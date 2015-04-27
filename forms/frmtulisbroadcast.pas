@@ -46,18 +46,30 @@ var
   pesan: string;
 begin
   pesan := EncodeURLElement(Memo1.Text);
-  ShowMessage(LINK_KIRIM_BROADCAST + pesan + '/' + USER_ID);
+
   if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + pesan + '/' + USER_ID) = '1' then
   begin
     memo1.Clear;
     self.Close;
+
     // run smsBroadcast();
+    if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '+628979450685' +
+      '/' + pesan) = '1' then
+    begin
+      // success message
+      ShowMessage('Yay (1)');
+    end
+    else
+    begin
+      // failure warning
+      ShowMessage('Terdapat kesalahan dalam sesi pengiriman broadcast.');
+    end;
 
     formMessaging.renderListView;
   end
   else
   begin
-    ShowMessage('Pengiriman broadcast gagal');
+    ShowMessage('Sesi pengiriman broadcast gagal');
   end;
 end;
 

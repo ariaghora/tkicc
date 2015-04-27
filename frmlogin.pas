@@ -19,12 +19,9 @@ type
     edtPassword: TEdit;
     imgAnimation: TBGRASpriteAnimation;
     procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
     procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure imgAnimationClick(Sender: TObject);
   private
     procedure doLogin(username, password: string);
   public
@@ -43,19 +40,9 @@ uses
 
 { TformLogin }
 
-procedure TformLogin.FormCreate(Sender: TObject);
-begin
-
-end;
-
 procedure TformLogin.FormShow(Sender: TObject);
 begin
   formMain.Hide;
-end;
-
-procedure TformLogin.imgAnimationClick(Sender: TObject);
-begin
-
 end;
 
 procedure TformLogin.Button1Click(Sender: TObject);
@@ -70,11 +57,6 @@ begin
     thread.password := edtPassword.Text;
     thread.Start;
   end;
-end;
-
-procedure TformLogin.Button2Click(Sender: TObject);
-begin
-
 end;
 
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;

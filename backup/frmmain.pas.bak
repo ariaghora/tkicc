@@ -7,13 +7,14 @@ interface
 uses
   Classes, Forms, Controls, SysUtils, Graphics, Dialogs, LCLType, ExtCtrls,
   ComCtrls, StdCtrls, Grids, Buttons, fphttpclient, fpjson, jsonparser, helper,
-  globals, json2lv, BGRASpriteAnimation;
+  globals, json2lv, BGRASpriteAnimation, threadutils, process, Math;
 
 type
 
   { TformMain }
 
   TformMain = class(TForm)
+    Button1: TButton;
     imgAnimation: TBGRASpriteAnimation;
     Image1: TImage;
     imgMessaging: TImage;
@@ -29,7 +30,8 @@ type
     pnlLeft: TPanel;
     pnlContent: TPanel;
     Panel8: TPanel;
-    Timer1: TTimer;
+    mainTimer: TTimer;
+    procedure Button1Click(Sender: TObject);
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -37,13 +39,7 @@ type
     procedure imgMonitorMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure Label1Click(Sender: TObject);
-    procedure ListView1CustomDrawItem(Sender: TCustomListView;
-      Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
-    procedure ListView1CustomDrawSubItem(Sender: TCustomListView;
-      Item: TListItem; SubItem: integer; State: TCustomDrawState;
-      var DefaultDraw: boolean);
-    procedure ListView1DrawItem(Sender: TCustomListView; AItem: TListItem;
-      ARect: TRect; AState: TOwnerDrawState);
+    procedure mainTimerTimer(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure Panel1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
@@ -62,6 +58,10 @@ var
   formMain: TformMain;
   mouseButtonDown: boolean = False;
   mouseX, mouseY: integer;
+
+  // variabel untuk monitor hardware
+  cekIMEI: boolean = False;
+
 
 implementation
 
@@ -82,6 +82,27 @@ begin
   inherited;
   Params.ExStyle := Params.ExStyle or WS_EX_STATICEDGE;
   Params.Style := Params.Style or WS_SIZEBOX;
+end;
+
+procedure TformMain.Button1Click(Sender: TObject);
+var
+  cekIMEIThread: TCekIMEIThread;
+var
+  aProcess: TProcess;
+  sl: TStringList;
+  s: AnsiString;
+  ROOT_PASS: string = 'kurakura';
+
+  charBuffer: array[0..511] of char;
+  readCount: integer;
+begin
+  RunCommand('gammu-smsd-monitor --delay 0 --loops 0', s);
+
+  ShowMessage(s);
+
+  // +++++
+  //cekIMEIThread := TCekIMEIThread.Create(True);
+  //cekIMEIThread.Start;
 end;
 
 procedure TformMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -142,58 +163,15 @@ begin
   formLogin.Show;
 end;
 
-procedure TformMain.ListView1CustomDrawItem(Sender: TCustomListView;
-  Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
-var
-  rct: TRect;
-  i: integer;
+procedure TformMain.mainTimerTimer(Sender: TObject);
 begin
-  if (cdsSelected in State) then
+  // monitor pesan on-demand baru
+
+  // monitor imei modem
+  if not cekIMEI then
   begin
-    Sender.Canvas.Font.Style := [fsBold, fsItalic];
-    Sender.Canvas.Font.Color := clRed;
-  end
-  else
-  begin
-    Sender.Canvas.Font.Style := [];
-    Sender.Canvas.Font.Color := clBlack;
+    // jalankan thread cek imei
   end;
-  rct := Item.DisplayRect(drLabel);
-  //Sender.Canvas.FillRect(rct);
-  // Sender.Canvas.DrawFocusRect(rct);
-  //Sender.Canvas.TextOut(rct.Left, rct.Top, item.Caption);
-
-  //for i:= 0 to item.SubItems.Count-1 do ;
-
-  //DefaultDraw := False;
-
-end;
-
-procedure TformMain.ListView1CustomDrawSubItem(Sender: TCustomListView;
-  Item: TListItem; SubItem: integer; State: TCustomDrawState; var DefaultDraw: boolean);
-var
-  rct: TRect;
-begin
-  //DefaultDraw := False;
-  //asdfasdf
-
-  //rct := Item.DisplayRect(drLabel);
-  //Sender.Canvas.FillRect(rct);
-  //Sender.Canvas.TextOut(rct.Left, rct.Top, item.Caption);
-
-end;
-
-procedure TformMain.ListView1DrawItem(Sender: TCustomListView;
-  AItem: TListItem; ARect: TRect; AState: TOwnerDrawState);
-begin
-  {if odSelected in AState then
-  begin
-    Sender.canvas.Brush.Color := clRed;
-    Sender.canvas.Brush.Style := bsSolid;
-    Sender.BorderStyle := bsNone;
-    Sender.BorderWidth := 0;
-    Sender.canvas.FillRect(ARect);
-  end;}
 end;
 
 procedure ResizeCol(AGrid: TStringGrid; const ACol: integer);

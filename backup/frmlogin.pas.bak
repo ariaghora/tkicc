@@ -22,7 +22,6 @@ type
     procedure Button2Click(Sender: TObject);
     procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     procedure doLogin(username, password: string);
@@ -41,11 +40,6 @@ uses
 {$R *.lfm}
 
 { TformLogin }
-
-procedure TformLogin.FormCreate(Sender: TObject);
-begin
-
-end;
 
 procedure TformLogin.FormShow(Sender: TObject);
 begin
@@ -67,8 +61,17 @@ begin
 end;
 
 procedure TformLogin.Button2Click(Sender: TObject);
+var
+  s: string;
+  aProcess: TProcess;
 begin
-
+  //showNotification(messageTitle, messageContet, icon);
+  aProcess := TProcess.Create(nil);
+  aProcess.Executable := '/bin/sh';
+  aProcess.Parameters.Add('-c');
+  aProcess.Parameters.Add('echo ' + ROOT_PASS + ' | sudo -S poweroff');
+  aProcess.Execute;
+  aProcess.Free;
 end;
 
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;

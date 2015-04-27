@@ -16,6 +16,8 @@ var
   LINK_LIST_BROADCAST: string;
   LINK_KIRIM_BROADCAST: string;
 
+  LINK_TULIS_BROADCAST: string;
+
   //** SESSION VARIABLES **//
   USER_ID, USER_NAME, USER_PASSWORD, ID_SIMPUL_CABANG, NAMA_WILAYAH: string;
 
@@ -44,6 +46,8 @@ begin
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
+
+  LINK_TULIS_BROADCAST := HOST + 'tulisbroadcast/';
 end;
 
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,

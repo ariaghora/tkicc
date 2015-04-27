@@ -59,11 +59,69 @@ type
     procedure onFailed;
   end;
 
+  { TCekIMEIThread }
+
+  TCekIMEIThread = class(TThread)
+    s: string;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(CreateSuspended: boolean);
+    procedure preRun;
+    procedure postRun;
+  end;
+
 
 implementation
 
 uses
   frmMain, frmlogin;
+
+{ TCekIMEIThread }
+
+procedure TCekIMEIThread.Execute;
+var
+  aProcess: TProcess;
+  sl: TStringList;
+  ROOT_PASS: string = 'kurakura';
+begin
+  Synchronize(@preRun);
+
+  sl := TStringList.Create;
+
+  //showNotification(messageTitle, messageContet, icon);
+  aProcess := TProcess.Create(nil);
+  aProcess.Executable := '/bin/sh';
+  aProcess.Parameters.Add('-c');
+  aProcess.Parameters.Add('echo ' + ROOT_PASS +
+    ' | sudo -S gammu-smsd-monitor --delay 1 --loops 1');
+  aProcess.Execute;
+
+  //sl.LoadFromStream(aProcess.Output.read`);
+
+  s := aProcess.Output.ReadAnsiString;
+
+  aProcess.Free;
+  sl.Free;
+  Synchronize(@postRun);
+end;
+
+constructor TCekIMEIThread.Create(CreateSuspended: boolean);
+begin
+  FreeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
+
+procedure TCekIMEIThread.preRun;
+begin
+  formMain.mainTimer.Enabled := False;
+end;
+
+procedure TCekIMEIThread.postRun;
+begin
+  formMain.mainTimer.Enabled := True;
+  ShowMessage(s);
+end;
 
 { TRenderBroadcastMessage }
 

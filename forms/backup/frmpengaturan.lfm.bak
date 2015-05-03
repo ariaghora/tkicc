@@ -22,45 +22,53 @@ object formPengaturan: TformPengaturan
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 10
-      Height = 153
+      Height = 97
       Top = 10
-      Width = 567
+      Width = 563
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Peralatan'
-      ClientHeight = 134
-      ClientWidth = 563
+      ClientHeight = 78
+      ClientWidth = 559
       TabOrder = 0
       object Button1: TButton
         Left = 8
         Height = 25
         Top = 8
-        Width = 168
+        Width = 232
         Caption = 'SMS Test'
         OnClick = Button1Click
         TabOrder = 0
+      end
+      object Button2: TButton
+        Left = 8
+        Height = 25
+        Top = 40
+        Width = 232
+        Caption = 'Test Koneksi ke Server'
+        OnClick = Button2Click
+        TabOrder = 1
       end
     end
     object GroupBox2: TGroupBox
       Left = 10
       Height = 129
-      Top = 173
-      Width = 567
+      Top = 117
+      Width = 563
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Status'
       ClientHeight = 110
-      ClientWidth = 563
+      ClientWidth = 559
       TabOrder = 1
       object memoStatus: TMemo
         Left = 10
         Height = 90
         Top = 10
-        Width = 543
+        Width = 539
         Align = alClient
         BorderSpacing.Around = 10
         Color = clBlack
-        Enabled = False
         Font.Color = clRed
         Font.Height = -13
         Font.Name = 'Monospace'
@@ -69,6 +77,7 @@ object formPengaturan: TformPengaturan
           'status'
         )
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
       end
     end

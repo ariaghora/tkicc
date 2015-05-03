@@ -1,7 +1,7 @@
 object formMain: TformMain
-  Left = 250
+  Left = 308
   Height = 548
-  Top = 150
+  Top = 100
   Width = 912
   Caption = 'TKI Crisis Center'
   ClientHeight = 548
@@ -6681,24 +6681,24 @@ object formMain: TformMain
   end
   object Panel2: TPanel
     Left = 0
-    Height = 476
+    Height = 448
     Top = 72
     Width = 912
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 476
+    ClientHeight = 448
     ClientWidth = 912
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     object pnlLeft: TPanel
       Left = 0
-      Height = 476
+      Height = 448
       Top = 0
       Width = 70
       Align = alLeft
       BevelOuter = bvNone
-      ClientHeight = 476
+      ClientHeight = 448
       ClientWidth = 70
       TabOrder = 0
       OnResize = pnlLeftResize
@@ -6831,7 +6831,7 @@ object formMain: TformMain
       end
       object imgShade: TImage
         Left = 60
-        Height = 126
+        Height = 98
         Top = 350
         Width = 10
         Align = alRight
@@ -6851,6 +6851,7 @@ object formMain: TformMain
         Cursor = crHandPoint
         Left = 0
         Height = 70
+        Hint = 'Layanan Pesan'
         Top = 140
         Width = 70
         Align = alTop
@@ -6904,7 +6905,8 @@ object formMain: TformMain
         Cursor = crHandPoint
         Left = 0
         Height = 70
-        Top = 210
+        Hint = 'Peralatan'
+        Top = 280
         Width = 70
         Align = alTop
         OnMouseDown = imgMonitorMouseDown
@@ -6980,14 +6982,16 @@ object formMain: TformMain
           458C048A1809FE03F496266FE125EB3A0000000049454E44AE426082
         }
       end
-      object imgManageTki: TImage
+      object imgManajemenTKI: TImage
         Tag = 1
         Cursor = crHandPoint
         Left = 0
         Height = 70
-        Top = 280
+        Hint = 'Manajemen Data TKI'
+        Top = 210
         Width = 70
         Align = alTop
+        OnMouseDown = imgMonitorMouseDown
         Picture.Data = {
           1754506F727461626C654E6574776F726B477261706869637009000089504E47
           0D0A1A0A0000000D4948445200000046000000460806000000712EE284000000
@@ -7068,19 +7072,10 @@ object formMain: TformMain
           0000000049454E44AE426082
         }
       end
-      object Button1: TButton
-        Left = 28
-        Height = 25
-        Top = 398
-        Width = 75
-        Caption = 'Button1'
-        OnClick = Button1Click
-        TabOrder = 0
-      end
     end
     object pnlContent: TPanel
       Left = 70
-      Height = 476
+      Height = 448
       Top = 0
       Width = 842
       Align = alClient
@@ -7088,10 +7083,76 @@ object formMain: TformMain
       TabOrder = 1
     end
   end
+  object Panel3: TPanel
+    Left = 0
+    Height = 28
+    Top = 520
+    Width = 912
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 28
+    ClientWidth = 912
+    Color = 5789784
+    ParentColor = False
+    TabOrder = 2
+    object shapeIndicator: TBGRAShape
+      Cursor = crHandPoint
+      Left = 893
+      Height = 10
+      Hint = 'Check'
+      Top = 9
+      Width = 10
+      Align = alRight
+      BorderColor = 9605778
+      BorderGradient.StartColor = clWhite
+      BorderGradient.StartColorOpacity = 255
+      BorderGradient.DrawMode = dmSet
+      BorderGradient.EndColor = clBlack
+      BorderGradient.EndColorOpacity = 255
+      BorderGradient.ColorCorrection = True
+      BorderGradient.GradientType = gtLinear
+      BorderGradient.Point1XPercent = 0
+      BorderGradient.Point1YPercent = 0
+      BorderGradient.Point2XPercent = 100
+      BorderGradient.Point2YPercent = 100
+      BorderGradient.Sinus = False
+      FillColor = clRed
+      FillOpacity = 255
+      FillGradient.StartColor = clWhite
+      FillGradient.StartColorOpacity = 255
+      FillGradient.DrawMode = dmSet
+      FillGradient.EndColor = clBlack
+      FillGradient.EndColorOpacity = 255
+      FillGradient.ColorCorrection = True
+      FillGradient.GradientType = gtLinear
+      FillGradient.Point1XPercent = 0
+      FillGradient.Point1YPercent = 0
+      FillGradient.Point2XPercent = 0
+      FillGradient.Point2YPercent = 100
+      FillGradient.Sinus = False
+      ShapeType = stEllipse
+      BorderSpacing.Around = 9
+      Caption = 'shapeIndicator'
+    end
+    object Label3: TLabel
+      Left = 810
+      Height = 16
+      Top = 6
+      Width = 74
+      Align = alRight
+      BorderSpacing.Around = 6
+      Caption = 'SMSD Service'
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Montserrat'
+      ParentColor = False
+      ParentFont = False
+    end
+  end
   object mainTimer: TTimer
     Interval = 500
     OnTimer = mainTimerTimer
-    left = 32
+    left = 16
     top = 488
   end
 end

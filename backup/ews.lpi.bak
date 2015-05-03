@@ -46,7 +46,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="13">
+    <Units Count="14">
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -136,6 +136,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmpengaturan"/>
       </Unit12>
+      <Unit13>
+        <Filename Value="forms/frmmanajementki.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formManajemenTKI"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmanajementki"/>
+      </Unit13>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   fphttpclient, fpjson, jsonparser, globals, helper, strutils, threadutils,
-  BGRASpriteAnimation;
+  BGRASpriteAnimation, httpsend;
 
 type
 
@@ -15,11 +15,11 @@ type
 
   TformLogin = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     edtUsername: TEdit;
     edtPassword: TEdit;
     imgAnimation: TBGRASpriteAnimation;
     procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
     procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -60,19 +60,6 @@ begin
   end;
 end;
 
-procedure TformLogin.Button2Click(Sender: TObject);
-var
-  s: string;
-  aProcess: TProcess;
-begin
-  //showNotification(messageTitle, messageContet, icon);
-  aProcess := TProcess.Create(nil);
-  aProcess.Executable := '/bin/sh';
-  aProcess.Parameters.Add('-c');
-  aProcess.Parameters.Add('echo ' + ROOT_PASS + ' | sudo -S poweroff');
-  aProcess.Execute;
-  aProcess.Free;
-end;
 
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
@@ -118,8 +105,8 @@ begin
       self.Hide;
       formMain.lblWelcome.Caption := 'Hello, ' + USER_NAME + '!';
       formMain.lblInfo.Caption :=
-        'User ID ' + USER_ID + ', simpul cabang ' + IfThen(ID_SIMPUL_CABANG =
-        '0', 'Eksekutif', NAMA_WILAYAH);
+        'User ID ' + USER_ID + ', simpul cabang ' +
+        IfThen(ID_SIMPUL_CABANG = '0', 'Eksekutif', NAMA_WILAYAH);
 
       formMain.Show;
     end;

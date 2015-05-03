@@ -23,6 +23,8 @@ var
 
   LINK_TULIS_BROADCAST: string;
 
+  LINK_TEST_KONEKSI_KE_SERVER: string;
+
   //** SESSION VARIABLES **//
   USER_ID, USER_NAME, USER_PASSWORD, ID_SIMPUL_CABANG, NAMA_WILAYAH: string;
 
@@ -35,7 +37,7 @@ implementation
 
 procedure init(isOnline: boolean);
 begin
-  HOST_LOKAL := 'http://localhost/kawal-tki/';
+  HOST_LOKAL := 'http://localhost/tkicc/';
   HOST_REMOTE := 'http://tkicc.16mb.com/';
 
   API_DIR_LOKAL := 'api/';
@@ -53,14 +55,18 @@ begin
   end;
   HOST := HOST + API_DIR;
 
-  LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder/';
+  LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder';
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
-  LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
+  //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
+  LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
+
+  LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 
   // Untuk keperluan layanan gammu
   // host selalu lokal
-  LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
+  //LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
+  LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast';
 end;
 
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,

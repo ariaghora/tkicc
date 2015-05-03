@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   fphttpclient, fpjson, jsonparser, globals, helper, strutils, threadutils,
-  BGRASpriteAnimation;
+  BGRASpriteAnimation, httpsend;
 
 type
 
@@ -59,6 +59,7 @@ begin
   end;
 end;
 
+
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
@@ -103,8 +104,8 @@ begin
       self.Hide;
       formMain.lblWelcome.Caption := 'Hello, ' + USER_NAME + '!';
       formMain.lblInfo.Caption :=
-        'User ID ' + USER_ID + ', simpul cabang ' + IfThen(ID_SIMPUL_CABANG =
-        '0', 'Eksekutif', NAMA_WILAYAH);
+        'User ID ' + USER_ID + ', simpul cabang ' +
+        IfThen(ID_SIMPUL_CABANG = '0', 'Eksekutif', NAMA_WILAYAH);
 
       formMain.Show;
     end;

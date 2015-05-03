@@ -7,17 +7,18 @@ interface
 uses
   Classes, Forms, Controls, SysUtils, Graphics, Dialogs, LCLType, ExtCtrls,
   ComCtrls, StdCtrls, Grids, Buttons, fphttpclient, fpjson, jsonparser, helper,
-  globals, json2lv, BGRASpriteAnimation, threadutils, process, Math;
+  globals, json2lv, BGRASpriteAnimation, BGRAShape, threadutils, process, Math;
 
 type
 
   { TformMain }
 
   TformMain = class(TForm)
-    Button1: TButton;
+    Label3: TLabel;
+    shapeIndicator: TBGRAShape;
     imgAnimation: TBGRASpriteAnimation;
     Image1: TImage;
-    imgManageTki: TImage;
+    imgManajemenTKI: TImage;
     imgMessaging: TImage;
     imgSettings: TImage;
     imgMonitor: TImage;
@@ -28,11 +29,11 @@ type
     lblWelcome: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
+    Panel3: TPanel;
     pnlLeft: TPanel;
     pnlContent: TPanel;
     Panel8: TPanel;
     mainTimer: TTimer;
-    procedure Button1Click(Sender: TObject);
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -51,6 +52,7 @@ type
     procedure StringGrid1PrepareCanvas(Sender: TObject; aCol, aRow: integer;
       aState: TGridDrawState);
   private
+    procedure doLogout;
   public
     procedure clearControls;
   end;
@@ -67,7 +69,7 @@ var
 implementation
 
 uses
-  frmlogin, frmMonitoring, frmmessaging, frmpengaturan;
+  frmlogin, frmMonitoring, frmmessaging, frmpengaturan, frmmanajementki;
 
 {$R *.lfm}
 
@@ -85,15 +87,18 @@ begin
   Params.Style := Params.Style or WS_SIZEBOX;
 end;
 
-procedure TformMain.Button1Click(Sender: TObject);
-begin
-  if FileExists('data/assets/imgManageTki.png') then
-    ShowMessage('ada');
-end;
-
 procedure TformMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  Application.Terminate;
+  //Application.Terminate;
+  //ShowMessage();
+  if MessageDlg('Konfirmasi', 'Apakah anda akan keluar?', mtConfirmation,
+    mbYesNo, '') = mrYes then
+  begin
+    formLogin.Show;
+  end
+  else
+    Abort;
+
 end;
 
 procedure TformMain.FormCreate(Sender: TObject);
@@ -101,9 +106,10 @@ begin
   Top := 0;
   Left := 0;
   Width := 1024;
-  Height := 500;
+  Height := 600;
   //FormStyle := fsStayOnTop;
   //ListView1.OwnerDraw := True;
+  WindowState := wsMaximized;
 
 end;
 
@@ -123,8 +129,8 @@ begin
       TImage(pnlLeft.Controls[i]).Picture.LoadFromFile(
         'data/assets/' + TImage(pnlLeft.Controls[i]).Name + '.png');
 
-  TImage(Sender).Picture.LoadFromFile('data/assets/' + TImage(Sender).Name +
-    '_pressed.png');
+  TImage(Sender).Picture.LoadFromFile(ExtractFilePath(Application.ExeName) +
+    'data/assets/' + TImage(Sender).Name + '_pressed.png');
   //ShowMessage(TImage(Sender).Name);
 
   clearControls;
@@ -145,13 +151,22 @@ begin
       formPengaturan.pnlContent.Parent := pnlContent;
       //formTestSMS.ShowModal;
     end;
+    'imgManajemenTKI':
+    begin
+      formManajemenTKI.pnlContent.Parent := pnlContent;
+    end;
   end;
 
 end;
 
 procedure TformMain.Label1Click(Sender: TObject);
 begin
-  formLogin.Show;
+  if MessageDlg('Konfirmasi', 'Apakah anda akan keluar?', mtConfirmation,
+    mbYesNo, '') = mrYes then
+  begin
+    formLogin.Show;
+  end;
+
 end;
 
 procedure TformMain.mainTimerTimer(Sender: TObject);
@@ -224,6 +239,15 @@ procedure TformMain.StringGrid1PrepareCanvas(Sender: TObject;
 begin
   //if odd(arow) then
   //  StringGrid1.Canvas.Brush.Color := clRed;
+end;
+
+procedure TformMain.doLogout;
+begin
+  if MessageDlg('Konfirmasi', 'Apakah anda akan keluar?', mtConfirmation,
+    mbYesNo, '') = mrYes then
+  begin
+    //if Self.Showing;
+  end;
 end;
 
 

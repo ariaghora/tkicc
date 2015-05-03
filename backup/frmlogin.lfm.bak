@@ -6479,4 +6479,12 @@ object formLogin: TformLogin
     Caption = 'imgAnimation'
     Visible = False
   end
+  object Button2: TButton
+    Left = 42
+    Height = 25
+    Top = 57
+    Width = 75
+    Caption = 'Button2'
+    TabOrder = 3
+  end
 end

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Buttons, fphttpclient, globals, synacode;
+  Buttons, fphttpclient, globals, synacode, helper;
 
 type
 
@@ -36,14 +36,20 @@ procedure TformTestSMS.SpeedButton1Click(Sender: TObject);
 var
   pesan: string;
 begin
+
   pesan := EncodeURLElement(Memo1.Text);
-  if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + Edit1.Text + '/' +
-    pesan) = '1' then
+  //if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + Edit1.Text + '/' +
+  //  pesan) = '1' then
+  if gammusendsms(edit1.Text, memo1.Text) = '1' then
   begin
     ShowMessage('Pengiriman sedang berlangsung.');
     Edit1.Clear;
     Memo1.Clear;
+    Close;
   end;
+
+  //gammusendsms('085785437367', memo1.Text);
+
 end;
 
 end.

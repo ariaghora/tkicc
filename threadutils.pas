@@ -7,12 +7,14 @@ interface
 uses
   Classes, SysUtils, Dialogs, fpjson, jsonparser, fphttpclient, json2lv, helper, globals,
   process, FileUtil, Forms, Controls, Graphics, StdCtrls,
-  ExtCtrls, Menus, inifiles, baseunix, strutils, ComCtrls;
+  ExtCtrls, Menus, inifiles, baseunix, strutils, ComCtrls, httpsend;
 
 type
   TLoginThread = class(TThread)
     username: string;
     password: string;
+    resp: string;
+    resp2: string;
   protected
     procedure Execute; override;
     procedure doLogin;
@@ -217,21 +219,59 @@ begin
   inherited Create(CreateSuspended);
 end;
 
+function HttpGetTextTimeout(const URL: string; const Response: TStrings;
+  const Timeout: integer): boolean;
+var
+  HTTP: THTTPSend;
+begin
+  HTTP := THTTPSend.Create;
+  try
+    HTTP.Timeout := Timeout;
+    Result := HTTP.HTTPMethod('GET', URL);
+    if Result then
+      Response.LoadFromStream(HTTP.Document);
+  finally
+    HTTP.Free;
+  end;
+end;
+
+function DownloadHTTP(URL: string; const response: TStrings): boolean;
+var
+  HTTPGetResult: boolean;
+  HTTPSender: THTTPSend;
+  res: TMemoryStream;
+begin
+  //res := TMemoryStream.Create;
+  try
+    //HttpPostURL(URL, '', res);
+    HttpGetText(url, response);
+    //response.LoadFromStream(res);
+  finally
+  end;
+end;
+
 procedure TLoginThread.doLogin;
 var
   arr: array[0..1] of string;
   s: string;
   jData: TJSONData;
   jParser: TJSONParser;
+
+  sl: TStringList;
 begin
+
   arr[0] := username;
   arr[1] := password;
 
+  sl := TStringList.Create;
+
   try
     s := TFPHTTPClient.SimpleGet(serializeFromArr(LINK_LOGIN_STAKEHOLDER, arr));
+
   except
     // ShowMessage('login failed');
   end;
+
 
   jParser := TJSONParser.Create(s);
   jData := jParser.Parse;
@@ -253,6 +293,7 @@ begin
   begin
     Synchronize(@onFailed);
   end;
+
 end;
 
 procedure TLoginThread.Execute;
@@ -283,6 +324,8 @@ begin
   formLogin.Button1.Width := 147;
   formLogin.edtPassword.Enabled := True;
   formLogin.edtUsername.Enabled := True;
+
+
 end;
 
 procedure TLoginThread.onSucceed;

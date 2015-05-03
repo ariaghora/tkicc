@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, process, strutils;
+  StdCtrls, BCButton, process, strutils, globals, fphttpclient;
 
 type
 
@@ -14,12 +14,14 @@ type
 
   TformPengaturan = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     memoStatus: TMemo;
     pnlContent: TPanel;
     Timer1: TTimer;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
@@ -50,7 +52,7 @@ const
 implementation
 
 uses
-  frmtestsms;
+  frmtestsms, frmMain;
 
 {$R *.lfm}
 
@@ -61,7 +63,15 @@ var
   s: string;
 begin
   RunCommand('service gammu-smsd status', s);
-  statusSMSDService := IfThen(Pos('is running', s) > 0, TERSEDIA, TAK_TERSEDIA);
+  if Pos('is running', s) > 0 then
+  begin
+    statusSMSDService := TERSEDIA;
+  end
+  else
+  begin
+    statusSMSDService := TAK_TERSEDIA;
+  end;
+
 end;
 
 constructor TCekSMSDThread.Create(CreateSuspended: boolean);
@@ -88,6 +98,30 @@ begin
   formTestSMS.ShowModal;
 end;
 
+procedure thrTestKoneksi;
+begin
+  //ShowMessage('');
+  //TFPHTTPClient.SimpleGet(LINK_TEST_KONEKSI_KE_SERVER);
+end;
+
+procedure TformPengaturan.Button2Click(Sender: TObject);
+var
+  s: string;
+  client: TFPHTTPClient;
+begin
+
+  client := TFPHTTPClient.Create(nil);
+  try
+    s := client.get(LINK_TEST_KONEKSI_KE_SERVER);
+    if client.ResponseStatusCode <> 404 then
+      ShowMessage(s);
+  finally
+  end;
+
+  //BeginThread(TThreadFunc(@thrTestKoneksi));
+
+end;
+
 procedure TformPengaturan.Timer1Timer(Sender: TObject);
 var
   thrCheckSMSDService: TCekSMSDThread;
@@ -98,12 +132,23 @@ begin
     thrCheckSMSDService.Start;
   end;
 
+  if statusSMSDService = TERSEDIA then
+  begin
+    formMain.shapeIndicator.FillColor := clLime;
+  end
+  else
+  begin
+    formMain.shapeIndicator.FillColor := clRed;
+  end;
+
   // update status message
   memoStatus.Text :=
     'SMSD Service       : ' + statusSMSDService + chr(13) +
-    'Koneksi ke Server  : ' + TERSEDIA;
+    'Koneksi ke Server  : ' + TERSEDIA + chr(13) + 'Server             : ' + HOST;
 end;
 
 end.
+
+
 
 

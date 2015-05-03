@@ -5,11 +5,20 @@ unit helper;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, fphttpclient, synacode;
 
+function gammusendsms(dest, msg: string): string;
 function serializeFromArr(api: string; arr: array of string): string;
 
 implementation
+
+function gammusendsms(dest, msg: string): string;
+begin
+
+  Result := TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '.php?nomor_tujuan=' +
+    dest + '&pesan=' + EncodeURLElement(msg));
+
+end;
 
 function serializeFromArr(api: string; arr: array of string): string;
 var
@@ -22,7 +31,7 @@ begin
   for i := 0 to argNum - 1 do
   begin
     s := s + arr[i];
-    if i < argNum then
+    if i < argNum - 1 then
       s := s + '/';
   end;
 

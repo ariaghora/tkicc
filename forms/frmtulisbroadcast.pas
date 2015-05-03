@@ -47,14 +47,20 @@ var
 begin
   pesan := EncodeURLElement(Memo1.Text);
 
-  if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + pesan + '/' + USER_ID) = '1' then
+  ShowMessage(pesan);
+
+  //if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + pesan + '/' + USER_ID) = '1' then
+  if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
+    pesan + '&id_stakeholder=' + USER_ID) = '1' then
   begin
     memo1.Clear;
     self.Close;
 
-    // run smsBroadcast();
-    if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '085785437367' +
-      '/' + pesan) = '1' then
+    // run smsBroadcast
+    //if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '085785437367' +
+    //  '/' + pesan) = '1' then
+    if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '.php?nomor_tujuan=085785437367' +
+      '&pesan=' + pesan) = '1' then
     begin
       // success message
       ShowMessage('Yay (1)');

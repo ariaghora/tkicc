@@ -46,7 +46,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="11">
+    <Units Count="12">
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -120,6 +120,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmDetailTKI"/>
       </Unit10>
+      <Unit11>
+        <Filename Value="forms/frmtestsms.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formTestSMS"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmtestsms"/>
+      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

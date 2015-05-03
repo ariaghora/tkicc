@@ -2,10 +2,10 @@ object formMain: TformMain
   Left = 310
   Height = 465
   Top = 194
-  Width = 799
+  Width = 835
   Caption = 'ews-project'
   ClientHeight = 465
-  ClientWidth = 799
+  ClientWidth = 835
   Color = clWhite
   OnClose = FormClose
   OnCreate = FormCreate
@@ -16,11 +16,11 @@ object formMain: TformMain
     Left = 0
     Height = 72
     Top = 0
-    Width = 799
+    Width = 835
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 72
-    ClientWidth = 799
+    ClientWidth = 835
     Color = 14606046
     Font.Name = 'Montserrat'
     ParentColor = False
@@ -194,7 +194,7 @@ object formMain: TformMain
       }
     end
     object Panel8: TPanel
-      Left = 442
+      Left = 478
       Height = 72
       Top = 0
       Width = 357
@@ -6678,25 +6678,16 @@ object formMain: TformMain
       Caption = 'imgAnimation'
       Visible = False
     end
-    object Button1: TButton
-      Left = 280
-      Height = 25
-      Top = 16
-      Width = 75
-      Caption = 'Button1'
-      OnClick = Button1Click
-      TabOrder = 1
-    end
   end
   object Panel2: TPanel
     Left = 0
     Height = 393
     Top = 72
-    Width = 799
+    Width = 835
     Align = alClient
     BevelOuter = bvNone
     ClientHeight = 393
-    ClientWidth = 799
+    ClientWidth = 835
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
@@ -6994,7 +6985,7 @@ object formMain: TformMain
       Left = 70
       Height = 393
       Top = 0
-      Width = 729
+      Width = 765
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1

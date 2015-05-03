@@ -9,7 +9,12 @@ uses
 
 var
   HOST: string;
+  HOST_LOKAL: string;
+  HOST_REMOTE: string;
+
   API_DIR: string;
+  API_DIR_LOKAL: string;
+  API_DIR_REMOTE: string;
 
   LINK_LOGIN_STAKEHOLDER: string;
   LINK_LIST_LAPORAN: string;
@@ -30,15 +35,21 @@ implementation
 
 procedure init(isOnline: boolean);
 begin
+  HOST_LOKAL := 'http://localhost/kawal-tki/';
+  HOST_REMOTE := 'http://code.ghora.koding.io/';
+
+  API_DIR_LOKAL := 'api/';
+  API_DIR_REMOTE := 'kawal-tki/api/';
+
   if isOnline then
   begin
-    HOST := 'http://';
-    API_DIR := '';
+    HOST := HOST_REMOTE;
+    API_DIR := API_DIR_REMOTE;
   end
   else
   begin
-    HOST := 'http://localhost/kawal-tki/';
-    API_DIR := 'api/';
+    HOST := HOST_LOKAL;
+    API_DIR := API_DIR_LOKAL;
   end;
   HOST := HOST + API_DIR;
 
@@ -46,6 +57,10 @@ begin
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
+
+  // Untuk keperluan layanan gammu
+  // host selalu lokal
+  LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
 end;
 
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,

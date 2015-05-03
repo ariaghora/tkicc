@@ -14,7 +14,6 @@ type
   { TformMain }
 
   TformMain = class(TForm)
-    Button1: TButton;
     imgAnimation: TBGRASpriteAnimation;
     Image1: TImage;
     imgMessaging: TImage;
@@ -31,7 +30,6 @@ type
     pnlContent: TPanel;
     Panel8: TPanel;
     mainTimer: TTimer;
-    procedure Button1Click(Sender: TObject);
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -66,7 +64,7 @@ var
 implementation
 
 uses
-  frmlogin, frmMonitoring, frmmessaging;
+  frmlogin, frmMonitoring, frmmessaging, frmtestsms;
 
 {$R *.lfm}
 
@@ -82,27 +80,6 @@ begin
   inherited;
   Params.ExStyle := Params.ExStyle or WS_EX_STATICEDGE;
   Params.Style := Params.Style or WS_SIZEBOX;
-end;
-
-procedure TformMain.Button1Click(Sender: TObject);
-var
-  cekIMEIThread: TCekIMEIThread;
-var
-  aProcess: TProcess;
-  sl: TStringList;
-  s: AnsiString;
-  ROOT_PASS: string = 'kurakura';
-
-  charBuffer: array[0..511] of char;
-  readCount: integer;
-begin
-  RunCommand('gammu-smsd-monitor --delay 0 --loops 1', s);
-
-  ShowMessage(s);
-
-  // +++++
-  //cekIMEIThread := TCekIMEIThread.Create(True);
-  //cekIMEIThread.Start;
 end;
 
 procedure TformMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -153,6 +130,10 @@ begin
     begin
       formMessaging.pnlContent.Parent := pnlContent;
       formMessaging.renderListView;
+    end;
+    'imgSettings':
+    begin
+      formTestSMS.ShowModal;
     end;
   end;
 

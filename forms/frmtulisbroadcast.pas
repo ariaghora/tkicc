@@ -53,7 +53,7 @@ begin
     self.Close;
 
     // run smsBroadcast();
-    if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '+628979450685' +
+    if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '085785437367' +
       '/' + pesan) = '1' then
     begin
       // success message

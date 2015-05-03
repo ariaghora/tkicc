@@ -64,7 +64,7 @@ var
 implementation
 
 uses
-  frmlogin, frmMonitoring, frmmessaging, frmtestsms;
+  frmlogin, frmMonitoring, frmmessaging, frmpengaturan;
 
 {$R *.lfm}
 
@@ -133,7 +133,8 @@ begin
     end;
     'imgSettings':
     begin
-      formTestSMS.ShowModal;
+      formPengaturan.pnlContent.Parent:=pnlContent;
+      //formTestSMS.ShowModal;
     end;
   end;
 

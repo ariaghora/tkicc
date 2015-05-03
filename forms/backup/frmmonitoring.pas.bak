@@ -42,17 +42,11 @@ uses
 
 procedure TformMonitoring.renderListview;
 begin
-  {
-  renderJSON2ListView(TFPHTTPClient.SimpleGet(
-    'http://localhost/kawal-tki/api/listlaporan/' + ID_SIMPUL_CABANG +
-    '/' + IntToStr(ComboBox1.ItemIndex + 1)), ListView1);
-  }
   renderThread := TRenderRegularReportThread.Create(True);
   renderThread.kodeWilayah := ID_SIMPUL_CABANG;
   renderThread.tipeLaporan := IntToStr(ComboBox1.ItemIndex + 1);
   renderThread.lv := ListView1;
   renderThread.Start;
-
 end;
 
 procedure TformMonitoring.SpeedButton1Click(Sender: TObject);
@@ -69,12 +63,9 @@ procedure TformMonitoring.ListView1DblClick(Sender: TObject);
 begin
   if ListView1.SelCount > 0 then
   begin
-    //ShowMessage(ListView1.Selected.Caption);
     formDetailTKI.pnlContent.Parent := pnlContent;
     panel3.Hide;
     ListView1.Hide;
-    //formMain.clearControls;
-
   end;
 end;
 

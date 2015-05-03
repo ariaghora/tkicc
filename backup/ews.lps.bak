@@ -3,16 +3,16 @@
   <ProjectSession>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="24">
+    <Units Count="25">
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ews"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="68" Y="3"/>
-        <UsageCount Value="107"/>
+        <TopLine Value="2"/>
+        <CursorPos X="12" Y="5"/>
+        <UsageCount Value="111"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -22,12 +22,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmMain"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="147"/>
-        <CursorPos X="3" Y="150"/>
-        <UsageCount Value="107"/>
+        <TopLine Value="117"/>
+        <CursorPos X="52" Y="137"/>
+        <UsageCount Value="111"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -38,7 +37,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="43" Y="11"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="110"/>
       </Unit2>
       <Unit3>
         <Filename Value="helper.pas"/>
@@ -47,7 +46,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="22" Y="25"/>
-        <UsageCount Value="99"/>
+        <UsageCount Value="103"/>
       </Unit3>
       <Unit4>
         <Filename Value="globals.pas"/>
@@ -57,7 +56,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="31"/>
         <CursorPos X="33" Y="41"/>
-        <UsageCount Value="97"/>
+        <UsageCount Value="101"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -70,7 +69,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="1" Y="61"/>
-        <UsageCount Value="91"/>
+        <UsageCount Value="95"/>
       </Unit5>
       <Unit6>
         <Filename Value="forms/frmmonitoring.pas"/>
@@ -79,13 +78,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmMonitoring"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="18"/>
-        <CursorPos X="65" Y="18"/>
-        <UsageCount Value="79"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="49"/>
+        <CursorPos X="8" Y="65"/>
+        <UsageCount Value="83"/>
       </Unit6>
       <Unit7>
         <Filename Value="threadutils.pas"/>
@@ -93,10 +89,10 @@
         <UnitName Value="threadutils"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="209"/>
-        <CursorPos X="1" Y="220"/>
+        <TopLine Value="95"/>
+        <CursorPos X="37" Y="112"/>
         <FoldState Value=" T3lf04231("/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="82"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -109,7 +105,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="36"/>
         <CursorPos X="3" Y="48"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="77"/>
       </Unit8>
       <Unit9>
         <Filename Value="forms/frmtulisbroadcast.pas"/>
@@ -121,7 +117,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="43"/>
         <CursorPos X="3" Y="48"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="74"/>
       </Unit9>
       <Unit10>
         <Filename Value="forms/frmdetailtki.pas"/>
@@ -133,7 +129,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="21"/>
         <CursorPos X="57" Y="21"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="53"/>
       </Unit10>
       <Unit11>
         <Filename Value="forms/frmtestsms.pas"/>
@@ -145,7 +141,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="26"/>
         <CursorPos X="17" Y="37"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="28"/>
       </Unit11>
       <Unit12>
         <Filename Value="/usr/lib/lazarus/1.0.10/lcl/comctrls.pp"/>
@@ -239,103 +235,146 @@
         <CursorPos X="51" Y="55"/>
         <UsageCount Value="11"/>
       </Unit23>
+      <Unit24>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formPengaturan"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmpengaturan"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="84"/>
+        <CursorPos X="40" Y="104"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit24>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="99" Column="53" TopLine="84"/>
+        <Caret Line="82" Column="66" TopLine="58"/>
       </Position1>
       <Position2>
-        <Filename Value="globals.pas"/>
-        <Caret Line="39" Column="41" TopLine="31"/>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="81" Column="66" TopLine="57"/>
       </Position2>
       <Position3>
-        <Filename Value="threadutils.pas"/>
-        <Caret Line="240" Column="1" TopLine="212"/>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="82" Column="66" TopLine="58"/>
       </Position3>
       <Position4>
-        <Filename Value="threadutils.pas"/>
-        <Caret Line="240" Column="1" TopLine="220"/>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="81" Column="66" TopLine="57"/>
       </Position4>
       <Position5>
-        <Filename Value="threadutils.pas"/>
-        <Caret Line="231" Column="1" TopLine="220"/>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="82" Column="66" TopLine="58"/>
       </Position5>
       <Position6>
-        <Filename Value="globals.pas"/>
-        <Caret Line="42" Column="22" TopLine="34"/>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="81" Column="66" TopLine="57"/>
       </Position6>
       <Position7>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="110" Column="65" TopLine="98"/>
+        <Caret Line="136" Column="28" TopLine="115"/>
       </Position7>
       <Position8>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="85" Column="1" TopLine="68"/>
+        <Filename Value="ews.lpr"/>
+        <Caret Line="15" Column="12" TopLine="1"/>
       </Position8>
       <Position9>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="84" Column="1" TopLine="67"/>
+        <Caret Line="136" Column="28" TopLine="115"/>
       </Position9>
       <Position10>
-        <Filename Value="globals.pas"/>
-        <Caret Line="50" Column="39" TopLine="25"/>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="149" Column="3" TopLine="146"/>
       </Position10>
       <Position11>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="81" Column="66" TopLine="1"/>
+        <Caret Line="93" Column="3" TopLine="90"/>
       </Position11>
       <Position12>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="82" Column="66" TopLine="58"/>
+        <Caret Line="92" Column="3" TopLine="89"/>
       </Position12>
       <Position13>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="81" Column="66" TopLine="57"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position13>
       <Position14>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="82" Column="66" TopLine="58"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="7" Column="82" TopLine="1"/>
       </Position14>
       <Position15>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="81" Column="66" TopLine="57"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="32" Column="14" TopLine="12"/>
       </Position15>
       <Position16>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="82" Column="66" TopLine="58"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="40" Column="24" TopLine="20"/>
       </Position16>
       <Position17>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="81" Column="66" TopLine="57"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="41" Column="24" TopLine="21"/>
       </Position17>
       <Position18>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="82" Column="66" TopLine="58"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="43" Column="24" TopLine="22"/>
       </Position18>
       <Position19>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="81" Column="66" TopLine="57"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="35" Column="13" TopLine="24"/>
       </Position19>
       <Position20>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="136" Column="28" TopLine="115"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="55" Column="3" TopLine="44"/>
       </Position20>
       <Position21>
-        <Filename Value="ews.lpr"/>
-        <Caret Line="15" Column="12" TopLine="1"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="59" Column="25" TopLine="41"/>
       </Position21>
       <Position22>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="136" Column="28" TopLine="115"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="56" Column="3" TopLine="44"/>
       </Position22>
       <Position23>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="149" Column="3" TopLine="146"/>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="55" Column="6" TopLine="39"/>
       </Position23>
+      <Position24>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="89" Column="1" TopLine="65"/>
+      </Position24>
+      <Position25>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="83" Column="1" TopLine="62"/>
+      </Position25>
+      <Position26>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="82" Column="1" TopLine="61"/>
+      </Position26>
+      <Position27>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="88" Column="1" TopLine="64"/>
+      </Position27>
+      <Position28>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="84" Column="3" TopLine="67"/>
+      </Position28>
+      <Position29>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="96" Column="27" TopLine="78"/>
+      </Position29>
+      <Position30>
+        <Filename Value="forms/frmpengaturan.pas"/>
+        <Caret Line="97" Column="27" TopLine="79"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>

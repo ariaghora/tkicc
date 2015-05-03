@@ -1,9 +1,9 @@
 object formMain: TformMain
-  Left = 310
+  Left = 327
   Height = 465
-  Top = 194
+  Top = 203
   Width = 835
-  Caption = 'ews-project'
+  Caption = 'TKI Crisis Center'
   ClientHeight = 465
   ClientWidth = 835
   Color = clWhite

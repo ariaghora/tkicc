@@ -69,6 +69,7 @@ object formMonitoring: TformMonitoring
         Font.Height = -13
         Font.Name = 'Montserrat'
         ItemHeight = 0
+        ItemIndex = 0
         Items.Strings = (
           'Hak Pekerja Rumah Tangga'
           'Hak Jam Kerja'
@@ -79,6 +80,7 @@ object formMonitoring: TformMonitoring
         ParentFont = False
         Style = csDropDownList
         TabOrder = 0
+        Text = 'Hak Pekerja Rumah Tangga'
       end
       object SpeedButton1: TSpeedButton
         Left = 250

@@ -1,0 +1,81 @@
+object formPengaturan: TformPengaturan
+  Left = 526
+  Height = 346
+  Top = 150
+  Width = 587
+  Caption = 'formPengaturan'
+  ClientHeight = 346
+  ClientWidth = 587
+  Color = clWhite
+  Font.Height = -13
+  Font.Name = 'Montserrat'
+  LCLVersion = '1.2.6.0'
+  object pnlContent: TPanel
+    Left = 0
+    Height = 346
+    Top = 0
+    Width = 587
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 346
+    ClientWidth = 587
+    TabOrder = 0
+    object GroupBox1: TGroupBox
+      Left = 10
+      Height = 153
+      Top = 10
+      Width = 567
+      Align = alTop
+      BorderSpacing.Around = 10
+      Caption = 'Peralatan'
+      ClientHeight = 134
+      ClientWidth = 563
+      TabOrder = 0
+      object Button1: TButton
+        Left = 8
+        Height = 25
+        Top = 8
+        Width = 168
+        Caption = 'SMS Test'
+        OnClick = Button1Click
+        TabOrder = 0
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 10
+      Height = 129
+      Top = 173
+      Width = 567
+      Align = alTop
+      BorderSpacing.Around = 10
+      Caption = 'Status'
+      ClientHeight = 110
+      ClientWidth = 563
+      TabOrder = 1
+      object memoStatus: TMemo
+        Left = 10
+        Height = 90
+        Top = 10
+        Width = 543
+        Align = alClient
+        BorderSpacing.Around = 10
+        Color = clBlack
+        Enabled = False
+        Font.Color = clRed
+        Font.Height = -13
+        Font.Name = 'Monospace'
+        Font.Style = [fsBold]
+        Lines.Strings = (
+          'status'
+        )
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    left = 8
+    top = 304
+  end
+end

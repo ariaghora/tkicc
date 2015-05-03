@@ -14,8 +14,10 @@ type
   { TformMain }
 
   TformMain = class(TForm)
+    Button1: TButton;
     imgAnimation: TBGRASpriteAnimation;
     Image1: TImage;
+    imgManageTki: TImage;
     imgMessaging: TImage;
     imgSettings: TImage;
     imgMonitor: TImage;
@@ -30,6 +32,7 @@ type
     pnlContent: TPanel;
     Panel8: TPanel;
     mainTimer: TTimer;
+    procedure Button1Click(Sender: TObject);
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -80,6 +83,12 @@ begin
   inherited;
   Params.ExStyle := Params.ExStyle or WS_EX_STATICEDGE;
   Params.Style := Params.Style or WS_SIZEBOX;
+end;
+
+procedure TformMain.Button1Click(Sender: TObject);
+begin
+  if FileExists('data/assets/imgMessaging.png') then
+    ShowMessage('ada');
 end;
 
 procedure TformMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -133,7 +142,7 @@ begin
     end;
     'imgSettings':
     begin
-      formPengaturan.pnlContent.Parent:=pnlContent;
+      formPengaturan.pnlContent.Parent := pnlContent;
       //formTestSMS.ShowModal;
     end;
   end;

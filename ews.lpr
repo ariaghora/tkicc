@@ -13,7 +13,7 @@ frmpengaturan, frmmanajementki, frmsmslokal { you can add units after this };
 {$R *.res}
 
 begin
-  init(False);
+  init(false);
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TformLogin, formLogin);

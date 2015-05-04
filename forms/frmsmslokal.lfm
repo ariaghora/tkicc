@@ -10,6 +10,7 @@ object formSMSLokal: TformSMSLokal
   Font.Height = -13
   Font.Name = 'Montserrat'
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.2.6.0'
@@ -46,6 +47,7 @@ object formSMSLokal: TformSMSLokal
     end
   end
   object Timer1: TTimer
+    Enabled = False
     OnTimer = Timer1Timer
     left = 16
     top = 352

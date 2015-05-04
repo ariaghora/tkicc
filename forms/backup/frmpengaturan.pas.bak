@@ -23,6 +23,7 @@ type
     Timer1: TTimer;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
@@ -44,6 +45,7 @@ type
 var
   formPengaturan: TformPengaturan;
   statusSMSDService: string;
+  statusInternet: string;
   isCheckingSMSDService: boolean = False;
 
 const
@@ -123,6 +125,11 @@ begin
 
 end;
 
+procedure TformPengaturan.Button3Click(Sender: TObject);
+begin
+  formSMSLokal.ShowModal;
+end;
+
 procedure TformPengaturan.Timer1Timer(Sender: TObject);
 var
   thrCheckSMSDService: TCekSMSDThread;
@@ -133,19 +140,28 @@ begin
     thrCheckSMSDService.Start;
   end;
 
-  if statusSMSDService = TERSEDIA then
+  if TERKONEKSI_KE_SERVER then
   begin
-    formMain.shapeIndicator.FillColor := clLime;
+    statusInternet := TERSEDIA;
   end
   else
   begin
-    formMain.shapeIndicator.FillColor := clRed;
+    statusInternet := TAK_TERSEDIA;
+  end;
+
+  if statusSMSDService = TERSEDIA then
+  begin
+    formMain.shapeIndicatorSMSD.FillColor := clLime;
+  end
+  else
+  begin
+    formMain.shapeIndicatorSMSD.FillColor := clRed;
   end;
 
   // update status message
   memoStatus.Text :=
     'SMSD Service       : ' + statusSMSDService + chr(13) +
-    'Koneksi ke Server  : ' + TERSEDIA + chr(13) + 'Server             : ' + HOST;
+    'Koneksi Internet   : ' + TERSEDIA + chr(13) + 'Server             : ' + HOST;
 end;
 
 end.

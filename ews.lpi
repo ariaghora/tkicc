@@ -148,6 +148,7 @@
         <Filename Value="forms/frmsmslokal.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formSMSLokal"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmsmslokal"/>
       </Unit14>

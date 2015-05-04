@@ -39,8 +39,9 @@ object formMonitoring: TformMonitoring
         item
           Width = 883
         end>
-      Font.Height = -13
+      Font.Height = -12
       Font.Name = 'Montserrat'
+      GridLines = True
       ParentFont = False
       ReadOnly = True
       RowSelect = True

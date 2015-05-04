@@ -7,7 +7,7 @@ interface
 uses
   Classes, Forms, Controls, SysUtils, Graphics, Dialogs, LCLType, ExtCtrls,
   ComCtrls, StdCtrls, Grids, Buttons, fphttpclient, fpjson, jsonparser, helper,
-  globals, json2lv, BGRASpriteAnimation, BGRAShape, threadutils, process, Math;
+  globals, json2lv, BGRASpriteAnimation, BGRAShape, threadutils, process, Math, httpsend;
 
 type
 
@@ -15,7 +15,8 @@ type
 
   TformMain = class(TForm)
     Label3: TLabel;
-    shapeIndicator: TBGRAShape;
+    Label4: TLabel;
+    shapeIndicatorSMSD: TBGRAShape;
     imgAnimation: TBGRASpriteAnimation;
     Image1: TImage;
     imgManajemenTKI: TImage;
@@ -34,6 +35,8 @@ type
     pnlContent: TPanel;
     Panel8: TPanel;
     mainTimer: TTimer;
+    shapeIndicatorServer: TBGRAShape;
+    //procedure Button1Click(Sender: TObject);
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -62,8 +65,12 @@ var
   mouseButtonDown: boolean = False;
   mouseX, mouseY: integer;
 
-  // variabel untuk monitor hardware
+  // variabel untuk monitor hardware dan koneksi jaringan
   cekIMEI: boolean = False;
+  cekInternet: boolean = False;
+  terkoneksiInternet: boolean = False;
+
+  threadCount: integer = 0;
 
 
 implementation
@@ -87,6 +94,35 @@ begin
   Params.Style := Params.Style or WS_SIZEBOX;
 end;
 
+{
+procedure TformMain.Button1Click(Sender: TObject);
+var
+  header: TStringList;
+  httpsender: THTTPSend;
+begin
+
+  header := TStringList.Create;
+  header.Add('Accept: text/html');
+
+  httpsender := THTTPSend.Create;
+  httpsender.Headers.AddStrings(header);
+  httpsender.KeepAlive := False;
+
+  if httpsender.HTTPMethod('GET', 'http://www.tkicc.16mb.com') then
+    ShowMessage('YAY')
+  else
+    ShowMessage('NAY');
+  {
+  if TERKONEKSI_KE_SERVER then
+    ShowMessage('OK')
+  else
+    ShowMessage('NGA OKE');
+    }
+
+end;
+}
+
+
 procedure TformMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Application.Terminate;
@@ -107,9 +143,8 @@ begin
   Left := 0;
   Width := 1024;
   Height := 600;
-  //FormStyle := fsStayOnTop;
-  //ListView1.OwnerDraw := True;
-  WindowState := wsMaximized;
+
+  //WindowState := wsMaximized;
 
 end;
 
@@ -169,15 +204,79 @@ begin
 
 end;
 
+procedure procCekInternet;
+var
+  header: TStringList;
+  httpsender: THTTPSend;
+begin
+
+  header := TStringList.Create;
+  header.Add('Accept: text/html');
+
+  httpsender := THTTPSend.Create;
+  httpsender.Headers.AddStrings(header);
+  //httpsender.KeepAlive := False;
+  httpsender.Timeout := 5000;
+
+  if httpsender.HTTPMethod('GET', 'http://www.tkicc.16mb.com') then
+  begin
+    if httpsender.ResultCode <= 302 then
+      TERKONEKSI_KE_SERVER := True
+    else
+      TERKONEKSI_KE_SERVER := False;
+  end
+  else
+    TERKONEKSI_KE_SERVER := False;
+  //else
+
+
+  cekInternet := False;
+  httpsender.Free;
+end;
+
 procedure TformMain.mainTimerTimer(Sender: TObject);
+var
+  thrConn: TCekKoneksiServerThread;
 begin
   // monitor pesan on-demand baru
 
+
+  // monitor internet
+  if not cekInternet then
+  begin
+    cekInternet := True;
+    // thread cek internet
+    BeginThread(TThreadFunc(@procCekInternet));
+    //thrConn := TCekKoneksiServerThread.Create(True);
+    //thrConn.Start;
+    threadCount := threadCount + 1;
+  end;
   // monitor imei modem
   if not cekIMEI then
   begin
+    cekIMEI := True;
     // jalankan thread cek imei
   end;
+
+  // update status & indikator
+
+  if TERKONEKSI_KE_SERVER then
+  begin
+    shapeIndicatorServer.FillColor := clLime;
+    //formMain.Enabled := True;
+    pnlLeft.Enabled := True;
+    pnlContent.Enabled := True;
+  end
+  else
+  begin
+    shapeIndicatorServer.FillColor := clRed;
+    //formMain.Enabled := False;
+    pnlLeft.Enabled := False;
+    pnlContent.Enabled := False;
+  end;
+
+  //button1.Caption := IntToStr(threadCount);
+
 end;
 
 procedure ResizeCol(AGrid: TStringGrid; const ACol: integer);

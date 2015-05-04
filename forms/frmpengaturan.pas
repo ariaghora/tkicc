@@ -45,6 +45,7 @@ type
 var
   formPengaturan: TformPengaturan;
   statusSMSDService: string;
+  statusInternet: string;
   isCheckingSMSDService: boolean = False;
 
 const
@@ -139,19 +140,28 @@ begin
     thrCheckSMSDService.Start;
   end;
 
-  if statusSMSDService = TERSEDIA then
+  if TERKONEKSI_KE_SERVER then
   begin
-    formMain.shapeIndicator.FillColor := clLime;
+    statusInternet := TERSEDIA;
   end
   else
   begin
-    formMain.shapeIndicator.FillColor := clRed;
+    statusInternet := TAK_TERSEDIA;
+  end;
+
+  if statusSMSDService = TERSEDIA then
+  begin
+    formMain.shapeIndicatorSMSD.FillColor := clLime;
+  end
+  else
+  begin
+    formMain.shapeIndicatorSMSD.FillColor := clRed;
   end;
 
   // update status message
   memoStatus.Text :=
     'SMSD Service       : ' + statusSMSDService + chr(13) +
-    'Koneksi ke Server  : ' + TERSEDIA + chr(13) + 'Server             : ' + HOST;
+    'Koneksi Internet   : ' + statusInternet + chr(13) + 'Server             : ' + HOST;
 end;
 
 end.

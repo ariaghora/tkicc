@@ -18,6 +18,7 @@ type
     Panel1: TPanel;
     Timer1: TTimer;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -44,8 +45,6 @@ implementation
 
 procedure TformSMSLokal.FormShow(Sender: TObject);
 begin
-  refreshList();
-  jmlItemTerupdate := jmlItem;
   //Timer1.Enabled := True;
 end;
 
@@ -127,6 +126,13 @@ end;
 procedure TformSMSLokal.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Timer1.Enabled := False;
+end;
+
+procedure TformSMSLokal.FormCreate(Sender: TObject);
+begin
+  refreshList();
+  jmlItemTerupdate := jmlItem;
+  Timer1.Enabled := True;
 end;
 
 end.

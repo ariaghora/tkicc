@@ -27,6 +27,9 @@ var
   //** SESSION VARIABLES **//
   USER_ID, USER_NAME, USER_PASSWORD, ID_SIMPUL_CABANG, NAMA_WILAYAH: string;
 
+  // SHARED STATUS VARIABLE
+  TERKONEKSI_KE_SERVER: boolean = false;
+
 
 procedure init(isOnline: boolean);
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,
@@ -54,7 +57,7 @@ begin
   end;
   HOST := HOST + API_DIR;
 
-  LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder';
+  LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder/';
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';

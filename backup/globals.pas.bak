@@ -65,7 +65,8 @@ begin
 
   // Untuk keperluan layanan gammu
   // host selalu lokal
-  LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
+  //LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
+  LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast';
 end;
 
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,

@@ -15,6 +15,7 @@ type
   TformPengaturan = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     memoStatus: TMemo;
@@ -22,6 +23,7 @@ type
     Timer1: TTimer;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
@@ -52,7 +54,7 @@ const
 implementation
 
 uses
-  frmtestsms, frmMain;
+  frmtestsms, frmMain, frmsmslokal;
 
 {$R *.lfm}
 
@@ -120,6 +122,11 @@ begin
 
   //BeginThread(TThreadFunc(@thrTestKoneksi));
 
+end;
+
+procedure TformPengaturan.Button3Click(Sender: TObject);
+begin
+  formSMSLokal.ShowModal;
 end;
 
 procedure TformPengaturan.Timer1Timer(Sender: TObject);

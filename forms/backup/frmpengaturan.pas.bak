@@ -15,6 +15,7 @@ type
   TformPengaturan = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     memoStatus: TMemo;
@@ -52,7 +53,7 @@ const
 implementation
 
 uses
-  frmtestsms, frmMain;
+  frmtestsms, frmMain, frmsmslokal;
 
 {$R *.lfm}
 

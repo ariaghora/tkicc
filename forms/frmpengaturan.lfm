@@ -49,6 +49,15 @@ object formPengaturan: TformPengaturan
         OnClick = Button2Click
         TabOrder = 1
       end
+      object Button3: TButton
+        Left = 248
+        Height = 25
+        Top = 8
+        Width = 232
+        Caption = 'SMS Lokal'
+        OnClick = Button3Click
+        TabOrder = 2
+      end
     end
     object GroupBox2: TGroupBox
       Left = 10

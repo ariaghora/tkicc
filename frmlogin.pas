@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   fphttpclient, fpjson, jsonparser, globals, helper, strutils, threadutils,
-  BGRASpriteAnimation, httpsend;
+  BGRASpriteAnimation, httpsend, process;
 
 type
 
@@ -58,7 +58,6 @@ begin
     thread.Start;
   end;
 end;
-
 
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);

@@ -19,10 +19,9 @@ var
   LINK_LOGIN_STAKEHOLDER: string;
   LINK_LIST_LAPORAN: string;
   LINK_LIST_BROADCAST: string;
+  LINK_LIST_SMS_LOKAL: string;
   LINK_KIRIM_BROADCAST: string;
-
   LINK_TULIS_BROADCAST: string;
-
   LINK_TEST_KONEKSI_KE_SERVER: string;
 
   //** SESSION VARIABLES **//
@@ -67,6 +66,7 @@ begin
   // host selalu lokal
   //LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
   LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast';
+  LINK_LIST_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'listsmslokal';
 end;
 
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,

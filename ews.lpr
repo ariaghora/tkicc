@@ -8,7 +8,7 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   Forms, frmMain, tachartlazaruspkg, beautify, helper, globals, frmlogin,
   bgrabitmappack, laz_synapse, frmMonitoring, threadutils, frmmessaging,
   frmTulisBroadcast, frmDetailTKI, frmtestsms,
-frmpengaturan, frmmanajementki { you can add units after this };
+frmpengaturan, frmmanajementki, frmsmslokal { you can add units after this };
 
 {$R *.res}
 
@@ -25,5 +25,6 @@ begin
   Application.CreateForm(TformTestSMS, formTestSMS);
   Application.CreateForm(TformPengaturan, formPengaturan);
   Application.CreateForm(TformManajemenTKI, formManajemenTKI);
+  Application.CreateForm(TformSMSLokal, formSMSLokal);
   Application.Run;
 end.

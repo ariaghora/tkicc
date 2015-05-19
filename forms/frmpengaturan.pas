@@ -16,6 +16,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     memoStatus: TMemo;
@@ -24,6 +25,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
@@ -55,7 +57,7 @@ const
 implementation
 
 uses
-  frmtestsms, frmMain, frmsmslokal;
+  frmtestsms, frmMain, frmsmslokal, frmlogoutput;
 
 {$R *.lfm}
 
@@ -128,6 +130,11 @@ end;
 procedure TformPengaturan.Button3Click(Sender: TObject);
 begin
   formSMSLokal.ShowModal;
+end;
+
+procedure TformPengaturan.Button4Click(Sender: TObject);
+begin
+  formLogOutput.Show;
 end;
 
 procedure TformPengaturan.Timer1Timer(Sender: TObject);

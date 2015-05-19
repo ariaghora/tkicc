@@ -16,6 +16,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     memoStatus: TMemo;
@@ -161,7 +162,7 @@ begin
   // update status message
   memoStatus.Text :=
     'SMSD Service       : ' + statusSMSDService + chr(13) +
-    'Koneksi Internet   : ' + TERSEDIA + chr(13) + 'Server             : ' + HOST;
+    'Koneksi Internet   : ' + statusInternet + chr(13) + 'Server             : ' + HOST;
 end;
 
 end.

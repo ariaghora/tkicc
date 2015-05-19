@@ -34,7 +34,7 @@ var
 implementation
 
 uses
-  frmMain;
+  frmMain, frmlogoutput;
 
 {$R *.lfm}
 
@@ -43,6 +43,8 @@ uses
 procedure TformLogin.FormShow(Sender: TObject);
 begin
   formMain.Hide;
+
+  //formLogOutput.Show;
 end;
 
 procedure TformLogin.Button1Click(Sender: TObject);

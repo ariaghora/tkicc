@@ -1,11 +1,11 @@
 object formMain: TformMain
-  Left = 308
-  Height = 548
-  Top = 100
-  Width = 912
+  Left = 359
+  Height = 568
+  Top = 147
+  Width = 852
   Caption = 'TKI Crisis Center'
-  ClientHeight = 548
-  ClientWidth = 912
+  ClientHeight = 568
+  ClientWidth = 852
   Color = clWhite
   OnClose = FormClose
   OnCreate = FormCreate
@@ -16,11 +16,11 @@ object formMain: TformMain
     Left = 0
     Height = 72
     Top = 0
-    Width = 912
+    Width = 852
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 72
-    ClientWidth = 912
+    ClientWidth = 852
     Color = 14606046
     Font.Name = 'Montserrat'
     ParentColor = False
@@ -160,7 +160,7 @@ object formMain: TformMain
       }
     end
     object Panel8: TPanel
-      Left = 555
+      Left = 495
       Height = 72
       Top = 0
       Width = 357
@@ -6647,24 +6647,24 @@ object formMain: TformMain
   end
   object Panel2: TPanel
     Left = 0
-    Height = 448
+    Height = 387
     Top = 72
-    Width = 912
+    Width = 852
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 448
-    ClientWidth = 912
+    ClientHeight = 387
+    ClientWidth = 852
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     object pnlLeft: TPanel
       Left = 0
-      Height = 448
+      Height = 387
       Top = 0
       Width = 70
       Align = alLeft
       BevelOuter = bvNone
-      ClientHeight = 448
+      ClientHeight = 387
       ClientWidth = 70
       TabOrder = 0
       OnResize = pnlLeftResize
@@ -6797,7 +6797,7 @@ object formMain: TformMain
       end
       object imgShade: TImage
         Left = 60
-        Height = 98
+        Height = 37
         Top = 350
         Width = 10
         Align = alRight
@@ -7041,9 +7041,9 @@ object formMain: TformMain
     end
     object pnlContent: TPanel
       Left = 70
-      Height = 448
+      Height = 387
       Top = 0
-      Width = 842
+      Width = 782
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
@@ -7052,18 +7052,18 @@ object formMain: TformMain
   object Panel3: TPanel
     Left = 0
     Height = 28
-    Top = 520
-    Width = 912
+    Top = 540
+    Width = 852
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 28
-    ClientWidth = 912
+    ClientWidth = 852
     Color = 5789784
     ParentColor = False
     TabOrder = 2
     object shapeIndicatorSMSD: TBGRAShape
       Cursor = crHandPoint
-      Left = 893
+      Left = 833
       Height = 10
       Hint = 'Check'
       Top = 9
@@ -7101,7 +7101,7 @@ object formMain: TformMain
       Caption = 'shapeIndicatorSMSD'
     end
     object Label3: TLabel
-      Left = 810
+      Left = 750
       Height = 16
       Top = 6
       Width = 74
@@ -7116,7 +7116,7 @@ object formMain: TformMain
     end
     object shapeIndicatorServer: TBGRAShape
       Cursor = crHandPoint
-      Left = 771
+      Left = 711
       Height = 10
       Hint = 'Check'
       Top = 9
@@ -7155,7 +7155,7 @@ object formMain: TformMain
       Caption = 'shapeIndicatorServer'
     end
     object Label4: TLabel
-      Left = 675
+      Left = 615
       Height = 16
       Top = 6
       Width = 87
@@ -7168,11 +7168,90 @@ object formMain: TformMain
       ParentColor = False
       ParentFont = False
     end
+    object Label5: TLabel
+      Cursor = crHandPoint
+      Left = 531
+      Height = 16
+      Top = 6
+      Width = 58
+      Align = alRight
+      BorderSpacing.Right = 20
+      BorderSpacing.Around = 6
+      Caption = 'Toggle Log'
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Montserrat'
+      Font.Style = [fsUnderline]
+      ParentColor = False
+      ParentFont = False
+      OnClick = Label5Click
+    end
+  end
+  object pnlLog: TPanel
+    Left = 0
+    Height = 76
+    Top = 464
+    Width = 852
+    Align = alBottom
+    BevelOuter = bvNone
+    Caption = 'pnlLog'
+    ClientHeight = 76
+    ClientWidth = 852
+    Color = clBlack
+    ParentColor = False
+    TabOrder = 3
+    Visible = False
+    object memoLog: TMemo
+      Left = 5
+      Height = 66
+      Top = 5
+      Width = 842
+      Align = alClient
+      BorderSpacing.Around = 5
+      BorderStyle = bsNone
+      Color = clBlack
+      Font.Color = clCream
+      Font.Height = -12
+      Font.Name = 'Monospace'
+      Lines.Strings = (
+        'log output'
+        '==================================='
+      )
+      ParentFont = False
+      PopupMenu = PopupMenu1
+      ReadOnly = True
+      ScrollBars = ssAutoVertical
+      TabOrder = 0
+    end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 459
+    Width = 852
+    Align = alBottom
+    ResizeAnchor = akBottom
+    Visible = False
   end
   object mainTimer: TTimer
-    Interval = 500
     OnTimer = mainTimerTimer
+    left = 184
+    top = 16
+  end
+  object PopupMenu1: TPopupMenu
     left = 16
-    top = 488
+    top = 496
+    object MenuItem1: TMenuItem
+      Caption = 'Bersihkan'
+      OnClick = MenuItem1Click
+    end
+  end
+  object guiTimer: TTimer
+    Enabled = False
+    Interval = 10
+    OnTimer = guiTimerTimer
+    left = 247
+    top = 16
   end
 end

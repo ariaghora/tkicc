@@ -24,12 +24,12 @@ object formPengaturan: TformPengaturan
       Left = 10
       Height = 102
       Top = 10
-      Width = 563
+      Width = 567
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Peralatan'
       ClientHeight = 83
-      ClientWidth = 559
+      ClientWidth = 563
       TabOrder = 0
       object Button1: TButton
         Left = 8
@@ -58,23 +58,32 @@ object formPengaturan: TformPengaturan
         OnClick = Button3Click
         TabOrder = 2
       end
+      object Button4: TButton
+        Left = 248
+        Height = 25
+        Top = 40
+        Width = 232
+        Caption = 'Log Output'
+        OnClick = Button4Click
+        TabOrder = 3
+      end
     end
     object GroupBox2: TGroupBox
       Left = 10
       Height = 129
       Top = 122
-      Width = 563
+      Width = 567
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Status'
       ClientHeight = 110
-      ClientWidth = 559
+      ClientWidth = 563
       TabOrder = 1
       object memoStatus: TMemo
         Left = 10
         Height = 90
         Top = 10
-        Width = 539
+        Width = 543
         Align = alClient
         BorderSpacing.Around = 10
         Color = clBlack

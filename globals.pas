@@ -16,10 +16,13 @@ var
   API_DIR_LOKAL: string;
   API_DIR_REMOTE: string;
 
+  LINK_JUMLAH_SMS_LOKAL: string;
+  LINK_JUMLAH_SMS_REMOTE: string;
   LINK_LOGIN_STAKEHOLDER: string;
   LINK_LIST_LAPORAN: string;
   LINK_LIST_BROADCAST: string;
   LINK_LIST_SMS_LOKAL: string;
+  LINK_LIST_SMS_REMOTE: string;
   LINK_KIRIM_BROADCAST: string;
   LINK_TULIS_BROADCAST: string;
   LINK_TEST_KONEKSI_KE_SERVER: string;
@@ -28,7 +31,7 @@ var
   USER_ID, USER_NAME, USER_PASSWORD, ID_SIMPUL_CABANG, NAMA_WILAYAH: string;
 
   // SHARED STATUS VARIABLE
-  TERKONEKSI_KE_SERVER: boolean = false;
+  TERKONEKSI_KE_SERVER: boolean = False;
 
 
 procedure init(isOnline: boolean);
@@ -40,7 +43,7 @@ implementation
 procedure init(isOnline: boolean);
 begin
   HOST_LOKAL := 'http://localhost/tkicc/';
-  HOST_REMOTE := 'http://tkicc.16mb.com/';
+  HOST_REMOTE := 'http://grepegre.pe.hu/';
 
   API_DIR_LOKAL := 'api/';
   API_DIR_REMOTE := 'api/';
@@ -62,6 +65,8 @@ begin
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
+  LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
+  LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 
@@ -70,6 +75,7 @@ begin
   //LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast/';
   LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast';
   LINK_LIST_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'listsmslokal';
+  LINK_JUMLAH_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'jumlahsmslokal';
 end;
 
 procedure setupSession(aid, ausername, apassword, aid_simpul_cabang,

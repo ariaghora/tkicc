@@ -6,8 +6,9 @@ interface
 
 uses
   Classes, Forms, Controls, SysUtils, Graphics, Dialogs, LCLType, ExtCtrls,
-  ComCtrls, StdCtrls, Grids, Buttons, fphttpclient, fpjson, jsonparser, helper,
-  globals, json2lv, BGRASpriteAnimation, BGRAShape, threadutils, process, Math, httpsend;
+  ComCtrls, StdCtrls, Grids, Buttons, PairSplitter, Menus, fphttpclient, fpjson,
+  jsonparser, helper, globals, json2lv, BGRASpriteAnimation, BGRAShape,
+  threadutils, process, Math, httpsend;
 
 type
 
@@ -16,6 +17,11 @@ type
   TformMain = class(TForm)
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
+    memoLog: TMemo;
+    MenuItem1: TMenuItem;
+    pnlLog: TPanel;
+    PopupMenu1: TPopupMenu;
     shapeIndicatorSMSD: TBGRAShape;
     imgAnimation: TBGRASpriteAnimation;
     Image1: TImage;
@@ -36,15 +42,19 @@ type
     Panel8: TPanel;
     mainTimer: TTimer;
     shapeIndicatorServer: TBGRAShape;
+    Splitter1: TSplitter;
+    guiTimer: TTimer;
     //procedure Button1Click(Sender: TObject);
-    procedure CreateParams(var Params: TCreateParams); override;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure guiTimerTimer(Sender: TObject);
     procedure imgMonitorMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure Label1Click(Sender: TObject);
+    procedure Label5Click(Sender: TObject);
     procedure mainTimerTimer(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
     procedure Panel1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: integer);
     procedure Panel1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
@@ -71,6 +81,7 @@ var
   terkoneksiInternet: boolean = False;
 
   threadCount: integer = 0;
+  retryCount: integer = 1;
 
 
 implementation
@@ -87,40 +98,6 @@ begin
     pnlContent.Controls[pnlContent.ControlCount - 1].Parent := nil;
 end;
 
-procedure TformMain.CreateParams(var Params: TCreateParams);
-begin
-  inherited;
-  Params.ExStyle := Params.ExStyle or WS_EX_STATICEDGE;
-  Params.Style := Params.Style or WS_SIZEBOX;
-end;
-
-{
-procedure TformMain.Button1Click(Sender: TObject);
-var
-  header: TStringList;
-  httpsender: THTTPSend;
-begin
-
-  header := TStringList.Create;
-  header.Add('Accept: text/html');
-
-  httpsender := THTTPSend.Create;
-  httpsender.Headers.AddStrings(header);
-  httpsender.KeepAlive := False;
-
-  if httpsender.HTTPMethod('GET', 'http://www.tkicc.16mb.com') then
-    ShowMessage('YAY')
-  else
-    ShowMessage('NAY');
-  {
-  if TERKONEKSI_KE_SERVER then
-    ShowMessage('OK')
-  else
-    ShowMessage('NGA OKE');
-    }
-
-end;
-}
 
 
 procedure TformMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -131,6 +108,7 @@ begin
     mbYesNo, '') = mrYes then
   begin
     formLogin.Show;
+    catatLog('pengguna keluar');
   end
   else
     Abort;
@@ -148,10 +126,30 @@ begin
 
 end;
 
+procedure grow;
+var
+  i:byte;
+begin
+  with formMain.pnlLeft do
+    if Width < 70 then
+      Width:=formMain.pnlLeft.Width + 2
+    else
+      formMain.guiTimer.Enabled:=false;
+
+end;
+
 procedure TformMain.FormShow(Sender: TObject);
 begin
   formMonitoring.pnlContent.Parent := pnlContent;
   formMonitoring.renderListview;
+
+  pnlLeft.Width:=0;
+  guiTimer.Enabled:=true;
+end;
+
+procedure TformMain.guiTimerTimer(Sender: TObject);
+begin
+  grow;
 end;
 
 procedure TformMain.imgMonitorMouseDown(Sender: TObject; Button: TMouseButton;
@@ -200,8 +198,15 @@ begin
     mbYesNo, '') = mrYes then
   begin
     formLogin.Show;
+    catatLog('pengguna keluar');
   end;
 
+end;
+
+procedure TformMain.Label5Click(Sender: TObject);
+begin
+  pnlLog.Visible:= not pnlLog.Visible;
+  Splitter1.Visible:=pnlLog.Visible;
 end;
 
 procedure procCekInternet;
@@ -234,10 +239,12 @@ begin
   httpsender.Free;
 end;
 
+
 procedure TformMain.mainTimerTimer(Sender: TObject);
 var
   thrConn: TCekKoneksiServerThread;
 begin
+
   // monitor pesan on-demand baru
 
 
@@ -258,44 +265,38 @@ begin
     // jalankan thread cek imei
   end;
 
-  // update status & indikator
+  //*** update status & indikator
 
   if TERKONEKSI_KE_SERVER then
   begin
     shapeIndicatorServer.FillColor := clLime;
-    //formMain.Enabled := True;
     pnlLeft.Enabled := True;
     pnlContent.Enabled := True;
+    formLogin.Enabled:=true;
+    retryCount:=1; // reset kembali retry count
   end
   else
   begin
     shapeIndicatorServer.FillColor := clRed;
-    //formMain.Enabled := False;
+
     pnlLeft.Enabled := False;
     pnlContent.Enabled := False;
+    formLogin.Enabled:=False;
+    catatLog('Terputus dari internet. Mencoba kembali koneksi... ('+IntToStr(retryCount)+')');
+    retryCount:=retryCount+1;
+
   end;
 
   //button1.Caption := IntToStr(threadCount);
 
 end;
 
-procedure ResizeCol(AGrid: TStringGrid; const ACol: integer);
-const
-  MIN_COL_WIDTH = 15;
-var
-  M, T: integer;
-  X: integer;
+
+procedure TformMain.MenuItem1Click(Sender: TObject);
 begin
-  M := MIN_COL_WIDTH;
-  AGrid.Canvas.Font.Assign(AGrid.Font);
-  for X := 1 to AGrid.RowCount - 1 do
-  begin
-    T := AGrid.Canvas.TextWidth(AGrid.Cells[ACol, X]);
-    if T > M then
-      M := T;
-  end;
-  AGrid.ColWidths[ACol] := M + MIN_COL_WIDTH;
+  memoLog.Clear;
 end;
+
 
 procedure TformMain.Panel1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: integer);

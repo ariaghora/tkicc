@@ -10,7 +10,13 @@ uses
 function gammusendsms(dest, msg: string): string;
 function serializeFromArr(api: string; arr: array of string): string;
 
+procedure catatLog(pesan: string);
+
+
 implementation
+
+uses
+  frmlogoutput, frmMain;
 
 function gammusendsms(dest, msg: string): string;
 begin
@@ -36,6 +42,14 @@ begin
   end;
 
   Result := s;
+end;
+
+procedure catatLog(pesan: string);
+begin
+  with formMain do
+  begin
+    memoLog.Lines.Add('[' + DateTimeToStr(Now) + '] ' + pesan);
+  end;
 end;
 
 end.

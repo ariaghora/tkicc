@@ -1,0 +1,61 @@
+object formLogOutput: TformLogOutput
+  Left = 549
+  Height = 189
+  Top = 344
+  Width = 755
+  Caption = 'Log Output'
+  ClientHeight = 189
+  ClientWidth = 755
+  Color = clBlack
+  FormStyle = fsStayOnTop
+  LCLVersion = '1.2.6.0'
+  object memoLog: TMemo
+    Left = 10
+    Height = 137
+    Top = 10
+    Width = 735
+    Align = alClient
+    BorderSpacing.Around = 10
+    BorderStyle = bsNone
+    Color = clBlack
+    Font.Color = clCream
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    Font.Style = [fsBold]
+    Lines.Strings = (
+      'log output'
+      '==================================='
+    )
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoVertical
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 32
+    Top = 157
+    Width = 755
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 32
+    ClientWidth = 755
+    Color = clBtnFace
+    ParentColor = False
+    TabOrder = 1
+    object Button1: TButton
+      Left = 717
+      Height = 26
+      Top = 3
+      Width = 35
+      Align = alRight
+      BorderSpacing.Around = 3
+      Caption = 'Clear'
+      Font.Height = -9
+      Font.Name = 'Montserrat'
+      OnClick = Button1Click
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+end

@@ -3,17 +3,33 @@ program ews;
 {$mode objfpc}{$H+}
 
 uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
-  cthreads, cmem,{$ENDIF} {$ENDIF}
+  cthreads,
+  cmem, {$ENDIF} {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, frmMain, tachartlazaruspkg, beautify, helper, globals, frmlogin,
-  bgrabitmappack, laz_synapse, frmMonitoring, threadutils, frmmessaging,
-  frmTulisBroadcast, frmDetailTKI, frmtestsms,
-frmpengaturan, frmmanajementki, frmsmslokal { you can add units after this };
+  Forms,
+  frmMain,
+  tachartlazaruspkg,
+  beautify,
+  helper,
+  globals,
+  frmlogin,
+  bgrabitmappack,
+  laz_synapse,
+  frmMonitoring,
+  threadutils,
+  frmmessaging,
+  frmTulisBroadcast,
+  frmDetailTKI,
+  frmtestsms,
+  frmpengaturan,
+  frmmanajementki,
+  frmsmslokal,
+  frmlogoutput { you can add units after this };
 
 {$R *.res}
 
 begin
-  init(true);
+  init(False);
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TformLogin, formLogin);
@@ -26,5 +42,6 @@ begin
   Application.CreateForm(TformPengaturan, formPengaturan);
   Application.CreateForm(TformManajemenTKI, formManajemenTKI);
   Application.CreateForm(TformSMSLokal, formSMSLokal);
+  Application.CreateForm(TformLogOutput, formLogOutput);
   Application.Run;
 end.

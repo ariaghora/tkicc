@@ -82,7 +82,7 @@ var
   jParser: TJSONParser;
   jData: TJSONData;
 begin
-  strJSON := TFPHTTPClient.SimpleGet(LINK_LIST_SMS_LOKAL);
+  strJSON := TFPHTTPClient.SimpleGet(LINK_LIST_SMS_REMOTE);
   jParser := TJSONParser.Create(strJSON);
   jData := jParser.Parse;
 
@@ -99,10 +99,18 @@ var
   jParser: TJSONParser;
   jData: TJSONData;
 begin
+  { TODO 3 -oGhora -cmbuh : dapatkan jumlah sms remote, instead of sms lokal. Hapus blok kode di bawah ini }
+
+  {
   jParser := TJSONParser.Create(TFPHTTPClient.SimpleGet(LINK_LIST_SMS_LOKAL));
   jData := jParser.Parse;
   jmlItemTerupdate := TJSONArray(jData).Count;
   isThreadRunning := False;
+  }
+
+  jmlItemTerupdate := StrToInt(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_REMOTE));
+  isThreadRunning := False;
+
 end;
 
 procedure TformSMSLokal.poolSMSBaru;

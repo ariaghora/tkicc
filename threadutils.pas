@@ -196,12 +196,17 @@ procedure TRenderBroadcastMessage.preRun;
 begin
   formMain.pnlContent.Enabled := False;
   formMain.imgAnimation.Show;
+  catatLog('memuat broadcast terkirim');
 end;
 
 procedure TRenderBroadcastMessage.postRun;
 begin
-  formMain.pnlContent.Enabled := True;
   formMain.imgAnimation.Hide;
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('broadcast terkirim dimuat');
+  end;
 end;
 
 procedure TRenderBroadcastMessage.onSucceed;
@@ -241,12 +246,17 @@ procedure TRenderRegularReportThread.preRun;
 begin
   formMain.pnlContent.Enabled := False;
   formMain.imgAnimation.Show;
+  catatLog('memuat laporan rutin');
 end;
 
 procedure TRenderRegularReportThread.postRun;
 begin
-  formMain.pnlContent.Enabled := True;
   formMain.imgAnimation.Hide;
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('laporan rutin dimuat');
+  end;
 end;
 
 procedure TRenderRegularReportThread.onSucceed;
@@ -315,28 +325,32 @@ begin
     s := TFPHTTPClient.SimpleGet(serializeFromArr(LINK_LOGIN_STAKEHOLDER, arr));
 
   except
-    // ShowMessage('login failed');
+    catatLog('Kesalahan jaringan');
   end;
 
 
-  jParser := TJSONParser.Create(s);
-  jData := jParser.Parse;
+  try
+    jParser := TJSONParser.Create(s);
+    jData := jParser.Parse;
 
+    if jData is TJSONArray then
+      if jData.Count = 1 then
+      begin
+        with TJSONObject(TJSONArray(jData).Items[0]) do
+        begin
+          Get('username');
+          setupSession(Get('id_stakeholder'), Get('username'), Get('pass'),
+            Get('id_simpul_cabang'), Get('nama_wilayah'));
 
-  if jData.Count = 1 then
-  begin
-    with TJSONObject(TJSONArray(jData).Items[0]) do
-    begin
-      Get('username');
-      setupSession(Get('id_stakeholder'), Get('username'), Get('pass'),
-        Get('id_simpul_cabang'), Get('nama_wilayah'));
+          Synchronize(@onSucceed);
 
-      Synchronize(@onSucceed);
-
-    end;
-  end
-  else
-  begin
+        end;
+      end
+      else
+      begin
+        Synchronize(@onFailed);
+      end;
+  except
     Synchronize(@onFailed);
   end;
 
@@ -358,7 +372,7 @@ begin
   formLogin.Button1.Width := 120;
   formLogin.edtPassword.Enabled := False;
   formLogin.edtUsername.Enabled := False;
-
+  catatLog('Log in...');
 end;
 
 procedure TLoginThread.postRun;
@@ -371,7 +385,6 @@ begin
   formLogin.edtPassword.Enabled := True;
   formLogin.edtUsername.Enabled := True;
 
-
 end;
 
 procedure TLoginThread.onSucceed;
@@ -382,12 +395,14 @@ begin
     'User ID ' + USER_ID + ', simpul cabang ' +
     IfThen(ID_SIMPUL_CABANG = '0', 'Eksekutif', NAMA_WILAYAH);
   formMain.Show;
-  formMain.imgMonitorMouseDown(formMain.imgMonitor, mbLeft, [], 0, 0);
+  //formMain.imgMonitorMouseDown(formMain.imgMonitor, mbLeft, [], 0, 0);
+  catatLog('login berhasil sebagai ' + USER_NAME);
 end;
 
 procedure TLoginThread.onFailed;
 begin
   ShowMessage('Login Failed');
+  catatLog('login gagal');
 end;
 
 end.

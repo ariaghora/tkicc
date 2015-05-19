@@ -3,6 +3,9 @@
   <ProjectOptions>
     <Version Value="9"/>
     <General>
+      <Flags>
+        <AlwaysBuild Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
       <Title Value="ews"/>
@@ -46,7 +49,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="15">
+    <Units Count="16">
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -152,6 +155,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmsmslokal"/>
       </Unit14>
+      <Unit15>
+        <Filename Value="forms/frmlogoutput.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formLogOutput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmlogoutput"/>
+      </Unit15>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -179,7 +190,7 @@
     </Other>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="3">
+    <Exceptions Count="4">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -189,6 +200,9 @@
       <Item3>
         <Name Value="EFOpenError"/>
       </Item3>
+      <Item4>
+        <Name Value="EHTTPClient"/>
+      </Item4>
     </Exceptions>
   </Debugging>
 </CONFIG>

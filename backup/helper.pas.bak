@@ -5,12 +5,18 @@ unit helper;
 interface
 
 uses
-  Classes, SysUtils, fphttpclient, synacode;
+  Classes, SysUtils, fphttpclient, synacode, globals;
 
 function gammusendsms(dest, msg: string): string;
 function serializeFromArr(api: string; arr: array of string): string;
 
+procedure catatLog(pesan: string);
+
+
 implementation
+
+uses
+  frmlogoutput;
 
 function gammusendsms(dest, msg: string): string;
 begin
@@ -36,6 +42,14 @@ begin
   end;
 
   Result := s;
+end;
+
+procedure catatLog(pesan: string);
+begin
+  with formLogOutput do
+  begin
+    memoLog.Lines.Add('[' + DateTimeToStr(Now) + '] ' + pesan);
+  end;
 end;
 
 end.

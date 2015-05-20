@@ -223,6 +223,7 @@ begin
   //httpsender.KeepAlive := False;
   httpsender.Timeout := 5000;
 
+  {
   if httpsender.HTTPMethod('GET', 'http://www.tkicc.16mb.com') then
   begin
     if httpsender.ResultCode <= 302 then
@@ -233,7 +234,9 @@ begin
   else
     TERKONEKSI_KE_SERVER := False;
   //else
+  }
 
+  if TFPHTTPClient.SimpleGet('http://www.tkicc.16mb.com/api/testkoneksi');
 
   cekInternet := False;
   httpsender.Free;
@@ -278,13 +281,13 @@ begin
   else
   begin
     shapeIndicatorServer.FillColor := clRed;
-    {
+
     pnlLeft.Enabled := False;
     pnlContent.Enabled := False;
     formLogin.Enabled:=False;
     catatLog('Terputus dari internet. Mencoba kembali koneksi... ('+IntToStr(retryCount)+')');
     retryCount:=retryCount+1;
-    }
+
   end;
 
   //button1.Caption := IntToStr(threadCount);

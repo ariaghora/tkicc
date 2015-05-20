@@ -3,7 +3,7 @@ object formSMSLokal: TformSMSLokal
   Height = 395
   Top = 206
   Width = 816
-  Caption = 'Database SMS Lokal'
+  Caption = 'Log SMS Masuk'
   ClientHeight = 395
   ClientWidth = 816
   Color = clWhite
@@ -37,6 +37,7 @@ object formSMSLokal: TformSMSLokal
     ClientHeight = 50
     ClientWidth = 816
     TabOrder = 1
+    Visible = False
     object Label1: TLabel
       Left = 16
       Height = 17

@@ -24,7 +24,7 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmpengaturan,
   frmmanajementki,
   frmsmslokal,
-  frmlogoutput { you can add units after this };
+  frmlogoutput;
 
 {$R *.res}
 

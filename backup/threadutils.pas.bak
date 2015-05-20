@@ -201,9 +201,12 @@ end;
 
 procedure TRenderBroadcastMessage.postRun;
 begin
-  formMain.pnlContent.Enabled := True;
   formMain.imgAnimation.Hide;
-  catatLog('broadcast terkirim dimuat');
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('broadcast terkirim dimuat');
+  end;
 end;
 
 procedure TRenderBroadcastMessage.onSucceed;
@@ -222,7 +225,15 @@ procedure TRenderRegularReportThread.Execute;
 begin
   Synchronize(@preRun);
 
-  s := TFPHTTPClient.SimpleGet(LINK_LIST_LAPORAN + kodeWilayah + '/' + tipeLaporan);
+  try
+    s := TFPHTTPClient.SimpleGet(LINK_LIST_LAPORAN + kodeWilayah + '/' + tipeLaporan);
+
+  except
+    on Exception do
+    begin
+
+    end;
+  end;
   Synchronize(@doList);
 
   Synchronize(@postRun);

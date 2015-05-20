@@ -128,13 +128,13 @@ end;
 
 procedure grow;
 var
-  i:byte;
+  i: byte;
 begin
   with formMain.pnlLeft do
     if Width < 70 then
-      Width:=formMain.pnlLeft.Width + 2
+      Width := formMain.pnlLeft.Width + 2
     else
-      formMain.guiTimer.Enabled:=false;
+      formMain.guiTimer.Enabled := False;
 
 end;
 
@@ -143,8 +143,8 @@ begin
   formMonitoring.pnlContent.Parent := pnlContent;
   formMonitoring.renderListview;
 
-  pnlLeft.Width:=0;
-  guiTimer.Enabled:=true;
+  pnlLeft.Width := 0;
+  guiTimer.Enabled := True;
 end;
 
 procedure TformMain.guiTimerTimer(Sender: TObject);
@@ -205,8 +205,8 @@ end;
 
 procedure TformMain.Label5Click(Sender: TObject);
 begin
-  pnlLog.Visible:= not pnlLog.Visible;
-  Splitter1.Visible:=pnlLog.Visible;
+  pnlLog.Visible := not pnlLog.Visible;
+  Splitter1.Visible := pnlLog.Visible;
 end;
 
 procedure procCekInternet;
@@ -223,6 +223,7 @@ begin
   //httpsender.KeepAlive := False;
   httpsender.Timeout := 5000;
 
+  {
   if httpsender.HTTPMethod('GET', 'http://www.tkicc.16mb.com') then
   begin
     if httpsender.ResultCode <= 302 then
@@ -233,7 +234,21 @@ begin
   else
     TERKONEKSI_KE_SERVER := False;
   //else
+  }
 
+  try
+    if trim(TFPHTTPClient.SimpleGet('http://www.tkicc.16mb.com/api/testkoneksi')) =
+      'Koneksi berhasil' then
+    begin
+      TERKONEKSI_KE_SERVER := True;
+    end
+    else
+      TERKONEKSI_KE_SERVER := False;
+
+  except
+    on Exception do
+      TERKONEKSI_KE_SERVER := False;
+  end;
 
   cekInternet := False;
   httpsender.Free;
@@ -272,8 +287,8 @@ begin
     shapeIndicatorServer.FillColor := clLime;
     pnlLeft.Enabled := True;
     pnlContent.Enabled := True;
-    formLogin.Enabled:=true;
-    retryCount:=1; // reset kembali retry count
+    formLogin.Enabled := True;
+    retryCount := 1; // reset kembali retry count
   end
   else
   begin
@@ -281,9 +296,10 @@ begin
 
     pnlLeft.Enabled := False;
     pnlContent.Enabled := False;
-    formLogin.Enabled:=False;
-    catatLog('Terputus dari internet. Mencoba kembali koneksi... ('+IntToStr(retryCount)+')');
-    retryCount:=retryCount+1;
+    formLogin.Enabled := False;
+    catatLog('Terputus dari internet. Mencoba kembali koneksi... (' +
+      IntToStr(retryCount) + ')');
+    retryCount := retryCount + 1;
 
   end;
 

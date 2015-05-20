@@ -24,6 +24,7 @@ type
   private
     procedure refreshList;
     procedure poolSMSBaru;
+    procedure pushSMSLokal;
   public
     { public declarations }
   end;
@@ -31,6 +32,7 @@ type
 var
   formSMSLokal: TformSMSLokal;
   isNewSMS: boolean = False;
+  isPushing: boolean = False;
 
   isThreadRunning: boolean = False;
   strJSON: string;
@@ -57,13 +59,20 @@ end;
 
 procedure TformSMSLokal.Timer1Timer(Sender: TObject);
 begin
-  // pool sms baru
+  // update dan push sms lokal
+  if not isPushing then
+  begin
+    isPushing := True;
+    pushSMSLokal;
+  end;
+
+  // pool sms remote baru
   poolSMSBaru;
 
   if isNewSMS then
   begin
     // notifikasi
-    notifikasi;
+    // notifikasi;
 
     // refresh list
     refreshList;
@@ -73,8 +82,8 @@ begin
   end;
 
   // update status
-  Label1.Caption := 'item sekarang: ' + IntToStr(jmlItem) + ', item terbaru: ' +
-    IntToStr(jmlItemTerupdate);
+  //Label1.Caption := 'item sekarang: ' + IntToStr(jmlItem) + ', item terbaru: ' +
+  //  IntToStr(jmlItemTerupdate);
 end;
 
 procedure TformSMSLokal.refreshList;
@@ -82,15 +91,23 @@ var
   jParser: TJSONParser;
   jData: TJSONData;
 begin
-  strJSON := TFPHTTPClient.SimpleGet(LINK_LIST_SMS_REMOTE);
-  jParser := TJSONParser.Create(strJSON);
-  jData := jParser.Parse;
+  try
+    strJSON := TFPHTTPClient.SimpleGet(LINK_LIST_SMS_REMOTE);
+    jParser := TJSONParser.Create(strJSON);
+    jData := jParser.Parse;
 
-  jmlItem := TJSONArray(jData).Count;
+    jmlItem := TJSONArray(jData).Count;
 
-  renderJSON2ListView(strJSON, ListView1);
+    renderJSON2ListView(strJSON, ListView1);
 
-  jParser.Free;
+    jParser.Free;
+
+  except
+    on Exception do
+    begin
+      // do nothing, cuk
+    end;
+  end;
 
 end;
 
@@ -108,7 +125,15 @@ begin
   isThreadRunning := False;
   }
 
-  jmlItemTerupdate := StrToInt(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_REMOTE));
+  // jmlItemTerupdate := StrToInt(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_REMOTE));
+  try
+    jmlItemTerupdate := StrToInt(TFPCustomHTTPClient.SimpleGet(LINK_JUMLAH_SMS_REMOTE));
+  except
+    on Exception do
+    begin
+
+    end;
+  end;
   isThreadRunning := False;
 
 end;
@@ -131,6 +156,54 @@ begin
 
 end;
 
+procedure TformSMSLokal.pushSMSLokal;
+var
+  totalSMSLokal: integer;
+  tmpRow: string;
+  id: string;
+  nomorPengirim: string;
+  pesan: string;
+  jData: TJSONData;
+  jParser: TJSONParser;
+  s: string;
+
+begin
+  totalSMSLokal := StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_LOKAL)));
+
+  if totalSMSLokal > 0 then
+  begin
+
+    jParser := TJSONParser.Create(TFPHTTPClient.SimpleGet(LINK_POP_SMS_LOKAL));
+    jData := jParser.Parse;
+
+    id := TJSONObject(jData).Get('ID');
+    nomorPengirim := TJSONObject(jData).Get('SenderNumber');
+    pesan := TJSONObject(jData).Get('TextDecoded');
+
+    try
+      // jika berhasil push ke server, hapus sms tersebut dari database lokal
+      if Trim(TFPHTTPClient.SimpleGet(LINK_COMMIT_SMS_LOKAL + '?nomor_pengirim=' +
+        EncodeURLElement(nomorPengirim) + '&pesan=' + EncodeURLElement(pesan))) = '1' then
+      begin
+        TFPHTTPClient.SimpleGet(LINK_DELETE_SMS_LOKAL + '/' + id);
+        RunCommand('notify-send "SMS Dari ' + nomorPengirim + ':" "' +
+          pesan + '" -i mail-unread', s);
+      end;
+
+    except
+      on Exception do
+      begin
+
+      end;
+    end;
+
+    jParser.Free;
+  end;
+
+  // selesai melakukan pushing
+  isPushing := False;
+end;
+
 procedure TformSMSLokal.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   //Timer1.Enabled := False;
@@ -144,5 +217,3 @@ begin
 end;
 
 end.
-
-

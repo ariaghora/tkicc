@@ -225,7 +225,15 @@ procedure TRenderRegularReportThread.Execute;
 begin
   Synchronize(@preRun);
 
-  s := TFPHTTPClient.SimpleGet(LINK_LIST_LAPORAN + kodeWilayah + '/' + tipeLaporan);
+  try
+    s := TFPHTTPClient.SimpleGet(LINK_LIST_LAPORAN + kodeWilayah + '/' + tipeLaporan);
+
+  except
+    on Exception do
+    begin
+
+    end;
+  end;
   Synchronize(@doList);
 
   Synchronize(@postRun);
@@ -325,7 +333,8 @@ begin
     s := TFPHTTPClient.SimpleGet(serializeFromArr(LINK_LOGIN_STAKEHOLDER, arr));
 
   except
-    catatLog('Kesalahan jaringan');
+    on Exception do
+      catatLog('Kesalahan jaringan');
   end;
 
 

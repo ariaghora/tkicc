@@ -44,7 +44,6 @@ type
     shapeIndicatorServer: TBGRAShape;
     Splitter1: TSplitter;
     guiTimer: TTimer;
-    //procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -87,7 +86,7 @@ var
 implementation
 
 uses
-  frmlogin, frmMonitoring, frmmessaging, frmpengaturan, frmmanajementki;
+  frmlogin, frmMonitoring, frmmessaging, frmpengaturan, frmmanajementki, frmondemand;
 
 {$R *.lfm}
 
@@ -174,6 +173,11 @@ begin
       formMonitoring.pnlContent.Parent := pnlContent;
       formMonitoring.renderListview;
     end;
+    'imgOndemand':
+    begin
+      formOnDemand.pnlContent.Parent := pnlContent;
+      formOnDemand.renderListview;
+    end;
     'imgMessaging':
     begin
       formMessaging.pnlContent.Parent := pnlContent;
@@ -187,6 +191,7 @@ begin
     'imgManajemenTKI':
     begin
       formManajemenTKI.pnlContent.Parent := pnlContent;
+      formManajemenTKI.renderListview;
     end;
   end;
 
@@ -237,7 +242,7 @@ begin
   }
 
   try
-    if trim(TFPHTTPClient.SimpleGet('http://www.tkicc.16mb.com/api/testkoneksi')) =
+    if trim(TFPHTTPClient.SimpleGet(LINK_TEST_KONEKSI_KE_SERVER)) =
       'Koneksi berhasil' then
     begin
       TERKONEKSI_KE_SERVER := True;
@@ -285,9 +290,11 @@ begin
   if TERKONEKSI_KE_SERVER then
   begin
     shapeIndicatorServer.FillColor := clLime;
+
     pnlLeft.Enabled := True;
     pnlContent.Enabled := True;
     formLogin.Enabled := True;
+
     retryCount := 1; // reset kembali retry count
   end
   else
@@ -297,6 +304,7 @@ begin
     pnlLeft.Enabled := False;
     pnlContent.Enabled := False;
     formLogin.Enabled := False;
+
     catatLog('Terputus dari internet. Mencoba kembali koneksi... (' +
       IntToStr(retryCount) + ')');
     retryCount := retryCount + 1;

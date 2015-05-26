@@ -116,7 +116,7 @@ var
   jParser: TJSONParser;
   jData: TJSONData;
 begin
-  { TODO 3 -oGhora -cmbuh : dapatkan jumlah sms remote, instead of sms lokal. Hapus blok kode di bawah ini }
+  { TODO  3 -oGhora -cmbuh : dapatkan jumlah sms remote, instead of sms lokal. Hapus blok kode di bawah ini }
 
   {
   jParser := TJSONParser.Create(TFPHTTPClient.SimpleGet(LINK_LIST_SMS_LOKAL));
@@ -178,12 +178,15 @@ begin
 
     id := TJSONObject(jData).Get('ID');
     nomorPengirim := TJSONObject(jData).Get('SenderNumber');
+    nomorPengirim := StringReplace(nomorPengirim, '+62', '0',
+      [rfReplaceAll, rfIgnoreCase]);
     pesan := TJSONObject(jData).Get('TextDecoded');
 
     try
       // jika berhasil push ke server, hapus sms tersebut dari database lokal
-      if Trim(TFPHTTPClient.SimpleGet(LINK_COMMIT_SMS_LOKAL + '?nomor_pengirim=' +
-        EncodeURLElement(nomorPengirim) + '&pesan=' + EncodeURLElement(pesan))) = '1' then
+      if Trim(TFPHTTPClient.SimpleGet(LINK_COMMIT_SMS_LOKAL +
+        '?nomor_pengirim=' + EncodeURLElement(nomorPengirim) +
+        '&pesan=' + EncodeURLElement(pesan))) = '1' then
       begin
         TFPHTTPClient.SimpleGet(LINK_DELETE_SMS_LOKAL + '/' + id);
         RunCommand('notify-send "SMS Dari ' + nomorPengirim + ':" "' +

@@ -24,7 +24,8 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmpengaturan,
   frmmanajementki,
   frmsmslokal,
-  frmlogoutput;
+  frmlogoutput,
+  frmondemand;
 
 {$R *.res}
 
@@ -43,5 +44,6 @@ begin
   Application.CreateForm(TformManajemenTKI, formManajemenTKI);
   Application.CreateForm(TformSMSLokal, formSMSLokal);
   Application.CreateForm(TformLogOutput, formLogOutput);
+  Application.CreateForm(TformOnDemand, formOnDemand);
   Application.Run;
 end.

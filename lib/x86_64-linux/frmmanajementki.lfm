@@ -19,9 +19,9 @@ object formManajemenTKI: TformManajemenTKI
     TabOrder = 0
     object ListView1: TListView
       Left = 10
-      Height = 317
+      Height = 313
       Top = 48
-      Width = 586
+      Width = 582
       Align = alClient
       BorderSpacing.Left = 10
       BorderSpacing.Right = 10
@@ -52,11 +52,11 @@ object formManajemenTKI: TformManajemenTKI
       Left = 0
       Height = 48
       Top = 0
-      Width = 606
+      Width = 602
       Align = alTop
       BevelOuter = bvNone
       ClientHeight = 48
-      ClientWidth = 606
+      ClientWidth = 602
       TabOrder = 1
       object SpeedButton1: TSpeedButton
         Left = 10

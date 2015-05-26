@@ -15,10 +15,12 @@ type
 
   TformLogin = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     edtUsername: TEdit;
     edtPassword: TEdit;
     imgAnimation: TBGRASpriteAnimation;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -44,7 +46,7 @@ procedure TformLogin.FormShow(Sender: TObject);
 begin
   formMain.Hide;
 
-  formLogOutput.Show;
+  //formLogOutput.Show;
 end;
 
 procedure TformLogin.Button1Click(Sender: TObject);
@@ -59,6 +61,11 @@ begin
     thread.password := edtPassword.Text;
     thread.Start;
   end;
+end;
+
+procedure TformLogin.Button2Click(Sender: TObject);
+begin
+  ShowMessage(TFPHTTPClient.SimpleGet(HOST_REMOTE));
 end;
 
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;

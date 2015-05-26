@@ -38,7 +38,7 @@ object formLogin: TformLogin
   end
   object edtPassword: TEdit
     Left = 88
-    Height = 29
+    Height = 27
     Top = 53
     Width = 147
     EchoMode = emPassword

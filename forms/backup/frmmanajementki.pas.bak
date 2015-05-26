@@ -13,7 +13,6 @@ type
   { TformManajemenTKI }
 
   TformManajemenTKI = class(TForm)
-    ComboBox1: TComboBox;
     ListView1: TListView;
     Panel3: TPanel;
     pnlContent: TPanel;
@@ -21,7 +20,7 @@ type
   private
     { private declarations }
   public
-    { public declarations }
+    procedure renderListview;
   end;
 
 var
@@ -30,6 +29,19 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TformManajemenTKI }
+
+procedure doRender;
+begin
+  // lalala
+end;
+
+procedure TformManajemenTKI.renderListview;
+begin
+  doRender;
+end;
+
 
 end.
 

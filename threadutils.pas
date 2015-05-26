@@ -44,6 +44,34 @@ type
     procedure onFailed;
   end;
 
+  { TRenderOndemandReportThread }
+
+  TRenderOndemandReportThread = class(TThread)
+    lv: TListView;
+    s: string;
+  protected
+    procedure Execute; override;
+    procedure doList;
+  public
+    constructor Create(CreateSuspended: boolean);
+    procedure preRun;
+    procedure postRun;
+  end;
+
+  { TRenderTkiThread }
+
+  TRenderTkiThread = class(TThread)
+    lv: TListView;
+    s: string;
+  protected
+    procedure Execute; override;
+    procedure doList;
+  public
+    constructor Create(CreateSuspended: boolean);
+    procedure preRun;
+    procedure postRun;
+  end;
+
   { TRenderBroadcastMessage }
 
   TRenderBroadcastMessage = class(TThread)
@@ -87,6 +115,84 @@ implementation
 
 uses
   frmMain, frmlogin;
+
+{ TRenderTkiThread }
+
+procedure TRenderTkiThread.Execute;
+begin
+  Synchronize(@preRun);
+  s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG);
+  Synchronize(@doList);
+  Synchronize(@postRun);
+end;
+
+procedure TRenderTkiThread.doList;
+begin
+  renderJSON2ListView(s, lv);
+end;
+
+constructor TRenderTkiThread.Create(CreateSuspended: boolean);
+begin
+  freeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
+
+procedure TRenderTkiThread.preRun;
+begin
+  formMain.pnlContent.Enabled := False;
+  formMain.imgAnimation.Show;
+  catatLog('memuat daftar TKI pada simpul' + ID_SIMPUL_CABANG);
+end;
+
+procedure TRenderTkiThread.postRun;
+begin
+  formMain.imgAnimation.Hide;
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('daftar TKI pada simpul ' + ID_SIMPUL_CABANG + ' dimuat');
+  end;
+end;
+
+{ TRenderOndemandReportThread }
+
+procedure TRenderOndemandReportThread.Execute;
+begin
+  Synchronize(@preRun);
+  s := TFPHTTPClient.SimpleGet(LINK_LIST_PESAN_ONDEMAND);
+  Synchronize(@doList);
+  Synchronize(@postRun);
+end;
+
+procedure TRenderOndemandReportThread.doList;
+begin
+  renderJSON2ListView(s, lv);
+end;
+
+constructor TRenderOndemandReportThread.Create(CreateSuspended: boolean);
+begin
+  FreeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
+
+procedure TRenderOndemandReportThread.preRun;
+begin
+  formMain.pnlContent.Enabled := False;
+  formMain.imgAnimation.Show;
+  catatLog('memuat daftar pesan on-demand');
+
+end;
+
+procedure TRenderOndemandReportThread.postRun;
+begin
+  formMain.imgAnimation.Hide;
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('daftar pesan on-demand dimuat');
+  end;
+
+end;
 
 { TCekKoneksiServerThread }
 

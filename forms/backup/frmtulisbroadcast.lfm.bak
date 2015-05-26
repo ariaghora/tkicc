@@ -1,7 +1,7 @@
 object formTulisBroadcast: TformTulisBroadcast
-  Left = 892
+  Left = 361
   Height = 292
-  Top = 376
+  Top = 297
   Width = 357
   Caption = 'Tulis SMS Broadcast'
   ClientHeight = 292
@@ -9,6 +9,7 @@ object formTulisBroadcast: TformTulisBroadcast
   Color = clWhite
   Font.Height = -13
   Font.Name = 'Montserrat'
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.2.6.0'

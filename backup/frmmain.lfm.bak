@@ -21,7 +21,7 @@ object formMain: TformMain
     BevelOuter = bvNone
     ClientHeight = 72
     ClientWidth = 852
-    Color = 14606046
+    Color = 15527148
     Font.Name = 'Montserrat'
     ParentColor = False
     ParentFont = False

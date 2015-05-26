@@ -20,11 +20,15 @@ var
   LINK_DELETE_SMS_LOKAL: string;
   LINK_JUMLAH_SMS_LOKAL: string;
   LINK_JUMLAH_SMS_REMOTE: string;
+  LINK_JUMLAH_PESAN_ONDEMAND: string;
   LINK_LOGIN_STAKEHOLDER: string;
   LINK_LIST_LAPORAN: string;
   LINK_LIST_BROADCAST: string;
+  LINK_LIST_NOMOR_TELEPON: string;
+  LINK_LIST_PESAN_ONDEMAND: string;
   LINK_LIST_SMS_LOKAL: string;
   LINK_LIST_SMS_REMOTE: string;
+  LINK_LIST_TKI: string;
   LINK_KIRIM_BROADCAST: string;
   LINK_TULIS_BROADCAST: string;
   LINK_TEST_KONEKSI_KE_SERVER: string;
@@ -48,7 +52,9 @@ begin
   HOST_LOKAL := 'http://localhost/tkicc/';
 
   //HOST_REMOTE := 'http://grepegre.pe.hu/';
-  HOST_REMOTE := 'http://tkicc.16mb.com/';
+  //HOST_REMOTE := 'http://ghora.koding.io/';
+  //HOST_REMOTE := 'http://tkicc.16mb.com/';
+  HOST_REMOTE := 'http://tkicc-ghora.rhcloud.com/';
 
   API_DIR_LOKAL := 'api/';
   API_DIR_REMOTE := 'api/';
@@ -65,13 +71,18 @@ begin
   end;
   HOST := HOST + API_DIR;
 
+  LINK_COMMIT_SMS_LOKAL := HOST + 'commitsmslokal';
   LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder/';
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
   LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
+  LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand';
+  LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
+  LINK_LIST_TKI := HOST + 'listtki';
+  LINK_LIST_NOMOR_TELEPON := HOST + 'listnomortelepon';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 
@@ -82,7 +93,6 @@ begin
   LINK_TULIS_BROADCAST := HOST_LOKAL + API_DIR_LOKAL + 'tulisbroadcast';
   LINK_LIST_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'listsmslokal';
   LINK_JUMLAH_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'jumlahsmslokal';
-  LINK_COMMIT_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'commitsmslokal';
   LINK_POP_SMS_LOKAL := HOST_LOKAL + API_DIR_LOKAL + 'popsmslokal';
 end;
 

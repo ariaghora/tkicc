@@ -38,7 +38,7 @@ object formLogin: TformLogin
   end
   object edtPassword: TEdit
     Left = 88
-    Height = 29
+    Height = 27
     Top = 53
     Width = 147
     EchoMode = emPassword
@@ -6478,5 +6478,14 @@ object formLogin: TformLogin
     Tile = False
     Caption = 'imgAnimation'
     Visible = False
+  end
+  object Button2: TButton
+    Left = 77
+    Height = 25
+    Top = 17
+    Width = 75
+    Caption = 'Button2'
+    OnClick = Button2Click
+    TabOrder = 3
   end
 end

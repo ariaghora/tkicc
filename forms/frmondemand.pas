@@ -23,6 +23,7 @@ type
     { private declarations }
   public
     procedure renderListview;
+    procedure init;
   end;
 
 var
@@ -40,12 +41,7 @@ implementation
 
 procedure TformOnDemand.FormCreate(Sender: TObject);
 begin
-  try
-    jumlahPesanOnDemandSekarang :=
-      StrToInt(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND));
-  except
-    on Exception do ;
-  end;
+  //init;
 
 end;
 
@@ -53,7 +49,8 @@ procedure setJumlahPesanOndemand;
 begin
   try
     jumlahPesanOnDemandRemote :=
-      StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND)));
+      StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
+      '/' + ID_SIMPUL_CABANG)));
     cekJumlah := False;
   except
     on Exception do
@@ -73,6 +70,7 @@ begin
 
   if jumlahPesanOnDemandRemote > jumlahPesanOnDemandSekarang then
   begin
+    ShowMessage('ALERT!!!!');
     renderListview;
   end;
 
@@ -81,7 +79,8 @@ end;
 procedure doRender;
 begin
   try
-    renderJSON2ListView(TFPHTTPClient.SimpleGet(LINK_LIST_PESAN_ONDEMAND),
+    renderJSON2ListView(TFPHTTPClient.SimpleGet(
+      LINK_LIST_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG),
       formOndemand.ListView1);
   except
     on Exception do
@@ -99,6 +98,25 @@ begin
   thr := TRenderOndemandReportThread.Create(True);
   thr.lv := ListView1;
   thr.Start;
+end;
+
+procedure TformOnDemand.init;
+begin
+  try
+    jumlahPesanOnDemandSekarang :=
+      StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
+      '/' + ID_SIMPUL_CABANG)));
+
+    // ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
+    //  '/' + ID_SIMPUL_CABANG));
+  except
+    on Exception do
+    begin
+      ShowMessage('Error init');
+    end;
+  end;
+
+  jumlahPesanOnDemandRemote := jumlahPesanOnDemandSekarang;
 end;
 
 end.

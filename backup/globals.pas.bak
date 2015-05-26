@@ -49,7 +49,7 @@ implementation
 
 procedure init(isOnline: boolean);
 begin
-  HOST_LOKAL := 'http://localhost/tkicc/';
+  HOST_LOKAL := 'http://localhost/rhctkicc/';
 
   //HOST_REMOTE := 'http://grepegre.pe.hu/';
   //HOST_REMOTE := 'http://ghora.koding.io/';
@@ -78,7 +78,7 @@ begin
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
   LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
-  LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand';
+  LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/' + ID_SIMPUL_CABANG;
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
   LINK_LIST_TKI := HOST + 'listtki';

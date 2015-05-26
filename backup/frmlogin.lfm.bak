@@ -6480,9 +6480,9 @@ object formLogin: TformLogin
     Visible = False
   end
   object Button2: TButton
-    Left = 77
+    Left = 27
     Height = 25
-    Top = 17
+    Top = 24
     Width = 75
     Caption = 'Button2'
     OnClick = Button2Click

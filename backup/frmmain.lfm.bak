@@ -1,11 +1,11 @@
 object formMain: TformMain
-  Left = 359
-  Height = 568
-  Top = 147
-  Width = 852
+  Left = 185
+  Height = 545
+  Top = 164
+  Width = 785
   Caption = 'TKI Crisis Center'
-  ClientHeight = 568
-  ClientWidth = 852
+  ClientHeight = 545
+  ClientWidth = 785
   Color = clWhite
   OnClose = FormClose
   OnCreate = FormCreate
@@ -16,11 +16,11 @@ object formMain: TformMain
     Left = 0
     Height = 72
     Top = 0
-    Width = 852
+    Width = 785
     Align = alTop
     BevelOuter = bvNone
     ClientHeight = 72
-    ClientWidth = 852
+    ClientWidth = 785
     Color = 15527148
     Font.Name = 'Montserrat'
     ParentColor = False
@@ -160,7 +160,7 @@ object formMain: TformMain
       }
     end
     object Panel8: TPanel
-      Left = 495
+      Left = 428
       Height = 72
       Top = 0
       Width = 357
@@ -6644,27 +6644,35 @@ object formMain: TformMain
       Caption = 'imgAnimation'
       Visible = False
     end
+    object Button1: TButton
+      Left = 302
+      Height = 25
+      Top = 41
+      Width = 75
+      Caption = 'Button1'
+      TabOrder = 1
+    end
   end
   object Panel2: TPanel
     Left = 0
-    Height = 387
+    Height = 364
     Top = 72
-    Width = 852
+    Width = 785
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 387
-    ClientWidth = 852
+    ClientHeight = 364
+    ClientWidth = 785
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     object pnlLeft: TPanel
       Left = 0
-      Height = 387
+      Height = 364
       Top = 0
       Width = 70
       Align = alLeft
       BevelOuter = bvNone
-      ClientHeight = 387
+      ClientHeight = 364
       ClientWidth = 70
       TabOrder = 0
       OnResize = pnlLeftResize
@@ -6797,7 +6805,7 @@ object formMain: TformMain
       end
       object imgShade: TImage
         Left = 60
-        Height = 37
+        Height = 14
         Top = 350
         Width = 10
         Align = alRight
@@ -7041,9 +7049,9 @@ object formMain: TformMain
     end
     object pnlContent: TPanel
       Left = 70
-      Height = 387
+      Height = 364
       Top = 0
-      Width = 782
+      Width = 715
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
@@ -7052,18 +7060,18 @@ object formMain: TformMain
   object Panel3: TPanel
     Left = 0
     Height = 28
-    Top = 540
-    Width = 852
+    Top = 517
+    Width = 785
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 28
-    ClientWidth = 852
+    ClientWidth = 785
     Color = 5789784
     ParentColor = False
     TabOrder = 2
     object shapeIndicatorSMSD: TBGRAShape
       Cursor = crHandPoint
-      Left = 833
+      Left = 766
       Height = 10
       Hint = 'Check'
       Top = 9
@@ -7101,7 +7109,7 @@ object formMain: TformMain
       Caption = 'shapeIndicatorSMSD'
     end
     object Label3: TLabel
-      Left = 750
+      Left = 683
       Height = 16
       Top = 6
       Width = 74
@@ -7116,7 +7124,7 @@ object formMain: TformMain
     end
     object shapeIndicatorServer: TBGRAShape
       Cursor = crHandPoint
-      Left = 711
+      Left = 644
       Height = 10
       Hint = 'Check'
       Top = 9
@@ -7155,7 +7163,7 @@ object formMain: TformMain
       Caption = 'shapeIndicatorServer'
     end
     object Label4: TLabel
-      Left = 615
+      Left = 548
       Height = 16
       Top = 6
       Width = 87
@@ -7170,7 +7178,7 @@ object formMain: TformMain
     end
     object Label5: TLabel
       Cursor = crHandPoint
-      Left = 531
+      Left = 464
       Height = 16
       Top = 6
       Width = 58
@@ -7190,13 +7198,13 @@ object formMain: TformMain
   object pnlLog: TPanel
     Left = 0
     Height = 76
-    Top = 464
-    Width = 852
+    Top = 441
+    Width = 785
     Align = alBottom
     BevelOuter = bvNone
     Caption = 'pnlLog'
     ClientHeight = 76
-    ClientWidth = 852
+    ClientWidth = 785
     Color = clBlack
     ParentColor = False
     TabOrder = 3
@@ -7205,7 +7213,7 @@ object formMain: TformMain
       Left = 5
       Height = 66
       Top = 5
-      Width = 842
+      Width = 775
       Align = alClient
       BorderSpacing.Around = 5
       BorderStyle = bsNone
@@ -7228,8 +7236,8 @@ object formMain: TformMain
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 459
-    Width = 852
+    Top = 436
+    Width = 785
     Align = alBottom
     ResizeAnchor = akBottom
     Visible = False

@@ -41,12 +41,14 @@ object formMonitoring: TformMonitoring
         end>
       Font.Height = -12
       Font.Name = 'Montserrat'
+      GridLines = True
       ParentFont = False
       ReadOnly = True
       RowSelect = True
       ScrollBars = ssAutoBoth
       TabOrder = 0
       ViewStyle = vsReport
+      OnCustomDrawItem = ListView1CustomDrawItem
       OnDblClick = ListView1DblClick
     end
     object Panel3: TPanel

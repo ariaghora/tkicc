@@ -1,28 +1,28 @@
 object formOnDemand: TformOnDemand
   Left = 335
-  Height = 340
+  Height = 235
   Top = 194
-  Width = 702
+  Width = 371
   Caption = 'formOnDemand'
-  ClientHeight = 340
-  ClientWidth = 702
+  ClientHeight = 235
+  ClientWidth = 371
   OnCreate = FormCreate
   LCLVersion = '1.2.6.0'
   object pnlContent: TPanel
     Left = 0
-    Height = 340
+    Height = 235
     Top = 0
-    Width = 702
+    Width = 371
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 340
-    ClientWidth = 702
+    ClientHeight = 235
+    ClientWidth = 371
     TabOrder = 0
     object ListView1: TListView
       Left = 10
-      Height = 320
+      Height = 215
       Top = 10
-      Width = 682
+      Width = 351
       Align = alClient
       BorderSpacing.Left = 10
       BorderSpacing.Top = 10
@@ -53,6 +53,7 @@ object formOnDemand: TformOnDemand
     end
   end
   object Timer1: TTimer
+    Enabled = False
     OnTimer = Timer1Timer
     left = 8
     top = 304

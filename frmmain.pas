@@ -144,6 +144,12 @@ begin
 
   pnlLeft.Width := 0;
   guiTimer.Enabled := True;
+
+  //ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
+  //    '/' + ID_SIMPUL_CABANG));
+
+  formOnDemand.init;
+  formOnDemand.Timer1.Enabled := True;
 end;
 
 procedure TformMain.guiTimerTimer(Sender: TObject);

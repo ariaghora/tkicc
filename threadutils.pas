@@ -114,7 +114,7 @@ type
 implementation
 
 uses
-  frmMain, frmlogin;
+  frmMain, frmlogin, frmondemand;
 
 { TRenderTkiThread }
 
@@ -159,7 +159,7 @@ end;
 procedure TRenderOndemandReportThread.Execute;
 begin
   Synchronize(@preRun);
-  s := TFPHTTPClient.SimpleGet(LINK_LIST_PESAN_ONDEMAND);
+  s := TFPHTTPClient.SimpleGet(LINK_LIST_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG);
   Synchronize(@doList);
   Synchronize(@postRun);
 end;
@@ -512,6 +512,10 @@ begin
   formMain.Show;
   //formMain.imgMonitorMouseDown(formMain.imgMonitor, mbLeft, [], 0, 0);
   catatLog('login berhasil sebagai ' + USER_NAME);
+
+  // init & timer enabling
+  // formOnDemand.init;
+
 end;
 
 procedure TLoginThread.onFailed;

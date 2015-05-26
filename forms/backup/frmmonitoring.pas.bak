@@ -19,6 +19,8 @@ type
     Panel3: TPanel;
     SpeedButton1: TSpeedButton;
     procedure ComboBox1Change(Sender: TObject);
+    procedure ListView1CustomDrawItem(Sender: TCustomListView;
+      Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
     procedure ListView1DblClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
@@ -57,6 +59,17 @@ end;
 procedure TformMonitoring.ComboBox1Change(Sender: TObject);
 begin
   renderListview;
+end;
+
+procedure TformMonitoring.ListView1CustomDrawItem(Sender: TCustomListView;
+  Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
+var
+  rct: TRect;
+begin
+  DefaultDraw := False;
+  rct := Item.DisplayRect(drLabel);
+  Sender.Canvas.TextOut(rct.Left, rct.Top, Item.Caption);
+
 end;
 
 procedure TformMonitoring.ListView1DblClick(Sender: TObject);

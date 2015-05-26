@@ -65,7 +65,8 @@ end;
 
 procedure TformLogin.Button2Click(Sender: TObject);
 begin
-  ShowMessage(TFPHTTPClient.SimpleGet(HOST_REMOTE));
+  ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
+      '/' + ID_SIMPUL_CABANG));
 end;
 
 procedure TformLogin.edtPasswordKeyDown(Sender: TObject; var Key: word;

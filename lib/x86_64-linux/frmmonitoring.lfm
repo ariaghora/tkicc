@@ -48,6 +48,7 @@ object formMonitoring: TformMonitoring
       ScrollBars = ssAutoBoth
       TabOrder = 0
       ViewStyle = vsReport
+      OnCustomDrawItem = ListView1CustomDrawItem
       OnDblClick = ListView1DblClick
     end
     object Panel3: TPanel

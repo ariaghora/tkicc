@@ -78,7 +78,7 @@ begin
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
   LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
-  LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand';
+  LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
   LINK_LIST_TKI := HOST + 'listtki';

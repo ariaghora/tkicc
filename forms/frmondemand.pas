@@ -14,6 +14,7 @@ type
   { TformOnDemand }
 
   TformOnDemand = class(TForm)
+    Label1: TLabel;
     ListView1: TListView;
     pnlContent: TPanel;
     Timer1: TTimer;
@@ -30,6 +31,8 @@ var
   formOnDemand: TformOnDemand;
   jumlahPesanOnDemandSekarang: integer = 0;
   jumlahPesanOnDemandRemote: integer = 0;
+
+  counter: integer = 0;
 
   cekJumlah: boolean = False;
 
@@ -55,6 +58,8 @@ begin
   except
     on Exception do
     begin
+      cekJumlah := False;
+
     end;
   end;
 end;
@@ -65,6 +70,7 @@ begin
   if not cekJumlah then
   begin
     cekJumlah := True;
+    Inc(counter);
     BeginThread(TThreadFunc(@setJumlahPesanOndemand));
   end;
 
@@ -73,6 +79,10 @@ begin
     ShowMessage('ALERT!!!!');
     renderListview;
   end;
+
+  //Label1.Caption := IntToStr(jumlahPesanOnDemandSekarang) + ' ' +
+  //  IntToStr(jumlahPesanOnDemandRemote);
+  Label1.Caption := IntToStr(counter);
 
 end;
 
@@ -102,6 +112,10 @@ end;
 
 procedure TformOnDemand.init;
 begin
+  jumlahPesanOnDemandSekarang := 0;
+  jumlahPesanOnDemandRemote := 0;
+  counter := 0;
+
   try
     jumlahPesanOnDemandSekarang :=
       StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
@@ -117,6 +131,9 @@ begin
   end;
 
   jumlahPesanOnDemandRemote := jumlahPesanOnDemandSekarang;
+
+  //ShowMessage(IntToStr(jumlahPesanOnDemandSekarang));
+  //ShowMessage(IntToStr(jumlahPesanOnDemandRemote));
 end;
 
 end.

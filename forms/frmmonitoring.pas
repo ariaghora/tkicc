@@ -119,7 +119,14 @@ procedure TformMonitoring.ListView1DblClick(Sender: TObject);
 begin
   if ListView1.SelCount > 0 then
   begin
+    formDetailTKI.namaTKI := ListView1.Selected.Caption;
     formDetailTKI.pnlContent.Parent := pnlContent;
+
+    with formDetailTKI do
+    begin
+      lblNama.Caption := namaTKI;
+    end;
+
     panel3.Hide;
     ListView1.Hide;
   end;

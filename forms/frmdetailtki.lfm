@@ -1,7 +1,7 @@
 object formDetailTKI: TformDetailTKI
-  Left = 454
+  Left = 658
   Height = 435
-  Top = 176
+  Top = 147
   Width = 605
   Caption = 'formDetailTKI'
   ClientHeight = 435
@@ -37,6 +37,8 @@ object formDetailTKI: TformDetailTKI
         Align = alLeft
         BorderSpacing.Around = 10
         Caption = 'Kembali ke Daftar'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
         Glyph.Data = {
           F6030000424DF60300000000000036000000280000000F000000100000000100
           200000000000C003000064000000640000000000000000000000FFFFFF00FFFF
@@ -72,6 +74,7 @@ object formDetailTKI: TformDetailTKI
           FF000000003B00000089000000B2000000CD00000052FFFFFF00
         }
         OnClick = SpeedButton1Click
+        ParentFont = False
       end
     end
     object ScrollBox1: TScrollBox
@@ -80,7 +83,7 @@ object formDetailTKI: TformDetailTKI
       Top = 48
       Width = 605
       HorzScrollBar.Page = 328
-      VertScrollBar.Page = 233
+      VertScrollBar.Page = 193
       Align = alClient
       BorderStyle = bsNone
       ClientHeight = 387
@@ -97,7 +100,7 @@ object formDetailTKI: TformDetailTKI
         ParentColor = False
         ParentFont = False
       end
-      object BGRAFlashProgressBar1: TBGRAFlashProgressBar
+      object bar1: TBGRAFlashProgressBar
         Left = 176
         Height = 33
         Top = 40
@@ -105,10 +108,9 @@ object formDetailTKI: TformDetailTKI
         MinValue = 0
         MaxValue = 4
         Value = 3
-        OnClick = BGRAFlashProgressBar1Click
         Color = 4591294
       end
-      object BGRAFlashProgressBar2: TBGRAFlashProgressBar
+      object bar2: TBGRAFlashProgressBar
         Left = 176
         Height = 33
         Top = 80
@@ -118,7 +120,7 @@ object formDetailTKI: TformDetailTKI
         Value = 2
         Color = 4591294
       end
-      object BGRAFlashProgressBar3: TBGRAFlashProgressBar
+      object bar3: TBGRAFlashProgressBar
         Left = 176
         Height = 33
         Top = 120
@@ -128,7 +130,7 @@ object formDetailTKI: TformDetailTKI
         Value = 3
         Color = 4591294
       end
-      object BGRAFlashProgressBar4: TBGRAFlashProgressBar
+      object bar4: TBGRAFlashProgressBar
         Left = 176
         Height = 33
         Top = 160
@@ -136,16 +138,6 @@ object formDetailTKI: TformDetailTKI
         MinValue = 0
         MaxValue = 4
         Value = 2
-        Color = 4591294
-      end
-      object BGRAFlashProgressBar5: TBGRAFlashProgressBar
-        Left = 176
-        Height = 33
-        Top = 200
-        Width = 152
-        MinValue = 0
-        MaxValue = 4
-        Value = 1
         Color = 4591294
       end
     end

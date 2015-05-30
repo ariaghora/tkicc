@@ -61,30 +61,7 @@ var
   i, j: integer;
   bool: boolean;
 begin
-  //renderListview;
-
-  ListView1.Items.BeginUpdate;
-
-  for i := ListView1.Items.Count - 1 downto 0 do
-  begin
-    bool := Pos(UpperCase(searchString), UpperCase(ListView1.Items[i].Caption)) > 0;
-    if not (bool) then
-    begin
-      for j := 0 to ListView1.Items[i].SubItems.Count - 1 do
-      begin
-        if Pos(UpperCase(searchString),
-          UpperCase(ListView1.Items[i].SubItems[j])) > 0 then
-        begin
-          bool := True;
-          break;
-        end;
-      end;
-    end;
-    if not bool then
-      ListView1.Items[i].Delete;
-  end;
-  ListView1.Items.EndUpdate;
-
+  renderListview;
 end;
 
 procedure TformMonitoring.SpeedButton1Click(Sender: TObject);
@@ -142,7 +119,14 @@ procedure TformMonitoring.ListView1DblClick(Sender: TObject);
 begin
   if ListView1.SelCount > 0 then
   begin
+    formDetailTKI.namaTKI := ListView1.Selected.Caption;
     formDetailTKI.pnlContent.Parent := pnlContent;
+
+    with formDetailTKI do
+    begin
+      lblNama := namaTKI;
+    end;
+
     panel3.Hide;
     ListView1.Hide;
   end;

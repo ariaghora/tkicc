@@ -14,7 +14,6 @@ type
   { TformOnDemand }
 
   TformOnDemand = class(TForm)
-    Label1: TLabel;
     ListView1: TListView;
     pnlContent: TPanel;
     Timer1: TTimer;
@@ -31,8 +30,6 @@ var
   formOnDemand: TformOnDemand;
   jumlahPesanOnDemandSekarang: integer = 0;
   jumlahPesanOnDemandRemote: integer = 0;
-
-  counter: integer = 0;
 
   cekJumlah: boolean = False;
 
@@ -70,7 +67,7 @@ begin
   if not cekJumlah then
   begin
     cekJumlah := True;
-    Inc(counter);
+    //Inc(counter);
     BeginThread(TThreadFunc(@setJumlahPesanOndemand));
   end;
 
@@ -82,7 +79,7 @@ begin
 
   //Label1.Caption := IntToStr(jumlahPesanOnDemandSekarang) + ' ' +
   //  IntToStr(jumlahPesanOnDemandRemote);
-  Label1.Caption := IntToStr(counter);
+  //Label1.Caption := IntToStr(counter);
 
 end;
 
@@ -114,7 +111,6 @@ procedure TformOnDemand.init;
 begin
   jumlahPesanOnDemandSekarang := 0;
   jumlahPesanOnDemandRemote := 0;
-  counter := 0;
 
   try
     jumlahPesanOnDemandSekarang :=

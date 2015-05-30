@@ -13,26 +13,28 @@ type
   { TformDetailTKI }
 
   TformDetailTKI = class(TForm)
-    BGRAFlashProgressBar1: TBGRAFlashProgressBar;
-    BGRAFlashProgressBar2: TBGRAFlashProgressBar;
-    BGRAFlashProgressBar3: TBGRAFlashProgressBar;
-    BGRAFlashProgressBar4: TBGRAFlashProgressBar;
-    BGRAFlashProgressBar5: TBGRAFlashProgressBar;
+    bar1: TBGRAFlashProgressBar;
+    bar2: TBGRAFlashProgressBar;
+    bar3: TBGRAFlashProgressBar;
+    bar4: TBGRAFlashProgressBar;
     lblNama: TLabel;
     Panel3: TPanel;
     pnlContent: TPanel;
     ScrollBox1: TScrollBox;
     SpeedButton1: TSpeedButton;
-    procedure BGRAFlashProgressBar1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
     { private declarations }
   public
     jString: string;
+    namaTKI: string;
+    nil1, nil2, nil3: string;
   end;
 
 var
   formDetailTKI: TformDetailTKI;
+
+
 
 implementation
 
@@ -42,11 +44,6 @@ uses
 {$R *.lfm}
 
 { TformDetailTKI }
-
-procedure TformDetailTKI.BGRAFlashProgressBar1Click(Sender: TObject);
-begin
-
-end;
 
 procedure TformDetailTKI.SpeedButton1Click(Sender: TObject);
 begin

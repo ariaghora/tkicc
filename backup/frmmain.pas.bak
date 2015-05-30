@@ -149,7 +149,7 @@ begin
   //    '/' + ID_SIMPUL_CABANG));
 
   formOnDemand.init;
-  ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG));
+  //ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG));
   formOnDemand.Timer1.Enabled := True;
 end;
 

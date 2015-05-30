@@ -33,6 +33,7 @@ type
     tipeLaporan: string;
     lv: TListView;
     s: string;
+    searchString: string;
   protected
     procedure Execute; override;
     procedure doList;
@@ -364,7 +365,32 @@ begin
 end;
 
 procedure TRenderRegularReportThread.postRun;
+var
+  i, j: integer;
+  bool: boolean;
 begin
+  lv.Items.BeginUpdate;
+
+  for i := lv.Items.Count - 1 downto 0 do
+  begin
+    bool := Pos(UpperCase(searchString), UpperCase(lv.Items[i].Caption)) > 0;
+    if not (bool) then
+    begin
+      for j := 0 to lv.Items[i].SubItems.Count - 1 do
+      begin
+        if Pos(UpperCase(searchString), UpperCase(lv.Items[i].SubItems[j])) > 0 then
+        begin
+          bool := True;
+          break;
+        end;
+      end;
+    end;
+    if not bool then
+      lv.Items[i].Delete;
+  end;
+  lv.Items.EndUpdate;
+
+
   formMain.imgAnimation.Hide;
   if TERKONEKSI_KE_SERVER then
   begin
@@ -515,8 +541,6 @@ begin
 
   // init & timer enabling
   // formOnDemand.init;
-
-  formOnDemand.Timer1.Enabled := True;
 
 end;
 

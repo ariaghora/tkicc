@@ -14,11 +14,14 @@ type
 
   TformMonitoring = class(TForm)
     ComboBox1: TComboBox;
+    edtSearch: TEdit;
+    Image1: TImage;
     ListView1: TListView;
     pnlContent: TPanel;
     Panel3: TPanel;
     SpeedButton1: TSpeedButton;
     procedure ComboBox1Change(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: char);
     procedure ListView1CustomDrawItem(Sender: TCustomListView;
       Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
     procedure ListView1DblClick(Sender: TObject);
@@ -27,6 +30,7 @@ type
     { private declarations }
   public
     procedure renderListview;
+    procedure cariTKI(searchString: string);
   end;
 
 var
@@ -48,7 +52,16 @@ begin
   renderThread.kodeWilayah := ID_SIMPUL_CABANG;
   renderThread.tipeLaporan := IntToStr(ComboBox1.ItemIndex + 1);
   renderThread.lv := ListView1;
+  renderThread.searchString := trim(edtSearch.Text);
   renderThread.Start;
+end;
+
+procedure TformMonitoring.cariTKI(searchString: string);
+var
+  i, j: integer;
+  bool: boolean;
+begin
+  renderListview;
 end;
 
 procedure TformMonitoring.SpeedButton1Click(Sender: TObject);
@@ -61,6 +74,12 @@ begin
   renderListview;
 end;
 
+procedure TformMonitoring.edtSearchKeyPress(Sender: TObject; var Key: char);
+begin
+  if key = char(13) then
+    cariTKI(edtSearch.Text);
+end;
+
 procedure TformMonitoring.ListView1CustomDrawItem(Sender: TCustomListView;
   Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
 var
@@ -68,8 +87,31 @@ var
 begin
   DefaultDraw := False;
   rct := Item.DisplayRect(drLabel);
-  sender.Canvas.FillRect(rct);
-  Sender.Canvas.TextOut(rct.Left, rct.Top, Item.Caption);
+
+  Sender.Canvas.Brush.Color := clNone;
+  Sender.Canvas.Font.Color := clBlack;
+  Sender.Canvas.Font.Style := [];
+
+  case Item.SubItems[1] of
+    '1':
+    begin
+      Sender.Canvas.Brush.Color := RGBToColor(183, 13, 67);
+      Sender.Canvas.Font.Color := clWhite;
+      Sender.Canvas.Font.Style := [fsBold];
+    end;
+    '2':
+    begin
+      Sender.Canvas.Brush.Color := RGBToColor(218, 74, 120);
+      Sender.Canvas.Font.Color := clWhite;
+    end;
+    '3':
+      Sender.Canvas.Brush.Color := RGBToColor(247, 164, 191);
+    '4':
+      Sender.Canvas.Brush.Color := RGBToColor(255, 208, 223);
+  end;
+
+  Sender.Canvas.FillRect(rct.Left - 2, rct.Top - 2, rct.Right, rct.Bottom);
+  Sender.Canvas.TextOut(rct.Left + 2, rct.Top + 2, Item.Caption);
 
 end;
 
@@ -84,4 +126,3 @@ begin
 end;
 
 end.
-

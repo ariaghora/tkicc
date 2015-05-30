@@ -1,7 +1,7 @@
 object formMain: TformMain
-  Left = 185
+  Left = 294
   Height = 545
-  Top = 164
+  Top = 355
   Width = 785
   Caption = 'TKI Crisis Center'
   ClientHeight = 545

@@ -22,9 +22,9 @@ type
     Label3: TLabel;
     Label4: TLabel;
     lblHakPRT: TLabel;
-    lblHakPRT1: TLabel;
-    lblHakPRT2: TLabel;
-    lblHakPRT3: TLabel;
+    lblHakJamKerja: TLabel;
+    lblHakInfo: TLabel;
+    lblHakUpah: TLabel;
     lblNama: TLabel;
     Panel3: TPanel;
     pnlContent: TPanel;
@@ -42,6 +42,7 @@ type
 
 var
   formDetailTKI: TformDetailTKI;
+  idTKI: string;
 
 
 

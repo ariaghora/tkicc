@@ -26,6 +26,21 @@ type
     procedure onFailed;
   end;
 
+  { TMuatDetailThread }
+
+  TMuatDetailThread = class(TThread)
+    idTKI: string;
+    s: string;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(CreateSuspended: boolean);
+    procedure preRun;
+    procedure postRun;
+    procedure onSucceed;
+    procedure onFailed;
+  end;
+
   { TRenderRegularReportThread }
 
   TRenderRegularReportThread = class(TThread)
@@ -116,7 +131,83 @@ type
 implementation
 
 uses
-  frmMain, frmlogin, frmondemand;
+  frmMain, frmlogin, frmondemand, frmeditdatatki;
+
+{ TMuatDetailThread }
+
+procedure TMuatDetailThread.Execute;
+begin
+  Synchronize(@preRun);
+  try
+    s := TFPHTTPClient.SimpleGet(LINK_DETAIL_TKI + '/' + idTKI);
+    Synchronize(@onSucceed);
+  except
+    on Exception do
+    begin
+      Synchronize(@onFailed);
+    end;
+  end;
+  Synchronize(@postRun);
+end;
+
+constructor TMuatDetailThread.Create(CreateSuspended: boolean);
+begin
+  freeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
+
+procedure TMuatDetailThread.preRun;
+begin
+  formMain.pnlContent.Enabled := False;
+  formMain.imgAnimation.Show;
+  catatLog('memuat detail TKI');
+end;
+
+procedure TMuatDetailThread.postRun;
+begin
+  formMain.imgAnimation.Hide;
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('detail TKI dimuat');
+  end;
+end;
+
+procedure TMuatDetailThread.onSucceed;
+var
+  jParser: TJSONParser;
+  jData: TJSONData;
+  jObject: TJSONObject;
+begin
+  jParser := TJSONParser.Create(s);
+  jData := jParser.Parse;
+  with formEditDataTKI do
+  begin
+    jObject := TJSONObject(TJSONArray(jData).Items[0]);
+    kodeTipe := jObject.Get('kode_tipe');
+    nama := jObject.Get('nama');
+    nomorTelepon := jObject.Get('nomor_telepon');
+    lokasiKerja := jObject.Get('lokasi_kerja');
+    kodeNegara := jObject.Get('kode_negara');
+    kodeWilayah := jObject.Get('kode_wilayah');
+    kodePeer := jObject.Get('peer');
+
+    txtKodeTipe.Text := kodeTipe;
+    txtNama.Text := nama;
+    txtNomorTelepon.Text := nomorTelepon;
+    txtLokasiKerja.Text := lokasiKerja;
+    txtKodeNegara.Text := kodeNegara;
+    txtKodeWilayah.Text := kodeWilayah;
+    txtKodePeer.Text := kodePeer;
+  end;
+end;
+
+procedure TMuatDetailThread.onFailed;
+begin
+  ShowMessage('gagal memuat detail');
+  ShowMessage(s);
+
+end;
 
 
 

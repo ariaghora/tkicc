@@ -1,0 +1,304 @@
+object formEditDataTKI: TformEditDataTKI
+  Left = 529
+  Height = 448
+  Top = 147
+  Width = 655
+  Caption = 'formEditDataTKI'
+  ClientHeight = 448
+  ClientWidth = 655
+  LCLVersion = '1.2.6.0'
+  object pnlContent: TPanel
+    Left = 0
+    Height = 448
+    Top = 0
+    Width = 655
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 448
+    ClientWidth = 655
+    TabOrder = 0
+    OnResize = pnlContentResize
+    object pnlTxtHolder: TPanel
+      Left = 48
+      Height = 329
+      Top = 56
+      Width = 452
+      BevelOuter = bvNone
+      ClientHeight = 329
+      ClientWidth = 452
+      Font.Height = -13
+      Font.Name = 'Montserrat'
+      ParentFont = False
+      TabOrder = 0
+      object txtID: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 16
+        Width = 81
+        EditLabel.AnchorSideTop.Control = txtID
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtID
+        EditLabel.AnchorSideBottom.Control = txtID
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 94
+        EditLabel.Height = 17
+        EditLabel.Top = 22
+        EditLabel.Width = 14
+        EditLabel.Caption = 'ID'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object txtNama: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 48
+        Width = 297
+        EditLabel.AnchorSideTop.Control = txtNama
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtNama
+        EditLabel.AnchorSideBottom.Control = txtNama
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 68
+        EditLabel.Height = 17
+        EditLabel.Top = 54
+        EditLabel.Width = 40
+        EditLabel.Caption = 'Nama'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 2
+      end
+      object txtKodeTipe: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 80
+        Width = 81
+        EditLabel.AnchorSideTop.Control = txtKodeTipe
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtKodeTipe
+        EditLabel.AnchorSideBottom.Control = txtKodeTipe
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 42
+        EditLabel.Height = 17
+        EditLabel.Top = 86
+        EditLabel.Width = 66
+        EditLabel.Caption = 'Kode Tipe'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 3
+      end
+      object txtNomorTelepon: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 112
+        Width = 297
+        EditLabel.AnchorSideTop.Control = txtNomorTelepon
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtNomorTelepon
+        EditLabel.AnchorSideBottom.Control = txtNomorTelepon
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 7
+        EditLabel.Height = 17
+        EditLabel.Top = 118
+        EditLabel.Width = 101
+        EditLabel.Caption = 'Nomor Telepon'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 5
+      end
+      object txtLokasiKerja: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 144
+        Width = 297
+        EditLabel.AnchorSideTop.Control = txtLokasiKerja
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtLokasiKerja
+        EditLabel.AnchorSideBottom.Control = txtLokasiKerja
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 30
+        EditLabel.Height = 17
+        EditLabel.Top = 150
+        EditLabel.Width = 78
+        EditLabel.Caption = 'Lokasi Kerja'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 6
+      end
+      object txtKodeNegara: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 176
+        Width = 81
+        EditLabel.AnchorSideTop.Control = txtKodeNegara
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtKodeNegara
+        EditLabel.AnchorSideBottom.Control = txtKodeNegara
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 24
+        EditLabel.Height = 17
+        EditLabel.Top = 182
+        EditLabel.Width = 84
+        EditLabel.Caption = 'Kode Negara'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 7
+      end
+      object txtKodeWilayah: TLabeledEdit
+        Left = 128
+        Height = 29
+        Top = 208
+        Width = 81
+        EditLabel.AnchorSideTop.Control = txtKodeWilayah
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtKodeWilayah
+        EditLabel.AnchorSideBottom.Control = txtKodeWilayah
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 18
+        EditLabel.Height = 17
+        EditLabel.Top = 214
+        EditLabel.Width = 90
+        EditLabel.Caption = 'Kode Wilayah'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 9
+      end
+      object txtKodePeer: TLabeledEdit
+        Left = 129
+        Height = 29
+        Top = 240
+        Width = 80
+        EditLabel.AnchorSideTop.Control = txtKodePeer
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = txtKodePeer
+        EditLabel.AnchorSideBottom.Control = txtKodePeer
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 42
+        EditLabel.Height = 17
+        EditLabel.Top = 246
+        EditLabel.Width = 67
+        EditLabel.Caption = 'Kode Peer'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        LabelSpacing = 20
+        TabOrder = 11
+      end
+      object Button1: TButton
+        Left = 216
+        Height = 25
+        Top = 16
+        Width = 32
+        Caption = '...'
+        TabOrder = 1
+        Visible = False
+      end
+      object Button2: TButton
+        Left = 216
+        Height = 25
+        Top = 82
+        Width = 32
+        Caption = '...'
+        TabOrder = 4
+      end
+      object Button3: TButton
+        Left = 216
+        Height = 25
+        Top = 176
+        Width = 32
+        Caption = '...'
+        TabOrder = 8
+      end
+      object Button4: TButton
+        Left = 216
+        Height = 25
+        Top = 210
+        Width = 32
+        Caption = '...'
+        TabOrder = 10
+      end
+      object Button5: TButton
+        Left = 216
+        Height = 25
+        Top = 240
+        Width = 32
+        Caption = '...'
+        TabOrder = 12
+      end
+      object Button6: TButton
+        Left = 350
+        Height = 25
+        Top = 296
+        Width = 75
+        Caption = 'Simpan'
+        OnClick = Button6Click
+        TabOrder = 13
+      end
+    end
+    object Panel3: TPanel
+      Left = 0
+      Height = 48
+      Top = 0
+      Width = 655
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 48
+      ClientWidth = 655
+      TabOrder = 1
+      object SpeedButton1: TSpeedButton
+        Left = 10
+        Height = 28
+        Top = 10
+        Width = 158
+        Align = alLeft
+        BorderSpacing.Around = 10
+        Caption = 'Kembali ke Daftar'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        Glyph.Data = {
+          F6030000424DF60300000000000036000000280000000F000000100000000100
+          200000000000C003000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+          003800000088000000B1000000CD00000056FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000003C000000BA000000FF0000
+          00FF000000FF000000FF000000F30000000BFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF0000000035000000BE000000FF000000FF000000ED000000850000
+          0051000000C9000000FF0000005EFFFFFF00FFFFFF00FFFFFF00000000060000
+          0084000000FC000000FF000000EC000000790000000DFFFFFF00FFFFFF000000
+          0065000000FF000000ABFFFFFF00FFFFFF000000002F000000D0000000FF0000
+          00FC000000870000000CFFFFFF00FFFFFF00FFFFFF00FFFFFF000000003A0000
+          00FF000000C2FFFFFF0000000049000000FA000000FF000000DA00000038FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000026000000FF0000
+          00D400000022000000EF000000FF000000980000000AFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000013000000FF000000E60000
+          00B7000000FF000000A6FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF0000000002000000FD000000F8000000B90000
+          00FF000000A7FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF0000000002000000FD000000F800000026000000F10000
+          00FF0000009500000008FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF0000000013000000FF000000E6FFFFFF000000004E000000FA0000
+          00FF000000D600000034FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF0000000026000000FF000000D4FFFFFF00FFFFFF000000002F000000D20000
+          00FF000000FB000000830000000CFFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+          003A000000FF000000C2FFFFFF00FFFFFF00FFFFFF0000000006000000880000
+          00FD000000FF000000EB000000780000000CFFFFFF00FFFFFF00000000650000
+          00FF000000ABFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000390000
+          00C5000000FF000000FF000000EB0000008300000050000000C9000000FF0000
+          005CFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+          0042000000BF000000FF000000FF000000FF000000FF000000F000000009FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF000000003B00000089000000B2000000CD00000052FFFFFF00
+        }
+        OnClick = SpeedButton1Click
+        ParentFont = False
+      end
+    end
+  end
+end

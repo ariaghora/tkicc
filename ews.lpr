@@ -25,12 +25,12 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmmanajementki,
   frmsmslokal,
   frmlogoutput,
-  frmondemand;
+  frmondemand, frmeditdatatki;
 
 {$R *.res}
 
 begin
-  init(true);
+  init(False);
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TformLogin, formLogin);
@@ -45,5 +45,6 @@ begin
   Application.CreateForm(TformSMSLokal, formSMSLokal);
   Application.CreateForm(TformLogOutput, formLogOutput);
   Application.CreateForm(TformOnDemand, formOnDemand);
+  Application.CreateForm(TformEditDataTKI, formEditDataTKI);
   Application.Run;
 end.

@@ -18,6 +18,8 @@ var
 
   LINK_COMMIT_SMS_LOKAL: string;
   LINK_DELETE_SMS_LOKAL: string;
+  LINK_DETAIL_TKI: string;
+  LINK_EDIT_DATA_TKI: string;
   LINK_JUMLAH_SMS_LOKAL: string;
   LINK_JUMLAH_SMS_REMOTE: string;
   LINK_JUMLAH_PESAN_ONDEMAND: string;
@@ -74,6 +76,8 @@ begin
   HOST := HOST + API_DIR;
 
   LINK_COMMIT_SMS_LOKAL := HOST + 'commitsmslokal';
+  LINK_DETAIL_TKI := HOST + 'detailtki';
+  LINK_EDIT_DATA_TKI := HOST + 'editdatatki';
   LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder/';
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';

@@ -47,6 +47,7 @@ object formManajemenTKI: TformManajemenTKI
       ScrollBars = ssAutoBoth
       TabOrder = 0
       ViewStyle = vsReport
+      OnDblClick = ListView1DblClick
     end
     object Panel3: TPanel
       Left = 0
@@ -60,7 +61,7 @@ object formManajemenTKI: TformManajemenTKI
       TabOrder = 1
       object SpeedButton1: TSpeedButton
         Left = 10
-        Height = 28
+        Height = 24
         Top = 10
         Width = 28
         Align = alLeft

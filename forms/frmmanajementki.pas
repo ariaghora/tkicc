@@ -17,6 +17,7 @@ type
     Panel3: TPanel;
     pnlContent: TPanel;
     SpeedButton1: TSpeedButton;
+    procedure ListView1DblClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -28,6 +29,9 @@ var
 
 implementation
 
+uses
+  frmeditdatatki, frmMain;
+
 {$R *.lfm}
 
 { TformManajemenTKI }
@@ -37,12 +41,24 @@ begin
   // lalala
 end;
 
+procedure TformManajemenTKI.ListView1DblClick(Sender: TObject);
+begin
+  if ListView1.SelCount > 0 then
+  begin
+    formEditDataTKI.pnlContent.Show;
+    formEditDataTKI.pnlContent.Parent := formMain.pnlContent;
+    formEditDataTKI.idTKI := ListView1.Selected.Caption;
+    formEditDataTKI.muatInformasi;
+    pnlContent.Hide;
+  end;
+end;
+
 procedure TformManajemenTKI.renderListview;
 var
-  thr:TRenderTkiThread;
+  thr: TRenderTkiThread;
 begin
-  thr:=TRenderTkiThread.Create(true);
-  thr.lv:=ListView1;
+  thr := TRenderTkiThread.Create(True);
+  thr.lv := ListView1;
   thr.Start;
 end;
 

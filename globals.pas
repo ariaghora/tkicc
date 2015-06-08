@@ -21,6 +21,7 @@ var
   LINK_JUMLAH_SMS_LOKAL: string;
   LINK_JUMLAH_SMS_REMOTE: string;
   LINK_JUMLAH_PESAN_ONDEMAND: string;
+  LINK_JUMLAH_SMS_MONITOR: string;
   LINK_LOGIN_STAKEHOLDER: string;
   LINK_LIST_LAPORAN: string;
   LINK_LIST_BROADCAST: string;
@@ -29,6 +30,7 @@ var
   LINK_LIST_SMS_LOKAL: string;
   LINK_LIST_SMS_REMOTE: string;
   LINK_LIST_TKI: string;
+  LINK_NILAI_TERBARU: string;
   LINK_KIRIM_BROADCAST: string;
   LINK_TULIS_BROADCAST: string;
   LINK_TEST_KONEKSI_KE_SERVER: string;
@@ -79,10 +81,12 @@ begin
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
   LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
   LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';
+  LINK_JUMLAH_SMS_MONITOR := HOST + 'jumlahsmsmonitor';
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
   LINK_LIST_TKI := HOST + 'listtki';
   LINK_LIST_NOMOR_TELEPON := HOST + 'listnomortelepon';
+  LINK_NILAI_TERBARU := HOST + 'nilaiterbaru';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 

@@ -83,6 +83,7 @@ var
   retryCount: integer = 1;
 
 
+
 implementation
 
 uses
@@ -145,12 +146,12 @@ begin
   pnlLeft.Width := 0;
   guiTimer.Enabled := True;
 
-  //ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND +
-  //    '/' + ID_SIMPUL_CABANG));
 
   formOnDemand.init;
+  formMonitoring.init;
   //ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG));
   formOnDemand.Timer1.Enabled := True;
+  formMonitoring.Timer1.Enabled := True;
 end;
 
 procedure TformMain.guiTimerTimer(Sender: TObject);
@@ -214,6 +215,7 @@ begin
 
     // disable seluruh timer
     formOnDemand.Timer1.Enabled := False;
+    formMonitoring.Timer1.Enabled := False;
   end;
 
 end;
@@ -237,19 +239,6 @@ begin
   httpsender.Headers.AddStrings(header);
   //httpsender.KeepAlive := False;
   httpsender.Timeout := 5000;
-
-  {
-  if httpsender.HTTPMethod('GET', 'http://www.tkicc.16mb.com') then
-  begin
-    if httpsender.ResultCode <= 302 then
-      TERKONEKSI_KE_SERVER := True
-    else
-      TERKONEKSI_KE_SERVER := False;
-  end
-  else
-    TERKONEKSI_KE_SERVER := False;
-  //else
-  }
 
   try
     if trim(TFPHTTPClient.SimpleGet(LINK_TEST_KONEKSI_KE_SERVER)) =
@@ -276,7 +265,6 @@ var
 begin
 
   // monitor pesan on-demand baru
-
 
   // monitor internet
   if not cekInternet then

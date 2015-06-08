@@ -82,15 +82,15 @@ object formDetailTKI: TformDetailTKI
       Height = 387
       Top = 48
       Width = 605
-      HorzScrollBar.Page = 328
-      VertScrollBar.Page = 193
+      HorzScrollBar.Page = 369
+      VertScrollBar.Page = 241
       Align = alClient
       BorderStyle = bsNone
       ClientHeight = 387
       ClientWidth = 605
       TabOrder = 1
       object lblNama: TLabel
-        Left = 10
+        Left = 34
         Height = 24
         Top = 8
         Width = 93
@@ -101,44 +101,140 @@ object formDetailTKI: TformDetailTKI
         ParentFont = False
       end
       object bar1: TBGRAFlashProgressBar
-        Left = 176
+        Left = 200
         Height = 33
-        Top = 40
+        Top = 64
         Width = 152
-        MinValue = 0
-        MaxValue = 4
+        MinValue = 1
+        MaxValue = 5
         Value = 3
         Color = 4591294
       end
       object bar2: TBGRAFlashProgressBar
-        Left = 176
+        Left = 200
         Height = 33
-        Top = 80
+        Top = 112
         Width = 152
-        MinValue = 0
-        MaxValue = 4
+        MinValue = 1
+        MaxValue = 5
         Value = 2
         Color = 4591294
       end
       object bar3: TBGRAFlashProgressBar
-        Left = 176
+        Left = 200
         Height = 33
-        Top = 120
+        Top = 160
         Width = 152
-        MinValue = 0
-        MaxValue = 4
+        MinValue = 1
+        MaxValue = 5
         Value = 3
         Color = 4591294
       end
       object bar4: TBGRAFlashProgressBar
-        Left = 176
+        Left = 200
         Height = 33
-        Top = 160
+        Top = 208
         Width = 152
-        MinValue = 0
-        MaxValue = 4
+        MinValue = 1
+        MaxValue = 5
         Value = 2
         Color = 4591294
+      end
+      object Label1: TLabel
+        Left = 34
+        Height = 33
+        Top = 64
+        Width = 158
+        AutoSize = False
+        Caption = 'Hak Pekerja Rumah Tangga'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+        WordWrap = True
+      end
+      object Label2: TLabel
+        Left = 34
+        Height = 33
+        Top = 112
+        Width = 158
+        AutoSize = False
+        Caption = 'Hak Jam Kerja'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+        WordWrap = True
+      end
+      object Label3: TLabel
+        Left = 34
+        Height = 33
+        Top = 160
+        Width = 158
+        AutoSize = False
+        Caption = 'Hak Perolehan Informasi Pekerjaan'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+        WordWrap = True
+      end
+      object Label4: TLabel
+        Left = 34
+        Height = 33
+        Top = 208
+        Width = 158
+        AutoSize = False
+        Caption = 'Hak Pengupahan'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+        WordWrap = True
+      end
+      object lblHakPRT: TLabel
+        Left = 360
+        Height = 17
+        Top = 71
+        Width = 9
+        Caption = '0'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblHakJamKerja: TLabel
+        Left = 360
+        Height = 17
+        Top = 120
+        Width = 9
+        Caption = '0'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblHakInfo: TLabel
+        Left = 360
+        Height = 17
+        Top = 168
+        Width = 9
+        Caption = '0'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+      end
+      object lblHakUpah: TLabel
+        Left = 360
+        Height = 17
+        Top = 216
+        Width = 9
+        Caption = '0'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
       end
     end
   end

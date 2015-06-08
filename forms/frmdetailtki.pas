@@ -17,6 +17,14 @@ type
     bar2: TBGRAFlashProgressBar;
     bar3: TBGRAFlashProgressBar;
     bar4: TBGRAFlashProgressBar;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    lblHakPRT: TLabel;
+    lblHakJamKerja: TLabel;
+    lblHakInfo: TLabel;
+    lblHakUpah: TLabel;
     lblNama: TLabel;
     Panel3: TPanel;
     pnlContent: TPanel;
@@ -28,7 +36,8 @@ type
   public
     jString: string;
     namaTKI: string;
-    nil1, nil2, nil3: string;
+    idTKI: string;
+    nil1, nil2, nil3, nil4: string;
   end;
 
 var

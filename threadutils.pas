@@ -45,6 +45,7 @@ type
     procedure onFailed;
   end;
 
+
   { TRenderOndemandReportThread }
 
   TRenderOndemandReportThread = class(TThread)
@@ -116,6 +117,8 @@ implementation
 
 uses
   frmMain, frmlogin, frmondemand;
+
+
 
 { TRenderTkiThread }
 

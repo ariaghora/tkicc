@@ -15,11 +15,12 @@ object formTulisBroadcast: TformTulisBroadcast
   LCLVersion = '1.2.6.0'
   object Memo1: TMemo
     Left = 10
-    Height = 199
-    Top = 37
+    Height = 172
+    Top = 64
     Width = 337
     Align = alClient
     BorderSpacing.Around = 10
+    OnChange = Memo1Change
     TabOrder = 0
   end
   object Label1: TLabel
@@ -67,5 +68,17 @@ object formTulisBroadcast: TformTulisBroadcast
       00F2000000F2000000F2000000F2000000E8000000960000001A
     }
     OnClick = SpeedButton1Click
+  end
+  object lblCounter: TLabel
+    Left = 10
+    Height = 17
+    Top = 37
+    Width = 337
+    Align = alTop
+    Alignment = taRightJustify
+    BorderSpacing.Left = 10
+    BorderSpacing.Right = 10
+    Caption = '0'
+    ParentColor = False
   end
 end

@@ -45,6 +45,17 @@ type
     procedure onFailed;
   end;
 
+  { TMuatInformasiTKIThread }
+
+  TMuatInformasiTKIThread = class(TThread)
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(CreateSuspended: boolean);
+    procedure preRun;
+    procedure postRun;
+  end;
+
   { TRenderOndemandReportThread }
 
   TRenderOndemandReportThread = class(TThread)
@@ -116,6 +127,31 @@ implementation
 
 uses
   frmMain, frmlogin, frmondemand;
+
+{ TMuatInformasiTKIThread }
+
+procedure TMuatInformasiTKIThread.Execute;
+begin
+
+end;
+
+constructor TMuatInformasiTKIThread.Create(CreateSuspended: boolean);
+begin
+  Synchronize(@preRun);
+  s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG);
+  Synchronize(@doList);
+  Synchronize(@postRun);
+end;
+
+procedure TMuatInformasiTKIThread.preRun;
+begin
+
+end;
+
+procedure TMuatInformasiTKIThread.postRun;
+begin
+
+end;
 
 { TRenderTkiThread }
 
@@ -369,27 +405,30 @@ var
   i, j: integer;
   bool: boolean;
 begin
-  lv.Items.BeginUpdate;
-
-  for i := lv.Items.Count - 1 downto 0 do
+  if Length(searchString) > 0 then
   begin
-    bool := Pos(UpperCase(searchString), UpperCase(lv.Items[i].Caption)) > 0;
-    if not (bool) then
+    lv.Items.BeginUpdate;
+
+    for i := lv.Items.Count - 1 downto 0 do
     begin
-      for j := 0 to lv.Items[i].SubItems.Count - 1 do
+      bool := Pos(UpperCase(searchString), UpperCase(lv.Items[i].Caption)) > 0;
+      if not (bool) then
       begin
-        if Pos(UpperCase(searchString), UpperCase(lv.Items[i].SubItems[j])) > 0 then
+        for j := 0 to lv.Items[i].SubItems.Count - 1 do
         begin
-          bool := True;
-          break;
+          if Pos(UpperCase(searchString), UpperCase(lv.Items[i].SubItems[j])) > 0 then
+          begin
+            bool := True;
+            break;
+          end;
         end;
       end;
+      if not bool then
+        lv.Items[i].Delete;
     end;
-    if not bool then
-      lv.Items[i].Delete;
-  end;
-  lv.Items.EndUpdate;
+    lv.Items.EndUpdate;
 
+  end;
 
   formMain.imgAnimation.Hide;
   if TERKONEKSI_KE_SERVER then

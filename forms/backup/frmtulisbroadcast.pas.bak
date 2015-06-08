@@ -14,10 +14,12 @@ type
 
   TformTulisBroadcast = class(TForm)
     Label1: TLabel;
+    lblCounter: TLabel;
     Memo1: TMemo;
     SpeedButton1: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Memo1Change(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
     { private declarations }
@@ -29,6 +31,7 @@ var
   formTulisBroadcast: TformTulisBroadcast;
   kontak: TStringList;
   jString: string = '';
+  jumlahSMSMonitor: integer = 0;
 
 implementation
 
@@ -92,6 +95,11 @@ begin
   //BeginThread(TThreadFunc(@listKontak));
 end;
 
+procedure TformTulisBroadcast.Memo1Change(Sender: TObject);
+begin
+  lblCounter.Caption := IntToStr(Length(Memo1.Text));
+end;
+
 procedure TformTulisBroadcast.FormCreate(Sender: TObject);
 begin
   kontak := TStringList.Create;
@@ -100,12 +108,13 @@ end;
 
 procedure TformTulisBroadcast.SpeedButton1Click(Sender: TObject);
 var
-  pesan: string;
+  pesan, pesanEncoded: string;
   jData: TJSONData;
   jParser: TJSONParser;
   i: integer;
 begin
-  pesan := EncodeURLElement(Memo1.Text);
+  pesan := Memo1.Text;
+  pesanEncoded := EncodeURLElement(pesan);
 
   listKontak;
 
@@ -114,7 +123,7 @@ begin
   else
 
   if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
-    pesan + '&id_stakeholder=' + USER_ID) = '1' then
+    pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
   begin
     memo1.Clear;
     self.Close;
@@ -123,12 +132,12 @@ begin
     for i := 0 to kontak.Count - 1 do
     begin
 
-      if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '.php?nomor_tujuan=' +
-        kontak[i] + '&pesan=' + pesan) = '1' then
+      //if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '.php?nomor_tujuan=' +
+      //  kontak[i] + '&pesan=' + pesan) = '1' then
+      if gammusendsms(kontak[i], pesan) = '1' then
       begin
         // success message
         catatLog('pesan dikirimkan ke nomor ' + kontak[i]);
-        ShowMessage('mblo');
       end
       else
       begin

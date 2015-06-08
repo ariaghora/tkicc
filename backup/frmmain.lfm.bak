@@ -1,7 +1,7 @@
 object formMain: TformMain
-  Left = 185
+  Left = 294
   Height = 545
-  Top = 164
+  Top = 197
   Width = 785
   Caption = 'TKI Crisis Center'
   ClientHeight = 545
@@ -21,7 +21,7 @@ object formMain: TformMain
     BevelOuter = bvNone
     ClientHeight = 72
     ClientWidth = 785
-    Color = 15527148
+    Color = 14606046
     Font.Name = 'Montserrat'
     ParentColor = False
     ParentFont = False

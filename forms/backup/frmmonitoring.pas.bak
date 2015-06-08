@@ -20,22 +20,41 @@ type
     pnlContent: TPanel;
     Panel3: TPanel;
     SpeedButton1: TSpeedButton;
+    Timer1: TTimer;
     procedure ComboBox1Change(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: char);
     procedure ListView1CustomDrawItem(Sender: TCustomListView;
       Item: TListItem; State: TCustomDrawState; var DefaultDraw: boolean);
     procedure ListView1DblClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
   public
     procedure renderListview;
+    procedure init;
     procedure cariTKI(searchString: string);
+  end;
+
+  { TMuatInformasiTKIThread }
+
+  TMuatInformasiTKIThread = class(TThread)
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(CreateSuspended: boolean);
+    procedure preRun;
+    procedure postRun;
+    procedure onFailed;
+    procedure onSucceed;
   end;
 
 var
   formMonitoring: TformMonitoring;
   renderThread: TRenderRegularReportThread;
+  jumlahSMSMonitor: integer = 0;
+  jumlahSMSMonitorServer: integer = 0;
+  cekSMSMonitor: boolean = False;
 
 implementation
 
@@ -44,7 +63,96 @@ uses
 
 {$R *.lfm}
 
+{ TMuatInformasiTKIThread }
+
+procedure TMuatInformasiTKIThread.Execute;
+begin
+  Synchronize(@preRun);
+  //s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG);
+
+  try
+    with formDetailTKI do
+    begin
+      namaTKI := formMonitoring.ListView1.Selected.Caption;
+      idTKI := formMonitoring.ListView1.Selected.SubItems[0];
+
+      nil1 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/1');
+      nil2 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/2');
+      nil3 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/3');
+      nil4 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/4');
+
+
+      Synchronize(@onSucceed);
+
+      //bar1.Value:=IntToStr();
+    end;
+
+    formMonitoring.panel3.Hide;
+    formMonitoring.ListView1.Hide;
+
+    //Synchronize(@doList);
+    Synchronize(@postRun);
+
+  except
+    on Exception do
+    begin
+      Synchronize(@onFailed);
+      Synchronize(@postRun);
+    end;
+  end;
+end;
+
+constructor TMuatInformasiTKIThread.Create(CreateSuspended: boolean);
+begin
+  freeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
+
+procedure TMuatInformasiTKIThread.preRun;
+begin
+  formMain.pnlContent.Enabled := False;
+  formMain.imgAnimation.Show;
+  catatLog('memuat detail TKI' + ID_SIMPUL_CABANG);
+end;
+
+procedure TMuatInformasiTKIThread.postRun;
+begin
+  formMain.imgAnimation.Hide;
+  if TERKONEKSI_KE_SERVER then
+  begin
+    formMain.pnlContent.Enabled := True;
+    catatLog('detail TKI dimuat');
+  end;
+
+end;
+
+procedure TMuatInformasiTKIThread.onFailed;
+begin
+  ShowMessage('Gagal memuat detail TKI.');
+end;
+
+procedure TMuatInformasiTKIThread.onSucceed;
+begin
+  with formDetailTKI do
+  begin
+    pnlContent.Parent := formMonitoring.pnlContent;
+
+    lblNama.Caption := namaTKI;
+    bar1.Value := StrToInt(Trim(nil1));
+    bar2.Value := StrToInt(Trim(nil2));
+    bar3.Value := StrToInt(Trim(nil3));
+    bar4.Value := StrToInt(Trim(nil4));
+
+    lblHakPRT.Caption := nil1;
+    lblHakJamKerja.Caption := nil2;
+    lblHakInfo.Caption := nil3;
+    lblHakUpah.Caption := nil4;
+
+  end;
+end;
+
 { TformMonitoring }
+
 
 procedure TformMonitoring.renderListview;
 begin
@@ -54,6 +162,17 @@ begin
   renderThread.lv := ListView1;
   renderThread.searchString := trim(edtSearch.Text);
   renderThread.Start;
+end;
+
+procedure TformMonitoring.init;
+begin
+  try
+    jumlahSMSMonitor := StrToInt(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_MONITOR));
+  except
+    on Exception do
+    begin
+    end;
+  end;
 end;
 
 procedure TformMonitoring.cariTKI(searchString: string);
@@ -67,6 +186,37 @@ end;
 procedure TformMonitoring.SpeedButton1Click(Sender: TObject);
 begin
   renderListview;
+end;
+
+procedure procCekSMSMonitor;
+begin
+  try
+    jumlahSMSMonitorServer := StrToInt(
+      trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_MONITOR)));
+  except
+    on Exception do
+    begin
+      cekSMSMonitor := False;
+    end;
+  end;
+  cekSMSMonitor := False;
+end;
+
+
+procedure TformMonitoring.Timer1Timer(Sender: TObject);
+begin
+  // monitor sms monitor
+  if not cekSMSMonitor then
+  begin
+    cekSMSMonitor := True;
+    BeginThread(TThreadFunc(@procCekSMSMonitor));
+    if jumlahSMSMonitorServer > jumlahSMSMonitor then
+    begin
+      renderListview;
+      jumlahSMSMonitor:=jumlahSMSMonitorServer;
+    end;
+
+  end;
 end;
 
 procedure TformMonitoring.ComboBox1Change(Sender: TObject);
@@ -116,19 +266,13 @@ begin
 end;
 
 procedure TformMonitoring.ListView1DblClick(Sender: TObject);
+var
+  t: TMuatInformasiTKIThread;
 begin
   if ListView1.SelCount > 0 then
   begin
-    formDetailTKI.namaTKI := ListView1.Selected.Caption;
-    formDetailTKI.pnlContent.Parent := pnlContent;
-
-    with formDetailTKI do
-    begin
-      lblNama := namaTKI;
-    end;
-
-    panel3.Hide;
-    ListView1.Hide;
+    t := TMuatInformasiTKIThread.Create(True);
+    t.Start;
   end;
 end;
 

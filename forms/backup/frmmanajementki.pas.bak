@@ -42,8 +42,6 @@ begin
 end;
 
 procedure TformManajemenTKI.ListView1DblClick(Sender: TObject);
-var
-  t:TMuatDetailThread;
 begin
   if ListView1.SelCount > 0 then
   begin

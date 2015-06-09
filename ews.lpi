@@ -175,6 +175,7 @@
         <Filename Value="forms/frmeditdatatki.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formEditDataTKI"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmeditdatatki"/>
       </Unit17>

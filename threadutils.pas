@@ -166,7 +166,7 @@ end;
 procedure TMuatDetailThread.postRun;
 begin
   formMain.imgAnimation.Hide;
-  if TERKONEKSI_KE_SERVER then
+  //if TERKONEKSI_KE_SERVER then
   begin
     formMain.pnlContent.Enabled := True;
     catatLog('detail TKI dimuat');
@@ -242,7 +242,7 @@ end;
 procedure TRenderTkiThread.postRun;
 begin
   formMain.imgAnimation.Hide;
-  if TERKONEKSI_KE_SERVER then
+  //if TERKONEKSI_KE_SERVER then
   begin
     formMain.pnlContent.Enabled := True;
     catatLog('daftar TKI pada simpul ' + ID_SIMPUL_CABANG + ' dimuat');
@@ -281,7 +281,7 @@ end;
 procedure TRenderOndemandReportThread.postRun;
 begin
   formMain.imgAnimation.Hide;
-  if TERKONEKSI_KE_SERVER then
+  //if TERKONEKSI_KE_SERVER then
   begin
     formMain.pnlContent.Enabled := True;
     catatLog('daftar pesan on-demand dimuat');
@@ -403,7 +403,7 @@ end;
 procedure TRenderBroadcastMessage.postRun;
 begin
   formMain.imgAnimation.Hide;
-  if TERKONEKSI_KE_SERVER then
+  //if TERKONEKSI_KE_SERVER then
   begin
     formMain.pnlContent.Enabled := True;
     catatLog('broadcast terkirim dimuat');
@@ -489,7 +489,7 @@ begin
   end;
 
   formMain.imgAnimation.Hide;
-  if TERKONEKSI_KE_SERVER then
+  //if TERKONEKSI_KE_SERVER then
   begin
     formMain.pnlContent.Enabled := True;
     catatLog('laporan rutin dimuat');

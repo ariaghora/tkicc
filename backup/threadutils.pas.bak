@@ -199,8 +199,6 @@ begin
     txtKodeNegara.Text := kodeNegara;
     txtKodeWilayah.Text := kodeWilayah;
     txtKodePeer.Text := kodePeer;
-
-    ShowMessage(kodePeer);
   end;
 end;
 

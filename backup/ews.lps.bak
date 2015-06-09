@@ -11,8 +11,7 @@
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="1" Y="50"/>
-        <FoldState Value=" T440Nr"/>
+        <CursorPos X="14" Y="34"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -88,10 +87,11 @@
         <Filename Value="threadutils.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="threadutils"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="188"/>
-        <CursorPos X="34" Y="201"/>
+        <TopLine Value="137"/>
+        <CursorPos X="15" Y="163"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -129,7 +129,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="27"/>
         <CursorPos X="36" Y="40"/>
-        <UsageCount Value="196"/>
+        <UsageCount Value="198"/>
       </Unit10>
       <Unit11>
         <Filename Value="forms/frmtestsms.pas"/>
@@ -141,7 +141,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="1" Y="34"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="173"/>
       </Unit11>
       <Unit12>
         <Filename Value="forms/frmpengaturan.pas"/>
@@ -153,7 +153,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="135"/>
         <CursorPos X="21" Y="137"/>
-        <UsageCount Value="164"/>
+        <UsageCount Value="166"/>
       </Unit12>
       <Unit13>
         <Filename Value="forms/frmmanajementki.pas"/>
@@ -166,7 +166,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="8"/>
         <CursorPos X="64" Y="44"/>
-        <UsageCount Value="153"/>
+        <UsageCount Value="155"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit13>
@@ -180,7 +180,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="69"/>
         <CursorPos X="3" Y="62"/>
-        <UsageCount Value="148"/>
+        <UsageCount Value="150"/>
       </Unit14>
       <Unit15>
         <Filename Value="forms/frmlogoutput.pas"/>
@@ -192,7 +192,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="3" Y="37"/>
-        <UsageCount Value="136"/>
+        <UsageCount Value="138"/>
       </Unit15>
       <Unit16>
         <Filename Value="forms/frmondemand.pas"/>
@@ -204,91 +204,91 @@
         <WindowIndex Value="0"/>
         <TopLine Value="61"/>
         <CursorPos X="35" Y="72"/>
-        <UsageCount Value="104"/>
+        <UsageCount Value="106"/>
       </Unit16>
       <Unit17>
+        <Filename Value="forms/frmeditdatatki.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formEditDataTKI"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmeditdatatki"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="77"/>
+        <CursorPos X="54" Y="96"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit17>
+      <Unit18>
         <Filename Value="/usr/lib/lazarus/1.0.10/lcl/comctrls.pp"/>
         <UnitName Value="ComCtrls"/>
         <WindowIndex Value="0"/>
         <TopLine Value="821"/>
         <CursorPos X="31" Y="841"/>
         <UsageCount Value="6"/>
-      </Unit17>
-      <Unit18>
+      </Unit18>
+      <Unit19>
         <Filename Value="/usr/share/lazarus/1.2.6/lcl/comctrls.pp"/>
         <UnitName Value="ComCtrls"/>
         <WindowIndex Value="0"/>
         <TopLine Value="938"/>
         <CursorPos X="3" Y="881"/>
         <UsageCount Value="6"/>
-      </Unit18>
-      <Unit19>
+      </Unit19>
+      <Unit20>
         <Filename Value="/usr/share/lazarus/1.2.6/lcl/include/customlistview.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1511"/>
         <CursorPos X="1" Y="1523"/>
         <UsageCount Value="5"/>
-      </Unit19>
-      <Unit20>
+      </Unit20>
+      <Unit21>
         <Filename Value="/usr/share/lazarus/1.2.6/lcl/include/wincontrol.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="6306"/>
         <CursorPos X="1" Y="6318"/>
         <UsageCount Value="6"/>
-      </Unit20>
-      <Unit21>
+      </Unit21>
+      <Unit22>
         <Filename Value="../bulksms/unit1.pas"/>
         <UnitName Value="Unit1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="219"/>
         <CursorPos X="71" Y="112"/>
         <UsageCount Value="6"/>
-      </Unit21>
-      <Unit22>
+      </Unit22>
+      <Unit23>
         <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/objpas/classes/classesh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="7"/>
-      </Unit22>
-      <Unit23>
+      </Unit23>
+      <Unit24>
         <Filename Value="json2lv.pas"/>
         <UnitName Value="json2lv"/>
         <WindowIndex Value="0"/>
         <TopLine Value="43"/>
         <CursorPos X="9" Y="63"/>
         <UsageCount Value="9"/>
-      </Unit23>
-      <Unit24>
+      </Unit24>
+      <Unit25>
         <Filename Value="../project mawar/helper.pas"/>
         <UnitName Value="helper"/>
         <WindowIndex Value="0"/>
         <TopLine Value="49"/>
         <CursorPos X="51" Y="55"/>
-        <UsageCount Value="0"/>
-      </Unit24>
-      <Unit25>
+        <UsageCount Value="10"/>
+      </Unit25>
+      <Unit26>
         <Filename Value="../../../etc/lazarus components/synapse/source/lib/synaser.pas"/>
         <UnitName Value="synaser"/>
         <WindowIndex Value="0"/>
         <TopLine Value="105"/>
         <CursorPos X="3" Y="119"/>
         <UsageCount Value="9"/>
-      </Unit25>
-      <Unit26>
-        <Filename Value="forms/frmeditdatatki.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="formEditDataTKI"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="frmeditdatatki"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="77"/>
-        <CursorPos X="39" Y="92"/>
-        <UsageCount Value="28"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit26>
     </Units>
     <General>

@@ -1,7 +1,7 @@
 object formManajemenTKI: TformManajemenTKI
-  Left = 545
+  Left = 187
   Height = 375
-  Top = 168
+  Top = 177
   Width = 606
   Caption = 'formManajemenTKI'
   ClientHeight = 375

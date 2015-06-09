@@ -199,6 +199,7 @@ begin
     'imgManajemenTKI':
     begin
       formManajemenTKI.pnlContent.Parent := pnlContent;
+      formManajemenTKI.pnlContent.Show;
       formManajemenTKI.renderListview;
     end;
   end;

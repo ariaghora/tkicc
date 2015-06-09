@@ -31,6 +31,7 @@ type
     txtKodeNegara: TLabeledEdit;
     pnlTxtHolder: TPanel;
     pnlContent: TPanel;
+    procedure Button1Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure pnlContentResize(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
@@ -47,7 +48,7 @@ var
 implementation
 
 uses
-  frmmanajementki;
+  frmmanajementki, frmidbrowser;
 
 {$R *.lfm}
 
@@ -91,7 +92,7 @@ begin
     '&kode_negara=' + akode_negara + '&kode_wilayah=' + akode_wilayah +
     '&password=' + apassword + '&kode_peer=' + akode_peer;
 
-  ShowMessage(url);
+  // ShowMessage(url);
 
   try
     if trim(TFPHTTPClient.SimpleGet(url)) = '1' then
@@ -110,6 +111,11 @@ begin
   end;
   //ShowMessage(url);
 
+end;
+
+procedure TformEditDataTKI.Button1Click(Sender: TObject);
+begin
+  formIDBrowser.ShowModal;
 end;
 
 procedure TformEditDataTKI.SpeedButton1Click(Sender: TObject);

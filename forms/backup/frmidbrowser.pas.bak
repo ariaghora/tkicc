@@ -1,0 +1,30 @@
+unit frmidbrowser;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls, ExtCtrls;
+
+type
+
+  { TformIDBrowser }
+
+  TformIDBrowser = class(TForm)
+    ListView1: TListView;
+  private
+    { private declarations }
+  public
+    acuan: TLabeledEdit;
+  end;
+
+var
+  formIDBrowser: TformIDBrowser;
+
+implementation
+
+{$R *.lfm}
+
+end.
+

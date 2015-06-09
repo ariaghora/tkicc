@@ -26,7 +26,7 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmsmslokal,
   frmlogoutput,
   frmondemand,
-  frmeditdatatki;
+  frmeditdatatki, frmidbrowser;
 
 {$R *.res}
 
@@ -47,5 +47,6 @@ begin
   Application.CreateForm(TformLogOutput, formLogOutput);
   Application.CreateForm(TformOnDemand, formOnDemand);
   Application.CreateForm(TformEditDataTKI, formEditDataTKI);
+  Application.CreateForm(TformIDBrowser, formIDBrowser);
   Application.Run;
 end.

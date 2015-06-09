@@ -1,22 +1,25 @@
 object formIDBrowser: TformIDBrowser
-  Left = 1025
+  Left = 747
   Height = 227
-  Top = 515
+  Top = 248
   Width = 299
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   ClientHeight = 227
   ClientWidth = 299
   Color = clWhite
+  Font.Height = -13
+  Font.Name = 'Montserrat'
   Position = poMainFormCenter
   LCLVersion = '1.2.6.0'
   object ListView1: TListView
     Left = 10
-    Height = 217
-    Top = 0
+    Height = 172
+    Top = 10
     Width = 279
     Align = alClient
     BorderSpacing.Left = 10
+    BorderSpacing.Top = 10
     BorderSpacing.Right = 10
     BorderSpacing.Bottom = 10
     Color = clNone
@@ -40,5 +43,16 @@ object formIDBrowser: TformIDBrowser
     ScrollBars = ssAutoBoth
     TabOrder = 0
     ViewStyle = vsReport
+  end
+  object Button1: TButton
+    Left = 10
+    Height = 25
+    Top = 192
+    Width = 279
+    Align = alBottom
+    BorderSpacing.Around = 10
+    Caption = 'OK'
+    OnClick = Button1Click
+    TabOrder = 1
   end
 end

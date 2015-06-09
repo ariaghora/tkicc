@@ -197,7 +197,6 @@ object formEditDataTKI: TformEditDataTKI
         Top = 16
         Width = 32
         Caption = '...'
-        OnClick = Button1Click
         TabOrder = 1
         Visible = False
       end
@@ -207,6 +206,7 @@ object formEditDataTKI: TformEditDataTKI
         Top = 82
         Width = 32
         Caption = '...'
+        OnClick = Button2Click
         TabOrder = 4
       end
       object Button3: TButton

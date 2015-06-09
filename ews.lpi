@@ -183,6 +183,7 @@
         <Filename Value="forms/frmidbrowser.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formIDBrowser"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmidbrowser"/>
       </Unit18>

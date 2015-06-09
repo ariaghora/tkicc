@@ -52,6 +52,7 @@ object formIDBrowser: TformIDBrowser
     Align = alBottom
     BorderSpacing.Around = 10
     Caption = 'OK'
+    OnClick = Button1Click
     TabOrder = 1
   end
 end

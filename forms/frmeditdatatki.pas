@@ -31,7 +31,7 @@ type
     txtKodeNegara: TLabeledEdit;
     pnlTxtHolder: TPanel;
     pnlContent: TPanel;
-    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure pnlContentResize(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
@@ -113,9 +113,10 @@ begin
 
 end;
 
-procedure TformEditDataTKI.Button1Click(Sender: TObject);
+procedure TformEditDataTKI.Button2Click(Sender: TObject);
 begin
   formIDBrowser.ShowModal;
+  formIDBrowser.acuan := txtKodeTipe;
 end;
 
 procedure TformEditDataTKI.SpeedButton1Click(Sender: TObject);

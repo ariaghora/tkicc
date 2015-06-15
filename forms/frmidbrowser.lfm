@@ -1,20 +1,21 @@
 object formIDBrowser: TformIDBrowser
-  Left = 747
-  Height = 227
-  Top = 248
+  Left = 745
+  Height = 226
+  Top = 247
   Width = 299
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  ClientHeight = 227
+  ClientHeight = 226
   ClientWidth = 299
   Color = clWhite
   Font.Height = -13
   Font.Name = 'Montserrat'
+  OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.2.6.0'
   object ListView1: TListView
     Left = 10
-    Height = 172
+    Height = 171
     Top = 10
     Width = 279
     Align = alClient
@@ -47,7 +48,7 @@ object formIDBrowser: TformIDBrowser
   object Button1: TButton
     Left = 10
     Height = 25
-    Top = 192
+    Top = 191
     Width = 279
     Align = alBottom
     BorderSpacing.Around = 10

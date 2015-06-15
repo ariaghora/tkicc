@@ -31,7 +31,6 @@ var
   formTulisBroadcast: TformTulisBroadcast;
   kontak: TStringList;
   jString: string = '';
-  jumlahSMSMonitor: integer = 0;
 
 implementation
 
@@ -89,10 +88,6 @@ end;
 procedure TformTulisBroadcast.FormShow(Sender: TObject);
 begin
   Label1.Caption := 'Mengirim Sebagai: ' + USER_NAME;
-
-  //ShowMessage(TFPHTTPClient.SimpleGet(LINK_LIST_NOMOR_TELEPON + '/' + ID_SIMPUL_CABANG));
-
-  //BeginThread(TThreadFunc(@listKontak));
 end;
 
 procedure TformTulisBroadcast.Memo1Change(Sender: TObject);
@@ -116,24 +111,23 @@ begin
   pesan := Memo1.Text;
   pesanEncoded := EncodeURLElement(pesan);
 
+  // mengisi daftar nomor tujuan
+  // dengan HTTP request
   listKontak;
 
   if kontak.Count <= 0 then
     ShowMessage('Daftar nomor tujuan kosong.')
   else
 
+  // jika berhasil
   if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
     pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
   begin
     memo1.Clear;
     self.Close;
 
-    { TODO 666 -oghora : bulk sms berdasarkan list kontak. Yang di bawah ini cuma sementara }
     for i := 0 to kontak.Count - 1 do
     begin
-
-      //if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + '.php?nomor_tujuan=' +
-      //  kontak[i] + '&pesan=' + pesan) = '1' then
       if gammusendsms(kontak[i], pesan) = '1' then
       begin
         // success message
@@ -144,10 +138,9 @@ begin
         // failure warning
         ShowMessage('Terdapat kesalahan dalam sesi pengiriman broadcast.');
       end;
-
     end;
 
-
+    // refresh tabel pesan broadcast
     formMessaging.renderListView;
   end
   else

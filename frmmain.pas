@@ -82,6 +82,8 @@ var
   threadCount: integer = 0;
   retryCount: integer = 1;
 
+  pnlEnabled: boolean = True;
+
 
 
 implementation
@@ -288,10 +290,14 @@ begin
 
   if TERKONEKSI_KE_SERVER then
   begin
-    shapeIndicatorServer.FillColor := clLime;
-
+    //pnlContent.Enabled := True;
+    if not pnlEnabled then
+    begin
+      pnlEnabled := True;
+      pnlContent.Enabled := True;
+      shapeIndicatorServer.FillColor := clLime;
+    end;
     pnlLeft.Enabled := True;
-    pnlContent.Enabled := True;
     formLogin.Enabled := True;
 
     retryCount := 1; // reset kembali retry count
@@ -299,7 +305,7 @@ begin
   else
   begin
     shapeIndicatorServer.FillColor := clRed;
-
+    pnlEnabled := False;
     pnlLeft.Enabled := False;
     pnlContent.Enabled := False;
     formLogin.Enabled := False;

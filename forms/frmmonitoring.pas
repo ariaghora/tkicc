@@ -83,14 +83,8 @@ begin
 
 
       Synchronize(@onSucceed);
-
-      //bar1.Value:=IntToStr();
     end;
 
-    formMonitoring.panel3.Hide;
-    formMonitoring.ListView1.Hide;
-
-    //Synchronize(@doList);
     Synchronize(@postRun);
 
   except
@@ -118,7 +112,7 @@ end;
 procedure TMuatInformasiTKIThread.postRun;
 begin
   formMain.imgAnimation.Hide;
-  if TERKONEKSI_KE_SERVER then
+  //if TERKONEKSI_KE_SERVER then
   begin
     formMain.pnlContent.Enabled := True;
     catatLog('detail TKI dimuat');
@@ -147,6 +141,9 @@ begin
     lblHakJamKerja.Caption := nil2;
     lblHakInfo.Caption := nil3;
     lblHakUpah.Caption := nil4;
+
+    formMonitoring.panel3.Hide;
+    formMonitoring.ListView1.Hide;
 
   end;
 end;
@@ -212,10 +209,10 @@ begin
     BeginThread(TThreadFunc(@procCekSMSMonitor));
     if jumlahSMSMonitorServer > jumlahSMSMonitor then
     begin
+      // refresh tabel
       renderListview;
       jumlahSMSMonitor := jumlahSMSMonitorServer;
     end;
-
   end;
 end;
 

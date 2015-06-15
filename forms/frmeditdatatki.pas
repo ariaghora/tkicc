@@ -14,11 +14,11 @@ type
 
   TformEditDataTKI = class(TForm)
     Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    Button6: TButton;
+    btnBrowseKodeTipe: TButton;
+    btnBrowseKodeNegara: TButton;
+    btnBrowseKodeWilayah: TButton;
+    btnBrowseKodePeer: TButton;
+    btnSubmit: TButton;
     Panel3: TPanel;
     SpeedButton1: TSpeedButton;
     txtID: TLabeledEdit;
@@ -31,15 +31,17 @@ type
     txtKodeNegara: TLabeledEdit;
     pnlTxtHolder: TPanel;
     pnlContent: TPanel;
-    procedure Button2Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
+    procedure btnBrowseKodeTipeClick(Sender: TObject);
+    procedure btnSubmitClick(Sender: TObject);
     procedure pnlContentResize(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
   public
     idTKI: string;
     kodeTipe, nomorTelepon, nama, lokasiKerja, kodeNegara, kodeWilayah, kodePeer: string;
+    mode: string;
     procedure muatInformasi;
+    procedure clearForm;
   end;
 
 var
@@ -60,7 +62,7 @@ begin
   // pnlTxtHolder.Top := pnlContent.Height div 2 - pnlTxtHolder.Height div 2;
 end;
 
-procedure TformEditDataTKI.Button6Click(Sender: TObject);
+procedure TformEditDataTKI.btnSubmitClick(Sender: TObject);
 var
   aid_tki: string;
   akode_tipe: string;
@@ -74,6 +76,7 @@ var
   akode_peer: string;
 
   url: string;
+  pesan: string;
 begin
   aid_tki := EncodeURLElement(txtID.Text);
   akode_tipe := EncodeURLElement(txtKodeTipe.Text);
@@ -86,37 +89,56 @@ begin
   apassword := 'asd';
   akode_peer := EncodeURLElement(txtKodePeer.Text);
 
-  url := LINK_EDIT_DATA_TKI + '?id_tki=' + aid_tki + '&kode_tipe=' +
-    akode_tipe + '&nomor_telepon=' + anomor_telepon + '&nama=' +
-    anama + '&lokasi_kerja=' + alokasi_kerja + '&virtual=' + aisvirtual +
-    '&kode_negara=' + akode_negara + '&kode_wilayah=' + akode_wilayah +
-    '&password=' + apassword + '&kode_peer=' + akode_peer;
+  if mode = 'EDIT' then
+  begin
+    url := LINK_EDIT_DATA_TKI + '?id_tki=' + aid_tki + '&kode_tipe=' +
+      akode_tipe + '&nomor_telepon=' + anomor_telepon + '&nama=' +
+      anama + '&lokasi_kerja=' + alokasi_kerja + '&virtual=' + aisvirtual +
+      '&kode_negara=' + akode_negara + '&kode_wilayah=' + akode_wilayah +
+      '&password=' + apassword + '&kode_peer=' + akode_peer;
+    pesan := 'Data TKI berhasil diperbaharui.';
+  end
+  else
+  begin
+    url := LINK_TAMBAH_TKI + '?id_tki=' + aid_tki + '&kode_tipe=' +
+      akode_tipe + '&nomor_telepon=' + anomor_telepon + '&nama=' +
+      anama + '&lokasi_kerja=' + alokasi_kerja + '&virtual=' + aisvirtual +
+      '&kode_negara=' + akode_negara + '&kode_wilayah=' + akode_wilayah +
+      '&password=' + apassword + '&kode_peer=' + akode_peer;
+    pesan := 'Data TKI berhasil ditambahkan.';
+  end;
 
-  // ShowMessage(url);
+  ShowMessage(url);
 
   try
     if trim(TFPHTTPClient.SimpleGet(url)) = '1' then
     begin
-      // asd asd
-      ShowMessage('Data TKI berhasil diperbaharui.');
+      ShowMessage(pesan);
       formManajemenTKI.renderListview;
       SpeedButton1Click(nil);
     end;
   except
     on Exception do
     begin
-      ShowMessage('Gagal memperbaharui data TKI.');
+      ShowMessage('Terjadi kesalahan pada koneksi.');
       SpeedButton1Click(nil);
     end;
   end;
-  //ShowMessage(url);
-
 end;
 
-procedure TformEditDataTKI.Button2Click(Sender: TObject);
+procedure TformEditDataTKI.btnBrowseKodeTipeClick(Sender: TObject);
 begin
-  formIDBrowser.ShowModal;
+  case TButton(Sender).Name of
+    'btnBrowseKodeTipe':
+      formIDBrowser.mode := 'KODE_TIPE';
+    'btnBrowseKodeNegara':
+      formIDBrowser.mode := 'KODE_NEGARA';
+    'btnBrowseKodeWilayah':
+      formIDBrowser.mode := 'KODE_WILAYAH';
+  end;
+
   formIDBrowser.acuan := txtKodeTipe;
+  formIDBrowser.ShowModal;
 end;
 
 procedure TformEditDataTKI.SpeedButton1Click(Sender: TObject);
@@ -134,6 +156,17 @@ begin
   thr := TMuatDetailThread.Create(True);
   thr.idTKI := idTKI;
   thr.Start;
+end;
+
+procedure TformEditDataTKI.clearForm;
+var
+  i: integer;
+begin
+  for i := 0 to pnlTxtHolder.ControlCount - 1 do
+  begin
+    if pnlTxtHolder.Controls[i] is TLabeledEdit then
+      TLabeledEdit(pnlTxtHolder.Controls[i]).Text := '';
+  end;
 end;
 
 end.

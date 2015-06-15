@@ -26,12 +26,13 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmsmslokal,
   frmlogoutput,
   frmondemand,
-  frmeditdatatki, frmidbrowser;
+  frmeditdatatki,
+  frmidbrowser;
 
 {$R *.res}
 
 begin
-  init(True);
+  init(false);
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TformLogin, formLogin);

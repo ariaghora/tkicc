@@ -14,7 +14,6 @@ type
   { TformOnDemand }
 
   TformOnDemand = class(TForm)
-    Label1: TLabel;
     ListView1: TListView;
     pnlContent: TPanel;
     Timer1: TTimer;
@@ -64,24 +63,19 @@ end;
 
 procedure TformOnDemand.Timer1Timer(Sender: TObject);
 begin
-
+  // tunggu thread sebelumnya selesai untuk efisiensi memori
   if not cekJumlah then
   begin
     cekJumlah := True;
-    //Inc(counter);
     BeginThread(TThreadFunc(@setJumlahPesanOndemand));
   end;
 
+  // jika terdapat pesan on-demand baru di server, tampilkan pesan
   if jumlahPesanOnDemandRemote > jumlahPesanOnDemandSekarang then
   begin
-    ShowMessage('ALERT!!!!');
+    MessageDlg('Pesan Darurat', 'Mohon cek halaman Pesan On-Demand', mtWarning, [mbOK], '');
     renderListview;
   end;
-
-  //Label1.Caption := IntToStr(jumlahPesanOnDemandSekarang) + ' ' +
-  //  IntToStr(jumlahPesanOnDemandRemote);
-  //Label1.Caption := IntToStr(counter);
-
 end;
 
 procedure doRender;

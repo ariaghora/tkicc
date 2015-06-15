@@ -17,14 +17,17 @@ type
     bar2: TBGRAFlashProgressBar;
     bar3: TBGRAFlashProgressBar;
     bar4: TBGRAFlashProgressBar;
+    bar5: TBGRAFlashProgressBar;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
     lblHakPRT: TLabel;
     lblHakJamKerja: TLabel;
     lblHakInfo: TLabel;
     lblHakUpah: TLabel;
+    lblHakKeselamatan: TLabel;
     lblNama: TLabel;
     Panel3: TPanel;
     pnlContent: TPanel;
@@ -42,7 +45,6 @@ type
 
 var
   formDetailTKI: TformDetailTKI;
-  idTKI: string;
 
 
 

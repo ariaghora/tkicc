@@ -1,7 +1,7 @@
 object formEditDataTKI: TformEditDataTKI
-  Left = 529
+  Left = 527
   Height = 448
-  Top = 147
+  Top = 145
   Width = 655
   Caption = 'formEditDataTKI'
   ClientHeight = 448
@@ -89,6 +89,7 @@ object formEditDataTKI: TformEditDataTKI
         EditLabel.ParentColor = False
         LabelPosition = lpLeft
         LabelSpacing = 20
+        ReadOnly = True
         TabOrder = 3
       end
       object txtNomorTelepon: TLabeledEdit
@@ -149,6 +150,7 @@ object formEditDataTKI: TformEditDataTKI
         EditLabel.ParentColor = False
         LabelPosition = lpLeft
         LabelSpacing = 20
+        ReadOnly = True
         TabOrder = 7
       end
       object txtKodeWilayah: TLabeledEdit
@@ -169,6 +171,7 @@ object formEditDataTKI: TformEditDataTKI
         EditLabel.ParentColor = False
         LabelPosition = lpLeft
         LabelSpacing = 20
+        ReadOnly = True
         TabOrder = 9
       end
       object txtKodePeer: TLabeledEdit
@@ -189,6 +192,7 @@ object formEditDataTKI: TformEditDataTKI
         EditLabel.ParentColor = False
         LabelPosition = lpLeft
         LabelSpacing = 20
+        ReadOnly = True
         TabOrder = 11
       end
       object Button1: TButton
@@ -200,46 +204,49 @@ object formEditDataTKI: TformEditDataTKI
         TabOrder = 1
         Visible = False
       end
-      object Button2: TButton
+      object btnBrowseKodeTipe: TButton
         Left = 216
         Height = 25
-        Top = 82
+        Top = 80
         Width = 32
         Caption = '...'
-        OnClick = Button2Click
+        OnClick = btnBrowseKodeTipeClick
         TabOrder = 4
       end
-      object Button3: TButton
+      object btnBrowseKodeNegara: TButton
         Left = 216
         Height = 25
         Top = 176
         Width = 32
         Caption = '...'
+        OnClick = btnBrowseKodeTipeClick
         TabOrder = 8
       end
-      object Button4: TButton
+      object btnBrowseKodeWilayah: TButton
         Left = 216
         Height = 25
-        Top = 210
+        Top = 208
         Width = 32
         Caption = '...'
+        OnClick = btnBrowseKodeTipeClick
         TabOrder = 10
       end
-      object Button5: TButton
+      object btnBrowseKodePeer: TButton
         Left = 216
         Height = 25
         Top = 240
         Width = 32
         Caption = '...'
+        OnClick = btnBrowseKodeTipeClick
         TabOrder = 12
       end
-      object Button6: TButton
+      object btnSubmit: TButton
         Left = 350
         Height = 25
         Top = 296
         Width = 75
         Caption = 'Simpan'
-        OnClick = Button6Click
+        OnClick = btnSubmitClick
         TabOrder = 13
       end
     end

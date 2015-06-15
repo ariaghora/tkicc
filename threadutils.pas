@@ -427,8 +427,8 @@ begin
   Synchronize(@preRun);
 
   try
+    // lakukan HTTP request
     s := TFPHTTPClient.SimpleGet(LINK_LIST_LAPORAN + kodeWilayah + '/' + tipeLaporan);
-
   except
     on Exception do
     begin

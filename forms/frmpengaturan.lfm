@@ -30,6 +30,9 @@ object formPengaturan: TformPengaturan
       Caption = 'Peralatan'
       ClientHeight = 83
       ClientWidth = 563
+      Font.Height = -13
+      Font.Name = 'Montserrat'
+      ParentFont = False
       TabOrder = 0
       object Button1: TButton
         Left = 8
@@ -54,7 +57,7 @@ object formPengaturan: TformPengaturan
         Height = 25
         Top = 8
         Width = 232
-        Caption = 'SMS Lokal'
+        Caption = 'Log SMS'
         OnClick = Button3Click
         TabOrder = 2
       end
@@ -78,6 +81,9 @@ object formPengaturan: TformPengaturan
       Caption = 'Status'
       ClientHeight = 110
       ClientWidth = 563
+      Font.Height = -13
+      Font.Name = 'Montserrat'
+      ParentFont = False
       TabOrder = 1
       object memoStatus: TMemo
         Left = 10
@@ -87,7 +93,7 @@ object formPengaturan: TformPengaturan
         Align = alClient
         BorderSpacing.Around = 10
         Color = clBlack
-        Font.Color = clRed
+        Font.Color = 4263345
         Font.Height = -13
         Font.Name = 'Monospace'
         Font.Style = [fsBold]

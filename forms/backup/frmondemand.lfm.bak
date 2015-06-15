@@ -1,7 +1,7 @@
 object formOnDemand: TformOnDemand
-  Left = 779
+  Left = 778
   Height = 241
-  Top = 483
+  Top = 482
   Width = 536
   Caption = 'formOnDemand'
   ClientHeight = 241
@@ -20,8 +20,8 @@ object formOnDemand: TformOnDemand
     TabOrder = 0
     object ListView1: TListView
       Left = 10
-      Height = 206
-      Top = 25
+      Height = 221
+      Top = 10
       Width = 516
       Align = alClient
       BorderSpacing.Left = 10
@@ -50,15 +50,6 @@ object formOnDemand: TformOnDemand
       ScrollBars = ssAutoBoth
       TabOrder = 0
       ViewStyle = vsReport
-    end
-    object Label1: TLabel
-      Left = 0
-      Height = 15
-      Top = 0
-      Width = 536
-      Align = alTop
-      Caption = 'Label1'
-      ParentColor = False
     end
   end
   object Timer1: TTimer

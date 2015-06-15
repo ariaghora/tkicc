@@ -1,7 +1,7 @@
 object formMonitoring: TformMonitoring
-  Left = 239
+  Left = 238
   Height = 331
-  Top = 282
+  Top = 281
   Width = 726
   Caption = 'formMonitoring'
   ClientHeight = 331
@@ -19,9 +19,9 @@ object formMonitoring: TformMonitoring
     TabOrder = 0
     object ListView1: TListView
       Left = 10
-      Height = 269
+      Height = 273
       Top = 48
-      Width = 702
+      Width = 706
       Align = alClient
       BorderSpacing.Left = 10
       BorderSpacing.Right = 10
@@ -54,11 +54,11 @@ object formMonitoring: TformMonitoring
       Left = 0
       Height = 48
       Top = 0
-      Width = 722
+      Width = 726
       Align = alTop
       BevelOuter = bvNone
       ClientHeight = 48
-      ClientWidth = 722
+      ClientWidth = 726
       TabOrder = 1
       object ComboBox1: TComboBox
         Left = 10
@@ -76,6 +76,7 @@ object formMonitoring: TformMonitoring
           'Hak Jam Kerja'
           'Hak Informasi Pekerjaan'
           'Hak Pengupahan'
+          'Hak Keselamatan, kesehatan kerja, dan jaminan sosial'
         )
         OnChange = ComboBox1Change
         ParentFont = False
@@ -129,7 +130,7 @@ object formMonitoring: TformMonitoring
         OnClick = SpeedButton1Click
       end
       object edtSearch: TEdit
-        Left = 504
+        Left = 508
         Height = 28
         Top = 10
         Width = 180
@@ -143,7 +144,7 @@ object formMonitoring: TformMonitoring
         TabOrder = 1
       end
       object Image1: TImage
-        Left = 684
+        Left = 688
         Height = 28
         Top = 10
         Width = 28

@@ -1,7 +1,7 @@
 object formDetailTKI: TformDetailTKI
-  Left = 658
+  Left = 657
   Height = 435
-  Top = 147
+  Top = 146
   Width = 605
   Caption = 'formDetailTKI'
   ClientHeight = 435
@@ -82,8 +82,8 @@ object formDetailTKI: TformDetailTKI
       Height = 387
       Top = 48
       Width = 605
-      HorzScrollBar.Page = 369
-      VertScrollBar.Page = 241
+      HorzScrollBar.Page = 433
+      VertScrollBar.Page = 289
       Align = alClient
       BorderStyle = bsNone
       ClientHeight = 387
@@ -101,7 +101,7 @@ object formDetailTKI: TformDetailTKI
         ParentFont = False
       end
       object bar1: TBGRAFlashProgressBar
-        Left = 200
+        Left = 264
         Height = 33
         Top = 64
         Width = 152
@@ -111,7 +111,7 @@ object formDetailTKI: TformDetailTKI
         Color = 4591294
       end
       object bar2: TBGRAFlashProgressBar
-        Left = 200
+        Left = 264
         Height = 33
         Top = 112
         Width = 152
@@ -121,7 +121,7 @@ object formDetailTKI: TformDetailTKI
         Color = 4591294
       end
       object bar3: TBGRAFlashProgressBar
-        Left = 200
+        Left = 264
         Height = 33
         Top = 160
         Width = 152
@@ -131,7 +131,7 @@ object formDetailTKI: TformDetailTKI
         Color = 4591294
       end
       object bar4: TBGRAFlashProgressBar
-        Left = 200
+        Left = 264
         Height = 33
         Top = 208
         Width = 152
@@ -144,7 +144,7 @@ object formDetailTKI: TformDetailTKI
         Left = 34
         Height = 33
         Top = 64
-        Width = 158
+        Width = 214
         AutoSize = False
         Caption = 'Hak Pekerja Rumah Tangga'
         Font.Height = -13
@@ -157,7 +157,7 @@ object formDetailTKI: TformDetailTKI
         Left = 34
         Height = 33
         Top = 112
-        Width = 158
+        Width = 214
         AutoSize = False
         Caption = 'Hak Jam Kerja'
         Font.Height = -13
@@ -170,7 +170,7 @@ object formDetailTKI: TformDetailTKI
         Left = 34
         Height = 33
         Top = 160
-        Width = 158
+        Width = 214
         AutoSize = False
         Caption = 'Hak Perolehan Informasi Pekerjaan'
         Font.Height = -13
@@ -183,7 +183,7 @@ object formDetailTKI: TformDetailTKI
         Left = 34
         Height = 33
         Top = 208
-        Width = 158
+        Width = 214
         AutoSize = False
         Caption = 'Hak Pengupahan'
         Font.Height = -13
@@ -193,7 +193,7 @@ object formDetailTKI: TformDetailTKI
         WordWrap = True
       end
       object lblHakPRT: TLabel
-        Left = 360
+        Left = 424
         Height = 17
         Top = 71
         Width = 9
@@ -204,7 +204,7 @@ object formDetailTKI: TformDetailTKI
         ParentFont = False
       end
       object lblHakJamKerja: TLabel
-        Left = 360
+        Left = 424
         Height = 17
         Top = 120
         Width = 9
@@ -215,7 +215,7 @@ object formDetailTKI: TformDetailTKI
         ParentFont = False
       end
       object lblHakInfo: TLabel
-        Left = 360
+        Left = 424
         Height = 17
         Top = 168
         Width = 9
@@ -226,11 +226,45 @@ object formDetailTKI: TformDetailTKI
         ParentFont = False
       end
       object lblHakUpah: TLabel
-        Left = 360
+        Left = 424
         Height = 17
         Top = 216
         Width = 9
         Caption = '0'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 34
+        Height = 33
+        Top = 256
+        Width = 214
+        AutoSize = False
+        Caption = 'Hak Keselamatan, kesehatan kerja, dan jaminan sosial'
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ParentColor = False
+        ParentFont = False
+        WordWrap = True
+      end
+      object bar5: TBGRAFlashProgressBar
+        Left = 264
+        Height = 33
+        Top = 256
+        Width = 152
+        MinValue = 1
+        MaxValue = 5
+        Value = 5
+        Color = 4591294
+      end
+      object lblHakKeselamatan: TLabel
+        Left = 424
+        Height = 17
+        Top = 264
+        Width = 8
+        Caption = '5'
         Font.Height = -13
         Font.Name = 'Montserrat'
         ParentColor = False

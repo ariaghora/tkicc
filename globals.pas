@@ -20,6 +20,7 @@ var
   LINK_DELETE_SMS_LOKAL: string;
   LINK_DETAIL_TKI: string;
   LINK_EDIT_DATA_TKI: string;
+  LINK_HAPUS_DATA_TKI: string;
   LINK_JUMLAH_SMS_LOKAL: string;
   LINK_JUMLAH_SMS_REMOTE: string;
   LINK_JUMLAH_PESAN_ONDEMAND: string;
@@ -28,12 +29,16 @@ var
   LINK_LIST_LAPORAN: string;
   LINK_LIST_BROADCAST: string;
   LINK_LIST_NOMOR_TELEPON: string;
+  LINK_LIST_NEGARA: string;
   LINK_LIST_PESAN_ONDEMAND: string;
   LINK_LIST_SMS_LOKAL: string;
   LINK_LIST_SMS_REMOTE: string;
   LINK_LIST_TKI: string;
+  LINK_LIST_WILAYAH: string;
+  LINK_MASTER: string;
   LINK_NILAI_TERBARU: string;
   LINK_KIRIM_BROADCAST: string;
+  LINK_TAMBAH_TKI: string;
   LINK_TULIS_BROADCAST: string;
   LINK_TEST_KONEKSI_KE_SERVER: string;
   LINK_POP_SMS_LOKAL: string;
@@ -78,6 +83,7 @@ begin
   LINK_COMMIT_SMS_LOKAL := HOST + 'commitsmslokal';
   LINK_DETAIL_TKI := HOST + 'detailtki';
   LINK_EDIT_DATA_TKI := HOST + 'editdatatki';
+  LINK_HAPUS_DATA_TKI := HOST + 'hapustki';
   LINK_LOGIN_STAKEHOLDER := HOST + 'loginstakeholder/';
   LINK_LIST_LAPORAN := HOST + 'listlaporan/';
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
@@ -89,8 +95,12 @@ begin
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
   LINK_LIST_TKI := HOST + 'listtki';
+  LINK_LIST_NEGARA := HOST + 'listnegara';
   LINK_LIST_NOMOR_TELEPON := HOST + 'listnomortelepon';
+  LINK_LIST_WILAYAH := HOST + 'listwilayah';
+  LINK_MASTER := HOST + 'master';
   LINK_NILAI_TERBARU := HOST + 'nilaiterbaru';
+  LINK_TAMBAH_TKI := HOST + 'tambahtki';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 

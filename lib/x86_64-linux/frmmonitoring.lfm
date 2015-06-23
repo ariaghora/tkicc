@@ -1,7 +1,7 @@
 object formMonitoring: TformMonitoring
-  Left = 238
+  Left = 237
   Height = 331
-  Top = 281
+  Top = 280
   Width = 726
   Caption = 'formMonitoring'
   ClientHeight = 331

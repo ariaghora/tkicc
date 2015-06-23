@@ -1,7 +1,7 @@
 object formEditDataTKI: TformEditDataTKI
-  Left = 527
+  Left = 526
   Height = 448
-  Top = 145
+  Top = 144
   Width = 655
   Caption = 'formEditDataTKI'
   ClientHeight = 448

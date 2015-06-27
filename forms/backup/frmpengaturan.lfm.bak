@@ -9,7 +9,7 @@ object formPengaturan: TformPengaturan
   Color = clWhite
   Font.Height = -13
   Font.Name = 'Montserrat'
-  LCLVersion = '1.2.6.0'
+  LCLVersion = '1.4.0.4'
   object pnlContent: TPanel
     Left = 0
     Height = 346
@@ -28,7 +28,7 @@ object formPengaturan: TformPengaturan
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Peralatan'
-      ClientHeight = 83
+      ClientHeight = 81
       ClientWidth = 563
       Font.Height = -13
       Font.Name = 'Montserrat'
@@ -79,18 +79,21 @@ object formPengaturan: TformPengaturan
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Status'
-      ClientHeight = 110
+      ClientHeight = 108
       ClientWidth = 563
+      Font.Height = -13
+      Font.Name = 'Montserrat'
+      ParentFont = False
       TabOrder = 1
       object memoStatus: TMemo
         Left = 10
-        Height = 90
+        Height = 88
         Top = 10
         Width = 543
         Align = alClient
         BorderSpacing.Around = 10
         Color = clBlack
-        Font.Color = clRed
+        Font.Color = 4263345
         Font.Height = -13
         Font.Name = 'Monospace'
         Font.Style = [fsBold]
@@ -104,6 +107,7 @@ object formPengaturan: TformPengaturan
     end
   end
   object Timer1: TTimer
+    Enabled = False
     OnTimer = Timer1Timer
     left = 8
     top = 304

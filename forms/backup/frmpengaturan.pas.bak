@@ -156,14 +156,15 @@ begin
     statusInternet := TAK_TERSEDIA;
   end;
 
-  if statusSMSDService = TERSEDIA then
-  begin
-    formMain.shapeIndicatorSMSD.FillColor := clLime;
-  end
-  else
-  begin
-    formMain.shapeIndicatorSMSD.FillColor := clRed;
-  end;
+  if ID_SIMPUL_CABANG = '0' then
+    if statusSMSDService = TERSEDIA then
+    begin
+      formMain.shapeIndicatorSMSD.FillColor := clLime;
+    end
+    else
+    begin
+      formMain.shapeIndicatorSMSD.FillColor := clRed;
+    end;
 
   // update status message
   memoStatus.Text :=

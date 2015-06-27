@@ -53,7 +53,6 @@
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ews"/>
       </Unit0>
       <Unit1>
         <Filename Value="frmmain.pas"/>
@@ -66,12 +65,10 @@
       <Unit2>
         <Filename Value="beautify.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="beautify"/>
       </Unit2>
       <Unit3>
         <Filename Value="helper.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="helper"/>
       </Unit3>
       <Unit4>
         <Filename Value="globals.pas"/>
@@ -129,7 +126,6 @@
         <ComponentName Value="formTestSMS"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="frmtestsms"/>
       </Unit11>
       <Unit12>
         <Filename Value="forms/frmpengaturan.pas"/>
@@ -145,7 +141,6 @@
         <ComponentName Value="formManajemenTKI"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="frmmanajementki"/>
       </Unit13>
       <Unit14>
         <Filename Value="forms/frmsmslokal.pas"/>
@@ -161,7 +156,6 @@
         <ComponentName Value="formLogOutput"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="frmlogoutput"/>
       </Unit15>
       <Unit16>
         <Filename Value="forms/frmondemand.pas"/>
@@ -185,7 +179,6 @@
         <ComponentName Value="formIDBrowser"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="frmidbrowser"/>
       </Unit18>
     </Units>
   </ProjectOptions>
@@ -210,9 +203,6 @@
       </Options>
     </Linking>
     <Other>
-      <CompilerMessages>
-        <MsgFileName Value=""/>
-      </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
   </CompilerOptions>

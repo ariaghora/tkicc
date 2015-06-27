@@ -246,30 +246,33 @@ procedure TformMonitoring.ListView1CustomDrawItem(Sender: TCustomListView;
 var
   rct: TRect;
 begin
+  {$IFDEF UNIX}
   DefaultDraw := False;
+  {$ENDIF}
   rct := Item.DisplayRect(drLabel);
 
   Sender.Canvas.Brush.Color := clNone;
   Sender.Canvas.Font.Color := clBlack;
   Sender.Canvas.Font.Style := [];
 
-  case Item.SubItems[1] of
-    '1':
-    begin
-      Sender.Canvas.Brush.Color := RGBToColor(183, 13, 67);
-      Sender.Canvas.Font.Color := clWhite;
-      Sender.Canvas.Font.Style := [fsBold];
+  if item.SubItems.Count > 1 then
+    case Item.SubItems[1] of
+      '1':
+      begin
+        Sender.Canvas.Brush.Color := RGBToColor(183, 13, 67);
+        Sender.Canvas.Font.Color := clWhite;
+        Sender.Canvas.Font.Style := [fsBold];
+      end;
+      '2':
+      begin
+        Sender.Canvas.Brush.Color := RGBToColor(218, 74, 120);
+        Sender.Canvas.Font.Color := clWhite;
+      end;
+      '3':
+        Sender.Canvas.Brush.Color := RGBToColor(247, 164, 191);
+      '4':
+        Sender.Canvas.Brush.Color := RGBToColor(255, 208, 223);
     end;
-    '2':
-    begin
-      Sender.Canvas.Brush.Color := RGBToColor(218, 74, 120);
-      Sender.Canvas.Font.Color := clWhite;
-    end;
-    '3':
-      Sender.Canvas.Brush.Color := RGBToColor(247, 164, 191);
-    '4':
-      Sender.Canvas.Brush.Color := RGBToColor(255, 208, 223);
-  end;
 
   Sender.Canvas.FillRect(rct.Left - 2, rct.Top - 2, rct.Right, rct.Bottom);
   Sender.Canvas.TextOut(rct.Left + 2, rct.Top + 2, Item.Caption);

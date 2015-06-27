@@ -36,7 +36,6 @@ object formMain: TformMain
       Top = 0
       Width = 272
       Align = alLeft
-      OnClick = Image1Click
       Picture.Data = {
         1754506F727461626C654E6574776F726B47726170686963E10E000089504E47
         0D0A1A0A0000000D494844520000010400000048080600000010E58BA9000000
@@ -7274,6 +7273,7 @@ object formMain: TformMain
       Top = 6
       Width = 74
       Align = alRight
+      BorderSpacing.Left = 20
       BorderSpacing.Around = 6
       Caption = 'SMSD Service'
       Font.Color = clWhite
@@ -7284,7 +7284,7 @@ object formMain: TformMain
     end
     object shapeIndicatorServer: TBGRAShape
       Cursor = crHandPoint
-      Left = 644
+      Left = 647
       Height = 10
       Hint = 'Check'
       Top = 9
@@ -7318,12 +7318,11 @@ object formMain: TformMain
       FillGradient.Point2YPercent = 100
       FillGradient.Sinus = False
       ShapeType = stEllipse
-      BorderSpacing.Right = 20
       BorderSpacing.Around = 9
       Caption = 'shapeIndicatorServer'
     end
     object Label4: TLabel
-      Left = 548
+      Left = 551
       Height = 16
       Top = 6
       Width = 87
@@ -7338,7 +7337,7 @@ object formMain: TformMain
     end
     object Label5: TLabel
       Cursor = crHandPoint
-      Left = 464
+      Left = 467
       Height = 16
       Top = 6
       Width = 58

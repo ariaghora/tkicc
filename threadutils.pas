@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Dialogs, fpjson, jsonparser, fphttpclient, json2lv, helper, globals,
   process, FileUtil, Forms, Controls, Graphics, StdCtrls,
-  ExtCtrls, Menus, inifiles, baseunix, strutils, ComCtrls, httpsend;
+  ExtCtrls, Menus, inifiles, strutils, ComCtrls, httpsend;
 
 type
   TLoginThread = class(TThread)
@@ -131,7 +131,8 @@ type
 implementation
 
 uses
-  frmMain, frmlogin, frmondemand, frmeditdatatki;
+  frmMain, frmlogin, frmondemand, frmeditdatatki, frmMonitoring, frmpengaturan,
+  frmsmslokal;
 
 { TMuatDetailThread }
 
@@ -636,8 +637,25 @@ begin
   //formMain.imgMonitorMouseDown(formMain.imgMonitor, mbLeft, [], 0, 0);
   catatLog('login berhasil sebagai ' + USER_NAME);
 
-  // init & timer enabling
-  // formOnDemand.init;
+
+  formOnDemand.init;
+  formMonitoring.init;
+  //ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG));
+  formOnDemand.Timer1.Enabled := True;
+  formMonitoring.Timer1.Enabled := True;
+  formPengaturan.Timer1.Enabled := True;
+
+  if ID_SIMPUL_CABANG = '0' then
+  begin
+    formMain.Label3.Show;
+    formMain.shapeIndicatorSMSD.Show;
+    formSMSLokal.Timer1.Enabled := True;
+  end
+  else
+  begin
+    formMain.Label3.Hide;
+    formMain.shapeIndicatorSMSD.Hide;
+  end;
 
 end;
 

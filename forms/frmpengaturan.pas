@@ -141,11 +141,12 @@ procedure TformPengaturan.Timer1Timer(Sender: TObject);
 var
   thrCheckSMSDService: TCekSMSDThread;
 begin
-  if not isCheckingSMSDService then
-  begin
-    thrCheckSMSDService := TCekSMSDThread.Create(True);
-    thrCheckSMSDService.Start;
-  end;
+  if ID_SIMPUL_CABANG = '0' then
+    if not isCheckingSMSDService then
+    begin
+      thrCheckSMSDService := TCekSMSDThread.Create(True);
+      thrCheckSMSDService.Start;
+    end;
 
   if TERKONEKSI_KE_SERVER then
   begin
@@ -155,6 +156,7 @@ begin
   begin
     statusInternet := TAK_TERSEDIA;
   end;
+
 
   if statusSMSDService = TERSEDIA then
   begin

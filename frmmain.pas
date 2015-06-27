@@ -77,6 +77,7 @@ var
   // variabel untuk monitor hardware dan koneksi jaringan
   cekIMEI: boolean = False;
   cekInternet: boolean = False;
+  cekBroadcastPool: boolean = False;
   terkoneksiInternet: boolean = False;
 
   threadCount: integer = 0;
@@ -84,12 +85,15 @@ var
 
   pnlEnabled: boolean = True;
 
+  kontak: TStringList;
+
 
 
 implementation
 
 uses
-  frmlogin, frmMonitoring, frmmessaging, frmpengaturan, frmmanajementki, frmondemand;
+  frmlogin, frmMonitoring, frmmessaging, frmpengaturan, frmmanajementki,
+  frmondemand, frmsmslokal;
 
 {$R *.lfm}
 
@@ -147,13 +151,6 @@ begin
 
   pnlLeft.Width := 0;
   guiTimer.Enabled := True;
-
-
-  formOnDemand.init;
-  formMonitoring.init;
-  //ShowMessage(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND + '/' + ID_SIMPUL_CABANG));
-  formOnDemand.Timer1.Enabled := True;
-  formMonitoring.Timer1.Enabled := True;
 end;
 
 procedure TformMain.guiTimerTimer(Sender: TObject);
@@ -219,6 +216,8 @@ begin
     // disable seluruh timer
     formOnDemand.Timer1.Enabled := False;
     formMonitoring.Timer1.Enabled := False;
+    formPengaturan.Timer1.Enabled := False;
+    formSMSLokal.Timer1.Enabled := False;
   end;
 
 end;
@@ -261,6 +260,75 @@ begin
   httpsender.Free;
 end;
 
+procedure listKontak(idSimpulCabang: string);
+var
+  jData: TJSONData;
+  jParser: TJSONParser;
+  jString: string;
+  jmlData: integer;
+  i: integer;
+begin
+
+  try
+    jString := TFPHTTPClient.SimpleGet(LINK_LIST_NOMOR_TELEPON + '/' + idSimpulCabang);
+
+    try
+      jParser := TJSONParser.Create(jString);
+      jData := jParser.Parse;
+
+      jmlData := TJSONArray(jData).Count;
+
+      kontak := TStringList.Create;
+
+      for i := 0 to jmlData - 1 do
+      begin
+        kontak.Add(TJSONObject(TJSONArray(jData).Items[i]).Get('nomor_telepon'));
+      end;
+    except
+      on Exception do
+      begin
+        // json parsing error
+      end;
+    end;
+
+  except
+    on Exception do
+    begin
+      // http request failed
+    end;
+  end;
+
+end;
+
+procedure procCekBroadcastPool;
+var
+  jParser: TJSONParser;
+  jData: TJSONData;
+  idSimpulCabang, pesan: string;
+  i: integer;
+begin
+  try
+    if StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_BROADCAST_POOL))) > 0 then
+    begin
+      jParser := TJSONParser.Create(TFPHTTPClient.SimpleGet(LINK_POP_BROADCAST_POOL));
+      jData := jParser.Parse;
+      idSimpulCabang := trim(TJSONObject(jData).Get('id_simpul_cabang', '-1'));
+      pesan := trim(TJSONObject(jData).Get('pesan', ''));
+      listKontak(idSimpulCabang);
+      for i := 0 to kontak.Count - 1 do
+        gammusendsms(kontak[i], pesan);
+
+      cekBroadcastPool := False;
+    end;
+  except
+    on Exception do
+    begin
+      cekBroadcastPool := False;
+    end;
+  end;
+
+  cekBroadcastPool := False;
+end;
 
 procedure TformMain.mainTimerTimer(Sender: TObject);
 var
@@ -316,7 +384,14 @@ begin
 
   end;
 
-  //button1.Caption := IntToStr(threadCount);
+  //*** cek broadcast pool
+  if ID_SIMPUL_CABANG = '0' then
+    if not cekBroadcastPool then
+    begin
+      BeginThread(TThreadFunc(@procCekBroadcastPool));
+      cekBroadcastPool := True;
+    end;
+
 
 end;
 

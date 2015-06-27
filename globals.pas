@@ -25,6 +25,9 @@ var
   LINK_JUMLAH_SMS_REMOTE: string;
   LINK_JUMLAH_PESAN_ONDEMAND: string;
   LINK_JUMLAH_SMS_MONITOR: string;
+  LINK_JUMLAH_BROADCAST_POOL: string;
+  LINK_KIRIM_BROADCAST: string;
+  LINK_KIRIM_BROADCAST_DAN_POOL: string;
   LINK_LOGIN_STAKEHOLDER: string;
   LINK_LIST_LAPORAN: string;
   LINK_LIST_BROADCAST: string;
@@ -38,11 +41,11 @@ var
   LINK_LIST_WILAYAH: string;
   LINK_MASTER: string;
   LINK_NILAI_TERBARU: string;
-  LINK_KIRIM_BROADCAST: string;
   LINK_TAMBAH_TKI: string;
   LINK_TULIS_BROADCAST: string;
   LINK_TEST_KONEKSI_KE_SERVER: string;
   LINK_POP_SMS_LOKAL: string;
+  LINK_POP_BROADCAST_POOL: string;
 
   //** SESSION VARIABLES **//
   USER_ID, USER_NAME, USER_PASSWORD, ID_SIMPUL_CABANG, NAMA_WILAYAH: string;
@@ -90,6 +93,8 @@ begin
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
+  LINK_KIRIM_BROADCAST_DAN_POOL := HOST + 'kirimbroadcastdanpool';
+  LINK_JUMLAH_BROADCAST_POOL := HOST + 'jumlahbroadcastpool';
   LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
   LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';
   LINK_JUMLAH_SMS_MONITOR := HOST + 'jumlahsmsmonitor';
@@ -103,6 +108,7 @@ begin
   LINK_MASTER := HOST + 'master';
   LINK_NILAI_TERBARU := HOST + 'nilaiterbaru';
   LINK_TAMBAH_TKI := HOST + 'tambahtki';
+  LINK_POP_BROADCAST_POOL := HOST + 'popbroadcastpool';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 

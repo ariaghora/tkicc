@@ -73,8 +73,8 @@ begin
   // jika terdapat pesan on-demand baru di server, tampilkan pesan
   if jumlahPesanOnDemandRemote > jumlahPesanOnDemandSekarang then
   begin
-    MessageDlg('Pesan Darurat', 'Mohon cek halaman Pesan On-Demand', mtWarning, [mbOK], '');
     renderListview;
+    MessageDlg('Pesan Darurat', 'Mohon cek halaman Pesan On-Demand', mtWarning, [mbOK], '');
   end;
 end;
 

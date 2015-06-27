@@ -20,9 +20,9 @@ object formOnDemand: TformOnDemand
     TabOrder = 0
     object ListView1: TListView
       Left = 10
-      Height = 221
+      Height = 217
       Top = 10
-      Width = 516
+      Width = 512
       Align = alClient
       BorderSpacing.Left = 10
       BorderSpacing.Top = 10

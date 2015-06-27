@@ -1,7 +1,7 @@
 object formMessaging: TformMessaging
-  Left = 844
+  Left = 485
   Height = 240
-  Top = 324
+  Top = 235
   Width = 486
   Caption = 'formMessaging'
   ClientHeight = 240

@@ -7273,6 +7273,7 @@ object formMain: TformMain
       Top = 6
       Width = 74
       Align = alRight
+      BorderSpacing.Left = 20
       BorderSpacing.Around = 6
       Caption = 'SMSD Service'
       Font.Color = clWhite
@@ -7283,7 +7284,7 @@ object formMain: TformMain
     end
     object shapeIndicatorServer: TBGRAShape
       Cursor = crHandPoint
-      Left = 644
+      Left = 647
       Height = 10
       Hint = 'Check'
       Top = 9
@@ -7317,12 +7318,11 @@ object formMain: TformMain
       FillGradient.Point2YPercent = 100
       FillGradient.Sinus = False
       ShapeType = stEllipse
-      BorderSpacing.Right = 20
       BorderSpacing.Around = 9
       Caption = 'shapeIndicatorServer'
     end
     object Label4: TLabel
-      Left = 548
+      Left = 551
       Height = 16
       Top = 6
       Width = 87
@@ -7337,7 +7337,7 @@ object formMain: TformMain
     end
     object Label5: TLabel
       Cursor = crHandPoint
-      Left = 464
+      Left = 467
       Height = 16
       Top = 6
       Width = 58

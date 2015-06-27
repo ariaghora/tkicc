@@ -41,7 +41,7 @@ uses
 
 { TformTulisBroadcast }
 
-procedure listKontak;
+procedure listKontak(idSimpulCabang: string);
 var
   jData: TJSONData;
   jParser: TJSONParser;
@@ -50,7 +50,7 @@ var
 begin
 
   try
-    jString := TFPHTTPClient.SimpleGet(LINK_LIST_NOMOR_TELEPON + '/' + ID_SIMPUL_CABANG);
+    jString := TFPHTTPClient.SimpleGet(LINK_LIST_NOMOR_TELEPON + '/' + idSimpulCabang);
 
     try
       jParser := TJSONParser.Create(jString);
@@ -103,7 +103,7 @@ end;
 
 procedure TformTulisBroadcast.SpeedButton1Click(Sender: TObject);
 var
-  pesan, pesanEncoded: string;
+  pesan, idSimpulCabang, pesanEncoded: string;
   jData: TJSONData;
   jParser: TJSONParser;
   i: integer;
@@ -111,42 +111,61 @@ begin
   pesan := Memo1.Text;
   pesanEncoded := EncodeURLElement(pesan);
 
-  // mengisi daftar nomor tujuan
-  // dengan HTTP request
-  listKontak;
-
-  if kontak.Count <= 0 then
-    ShowMessage('Daftar nomor tujuan kosong.')
-  else
-
-  // jika berhasil
-  if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
-    pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
+  if ID_SIMPUL_CABANG = '0' then
   begin
-    memo1.Clear;
-    self.Close;
 
-    for i := 0 to kontak.Count - 1 do
+    // mengisi daftar nomor tujuan
+    // dengan HTTP request
+    listKontak(ID_SIMPUL_CABANG);
+
+    if kontak.Count <= 0 then
+      ShowMessage('Daftar nomor tujuan kosong.')
+    else
+
+    // jika berhasil
+    if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
+      pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
     begin
-      if gammusendsms(kontak[i], pesan) = '1' then
+      memo1.Clear;
+      self.Close;
+
+      for i := 0 to kontak.Count - 1 do
       begin
-        // success message
-        catatLog('pesan dikirimkan ke nomor ' + kontak[i]);
-      end
-      else
-      begin
-        // failure warning
-        ShowMessage('Terdapat kesalahan dalam sesi pengiriman broadcast.');
+        if gammusendsms(kontak[i], pesan) = '1' then
+        begin
+          // success message
+          catatLog('pesan dikirimkan ke nomor ' + kontak[i]);
+        end
+        else
+        begin
+          // failure warning
+          ShowMessage('Terdapat kesalahan dalam sesi pengiriman broadcast.');
+        end;
       end;
+
+      // refresh tabel pesan broadcast
+      formMessaging.renderListView;
+    end
+    else
+    begin
+      ShowMessage('Sesi pengiriman broadcast gagal');
+    end;
+  end
+
+  else
+  begin
+
+    if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST_DAN_POOL + '.php?pesan=' +
+      pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
+    begin
+      ShowMessage('Pesan terkirim.');
+      self.Close;
     end;
 
-    // refresh tabel pesan broadcast
-    formMessaging.renderListView;
-  end
-  else
-  begin
-    ShowMessage('Sesi pengiriman broadcast gagal');
+
+
   end;
+
 end;
 
 end.

@@ -31,6 +31,7 @@ var
   LINK_LIST_NOMOR_TELEPON: string;
   LINK_LIST_NEGARA: string;
   LINK_LIST_PESAN_ONDEMAND: string;
+  LINK_LIST_SMS_BY_PENGIRIM: string;
   LINK_LIST_SMS_LOKAL: string;
   LINK_LIST_SMS_REMOTE: string;
   LINK_LIST_TKI: string;
@@ -93,6 +94,7 @@ begin
   LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';
   LINK_JUMLAH_SMS_MONITOR := HOST + 'jumlahsmsmonitor';
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
+  LINK_LIST_SMS_BY_PENGIRIM := HOST + 'listsmsbypengirim';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
   LINK_LIST_TKI := HOST + 'listtki';
   LINK_LIST_NEGARA := HOST + 'listnegara';

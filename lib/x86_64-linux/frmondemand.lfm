@@ -1,7 +1,7 @@
 object formOnDemand: TformOnDemand
-  Left = 777
+  Left = 776
   Height = 241
-  Top = 481
+  Top = 480
   Width = 536
   Caption = 'formOnDemand'
   ClientHeight = 241

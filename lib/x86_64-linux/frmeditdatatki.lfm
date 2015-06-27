@@ -1,7 +1,7 @@
 object formEditDataTKI: TformEditDataTKI
   Left = 526
   Height = 448
-  Top = 144
+  Top = 142
   Width = 655
   Caption = 'formEditDataTKI'
   ClientHeight = 448
@@ -175,16 +175,16 @@ object formEditDataTKI: TformEditDataTKI
         TabOrder = 9
       end
       object txtKodePeer: TLabeledEdit
-        Left = 129
+        Left = 128
         Height = 29
         Top = 240
-        Width = 80
+        Width = 81
         EditLabel.AnchorSideTop.Control = txtKodePeer
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = txtKodePeer
         EditLabel.AnchorSideBottom.Control = txtKodePeer
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 42
+        EditLabel.Left = 41
         EditLabel.Height = 17
         EditLabel.Top = 246
         EditLabel.Width = 67

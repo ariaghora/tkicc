@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons, ComCtrls, PairSplitter, BGRAFlashProgressBar;
+  StdCtrls, Buttons, ComCtrls, PairSplitter, BGRAFlashProgressBar, json2lv;
 
 type
 
@@ -23,17 +23,25 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    lblHakPRT: TLabel;
-    lblHakJamKerja: TLabel;
+    Label6: TLabel;
     lblHakInfo: TLabel;
-    lblHakUpah: TLabel;
+    lblHakJamKerja: TLabel;
     lblHakKeselamatan: TLabel;
+    lblHakPRT: TLabel;
+    lblHakUpah: TLabel;
     lblNama: TLabel;
+    ListView1: TListView;
+    Panel1: TPanel;
+    Panel2: TPanel;
     Panel3: TPanel;
+    Panel4: TPanel;
     pnlContent: TPanel;
     ScrollBox1: TScrollBox;
     SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    Splitter1: TSplitter;
     procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -41,6 +49,8 @@ type
     namaTKI: string;
     idTKI: string;
     nil1, nil2, nil3, nil4: string;
+    dataSMS: ansistring;
+    procedure refreshLogSMS;
   end;
 
 var
@@ -65,6 +75,16 @@ begin
   formMonitoring.Panel3.Show;
   formMonitoring.ListView1.Show;
 
+end;
+
+procedure TformDetailTKI.SpeedButton2Click(Sender: TObject);
+begin
+  refreshLogSMS;
+end;
+
+procedure TformDetailTKI.refreshLogSMS;
+begin
+  renderJSON2ListView(dataSMS, ListView1);
 end;
 
 end.

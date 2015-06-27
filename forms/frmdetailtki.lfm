@@ -1,11 +1,11 @@
 object formDetailTKI: TformDetailTKI
-  Left = 657
+  Left = 262
   Height = 435
-  Top = 146
-  Width = 605
+  Top = 201
+  Width = 928
   Caption = 'formDetailTKI'
   ClientHeight = 435
-  ClientWidth = 605
+  ClientWidth = 928
   Font.Height = -13
   Font.Name = 'Montserrat'
   LCLVersion = '1.2.6.0'
@@ -13,21 +13,21 @@ object formDetailTKI: TformDetailTKI
     Left = 0
     Height = 435
     Top = 0
-    Width = 605
+    Width = 928
     Align = alClient
     BevelOuter = bvNone
     ClientHeight = 435
-    ClientWidth = 605
+    ClientWidth = 928
     TabOrder = 0
     object Panel3: TPanel
       Left = 0
       Height = 48
       Top = 0
-      Width = 605
+      Width = 928
       Align = alTop
       BevelOuter = bvNone
       ClientHeight = 48
-      ClientWidth = 605
+      ClientWidth = 928
       TabOrder = 0
       object SpeedButton1: TSpeedButton
         Left = 10
@@ -81,194 +81,319 @@ object formDetailTKI: TformDetailTKI
       Left = 0
       Height = 387
       Top = 48
-      Width = 605
-      HorzScrollBar.Page = 433
+      Width = 928
+      HorzScrollBar.Page = 747
       VertScrollBar.Page = 289
       Align = alClient
       BorderStyle = bsNone
       ClientHeight = 387
-      ClientWidth = 605
+      ClientWidth = 928
       TabOrder = 1
-      object lblNama: TLabel
-        Left = 34
-        Height = 24
-        Top = 8
-        Width = 93
-        Caption = 'Nama TKI'
-        Font.Height = -19
-        Font.Name = 'Montserrat'
+      object Panel1: TPanel
+        Left = 0
+        Height = 387
+        Top = 0
+        Width = 472
+        Align = alLeft
+        BevelOuter = bvNone
+        ClientHeight = 387
+        ClientWidth = 472
+        TabOrder = 0
+        object lblNama: TLabel
+          Left = 34
+          Height = 24
+          Top = 8
+          Width = 93
+          Caption = 'Nama TKI'
+          Font.Height = -19
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+        end
+        object bar1: TBGRAFlashProgressBar
+          Left = 264
+          Height = 33
+          Top = 64
+          Width = 152
+          MinValue = 1
+          MaxValue = 5
+          Value = 3
+          Color = 4591294
+        end
+        object bar2: TBGRAFlashProgressBar
+          Left = 264
+          Height = 33
+          Top = 112
+          Width = 152
+          MinValue = 1
+          MaxValue = 5
+          Value = 2
+          Color = 4591294
+        end
+        object bar3: TBGRAFlashProgressBar
+          Left = 264
+          Height = 33
+          Top = 160
+          Width = 152
+          MinValue = 1
+          MaxValue = 5
+          Value = 3
+          Color = 4591294
+        end
+        object bar4: TBGRAFlashProgressBar
+          Left = 264
+          Height = 33
+          Top = 208
+          Width = 152
+          MinValue = 1
+          MaxValue = 5
+          Value = 2
+          Color = 4591294
+        end
+        object Label1: TLabel
+          Left = 34
+          Height = 33
+          Top = 64
+          Width = 214
+          AutoSize = False
+          Caption = 'Hak Pekerja Rumah Tangga'
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object Label2: TLabel
+          Left = 34
+          Height = 33
+          Top = 112
+          Width = 214
+          AutoSize = False
+          Caption = 'Hak Jam Kerja'
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object Label3: TLabel
+          Left = 34
+          Height = 33
+          Top = 160
+          Width = 214
+          AutoSize = False
+          Caption = 'Hak Perolehan Informasi Pekerjaan'
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object Label4: TLabel
+          Left = 34
+          Height = 33
+          Top = 208
+          Width = 214
+          AutoSize = False
+          Caption = 'Hak Pengupahan'
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object lblHakJamKerja: TLabel
+          Left = 280
+          Height = 17
+          Top = 120
+          Width = 120
+          Alignment = taCenter
+          AutoSize = False
+          Caption = '0'
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblHakInfo: TLabel
+          Left = 280
+          Height = 17
+          Top = 168
+          Width = 120
+          Alignment = taCenter
+          AutoSize = False
+          Caption = '0'
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblHakUpah: TLabel
+          Left = 280
+          Height = 17
+          Top = 216
+          Width = 120
+          Alignment = taCenter
+          AutoSize = False
+          Caption = '0'
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 34
+          Height = 33
+          Top = 256
+          Width = 214
+          AutoSize = False
+          Caption = 'Hak Keselamatan, kesehatan kerja, dan jaminan sosial'
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object bar5: TBGRAFlashProgressBar
+          Left = 264
+          Height = 33
+          Top = 256
+          Width = 152
+          MinValue = 1
+          MaxValue = 5
+          Value = 5
+          Color = 4591294
+        end
+        object lblHakKeselamatan: TLabel
+          Left = 280
+          Height = 17
+          Top = 264
+          Width = 120
+          Alignment = taCenter
+          AutoSize = False
+          Caption = '5'
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblHakPRT: TLabel
+          Left = 280
+          Height = 17
+          Top = 71
+          Width = 120
+          Alignment = taCenter
+          AutoSize = False
+          Caption = '0'
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Montserrat'
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+      object Splitter1: TSplitter
+        Left = 472
+        Height = 387
+        Top = 0
+        Width = 5
+        Color = clWhite
         ParentColor = False
-        ParentFont = False
       end
-      object bar1: TBGRAFlashProgressBar
-        Left = 264
-        Height = 33
-        Top = 64
-        Width = 152
-        MinValue = 1
-        MaxValue = 5
-        Value = 3
-        Color = 4591294
-      end
-      object bar2: TBGRAFlashProgressBar
-        Left = 264
-        Height = 33
-        Top = 112
-        Width = 152
-        MinValue = 1
-        MaxValue = 5
-        Value = 2
-        Color = 4591294
-      end
-      object bar3: TBGRAFlashProgressBar
-        Left = 264
-        Height = 33
-        Top = 160
-        Width = 152
-        MinValue = 1
-        MaxValue = 5
-        Value = 3
-        Color = 4591294
-      end
-      object bar4: TBGRAFlashProgressBar
-        Left = 264
-        Height = 33
-        Top = 208
-        Width = 152
-        MinValue = 1
-        MaxValue = 5
-        Value = 2
-        Color = 4591294
-      end
-      object Label1: TLabel
-        Left = 34
-        Height = 33
-        Top = 64
-        Width = 214
-        AutoSize = False
-        Caption = 'Hak Pekerja Rumah Tangga'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-        WordWrap = True
-      end
-      object Label2: TLabel
-        Left = 34
-        Height = 33
-        Top = 112
-        Width = 214
-        AutoSize = False
-        Caption = 'Hak Jam Kerja'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-        WordWrap = True
-      end
-      object Label3: TLabel
-        Left = 34
-        Height = 33
-        Top = 160
-        Width = 214
-        AutoSize = False
-        Caption = 'Hak Perolehan Informasi Pekerjaan'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-        WordWrap = True
-      end
-      object Label4: TLabel
-        Left = 34
-        Height = 33
-        Top = 208
-        Width = 214
-        AutoSize = False
-        Caption = 'Hak Pengupahan'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-        WordWrap = True
-      end
-      object lblHakPRT: TLabel
-        Left = 424
-        Height = 17
-        Top = 71
-        Width = 9
-        Caption = '0'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-      end
-      object lblHakJamKerja: TLabel
-        Left = 424
-        Height = 17
-        Top = 120
-        Width = 9
-        Caption = '0'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-      end
-      object lblHakInfo: TLabel
-        Left = 424
-        Height = 17
-        Top = 168
-        Width = 9
-        Caption = '0'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-      end
-      object lblHakUpah: TLabel
-        Left = 424
-        Height = 17
-        Top = 216
-        Width = 9
-        Caption = '0'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label5: TLabel
-        Left = 34
-        Height = 33
-        Top = 256
-        Width = 214
-        AutoSize = False
-        Caption = 'Hak Keselamatan, kesehatan kerja, dan jaminan sosial'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
-        WordWrap = True
-      end
-      object bar5: TBGRAFlashProgressBar
-        Left = 264
-        Height = 33
-        Top = 256
-        Width = 152
-        MinValue = 1
-        MaxValue = 5
-        Value = 5
-        Color = 4591294
-      end
-      object lblHakKeselamatan: TLabel
-        Left = 424
-        Height = 17
-        Top = 264
-        Width = 8
-        Caption = '5'
-        Font.Height = -13
-        Font.Name = 'Montserrat'
-        ParentColor = False
-        ParentFont = False
+      object Panel2: TPanel
+        Left = 477
+        Height = 387
+        Top = 0
+        Width = 451
+        Align = alClient
+        BevelOuter = bvNone
+        ClientHeight = 387
+        ClientWidth = 451
+        TabOrder = 2
+        object ListView1: TListView
+          Left = 10
+          Height = 329
+          Top = 48
+          Width = 431
+          Align = alClient
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 10
+          BorderSpacing.Bottom = 10
+          Columns = <>
+          TabOrder = 0
+          ViewStyle = vsReport
+        end
+        object Panel4: TPanel
+          Left = 0
+          Height = 48
+          Top = 0
+          Width = 451
+          Align = alTop
+          Alignment = taLeftJustify
+          BevelOuter = bvNone
+          ClientHeight = 48
+          ClientWidth = 451
+          TabOrder = 1
+          object Label6: TLabel
+            Left = 14
+            Height = 20
+            Top = 14
+            Width = 57
+            Align = alLeft
+            BorderSpacing.Around = 14
+            Caption = 'Log SMS:'
+            ParentColor = False
+          end
+          object SpeedButton2: TSpeedButton
+            Left = 413
+            Height = 28
+            Top = 10
+            Width = 28
+            Align = alRight
+            BorderSpacing.Around = 10
+            Glyph.Data = {
+              36040000424D3604000000000000360000002800000010000000100000000100
+              2000000000000004000064000000640000000000000000000000000000010000
+              0000000000000000000000000000000000000000000D00000016000000160000
+              000D000000000000000000000000000000000000000000000000000000170000
+              0070000000000000000000000005000000A9000000D6000000E7000000E70000
+              00D7000000A90000000600000000000000000000000000000000000000170000
+              00F60000008300000044000000FF000000FF000000FD000000EF000000EF0000
+              00FE000000FF000000FF00000046000000000000000000000000000000170000
+              00E8000000FF000000FF000000FF000000A70000003600000021000000220000
+              0036000000B4000000FF000000FF000000460000000000000000000000170000
+              00E9000000FF000000FF000000CE000000000000000000000000000000000000
+              000000000000000000A2000000FF000000FF0000000600000000000000180000
+              00EA000000FF000000FF000000FF000000A20000000000000000000000000000
+              00000000000000000000000000B5000000FF000000AE00000000000000100000
+              00A3000000B0000000B0000000B0000000BF0000005F00000000000000000000
+              0000000000000000000000000025000000CB0000004100000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000020000000000000000000000000000
+              0000000000010000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0035000000CE0000002900000000000000000000000000000000000000000000
+              0057000000C2000000B1000000B1000000B1000000A400000010000000000000
+              00A7000000FF000000BC00000000000000000000000000000000000000000000
+              000000000099000000FF000000FF000000FF000000EA00000017000000000000
+              0004000000FF000000FF000000A4000000000000000000000000000000000000
+              000000000000000000CC000000FF000000FF000000E900000017000000000000
+              000000000043000000FF000000FF000000B60000003600000022000000210000
+              0035000000A6000000FF000000FF000000FF000000E800000017000000000000
+              00000000000000000043000000FF000000FF000000FF000000EF000000EF0000
+              00FD000000FF000000FF0000004700000082000000F600000017000000000000
+              0000000000000000000000000005000000A9000000D7000000E7000000E70000
+              00D8000000AB0000000700000000000000000000007000000017000000000000
+              0000000000000000000000000000000000000000000D00000016000000160000
+              000D000000000000000000000000000000000000000000000001
+            }
+            OnClick = SpeedButton2Click
+          end
+        end
       end
     end
   end

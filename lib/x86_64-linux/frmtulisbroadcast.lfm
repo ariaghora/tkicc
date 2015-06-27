@@ -1,7 +1,7 @@
 object formTulisBroadcast: TformTulisBroadcast
-  Left = 359
+  Left = 358
   Height = 292
-  Top = 295
+  Top = 294
   Width = 357
   Caption = 'Tulis SMS Broadcast'
   ClientHeight = 292

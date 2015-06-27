@@ -80,6 +80,7 @@ begin
       nil2 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/2');
       nil3 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/3');
       nil4 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/4');
+      dataSMS := TFPHTTPClient.SimpleGet(LINK_LIST_SMS_BY_PENGIRIM + '/' + idTKI);
 
 
       Synchronize(@onSucceed);
@@ -125,6 +126,17 @@ begin
   ShowMessage('Gagal memuat detail TKI.');
 end;
 
+function charInttoterbilang(i: string): string;
+begin
+  case i of
+    '1': Result := 'Sangat Buruk';
+    '2': Result := 'Buruk';
+    '3': Result := 'Cukup Baik';
+    '4': Result := 'Baik';
+    '5': Result := 'SangatBaik';
+  end;
+end;
+
 procedure TMuatInformasiTKIThread.onSucceed;
 begin
   with formDetailTKI do
@@ -137,10 +149,12 @@ begin
     bar3.Value := StrToInt(Trim(nil3));
     bar4.Value := StrToInt(Trim(nil4));
 
-    lblHakPRT.Caption := nil1;
-    lblHakJamKerja.Caption := nil2;
-    lblHakInfo.Caption := nil3;
-    lblHakUpah.Caption := nil4;
+    lblHakPRT.Caption := charInttoterbilang(nil1);
+    lblHakJamKerja.Caption := charInttoterbilang(nil2);
+    lblHakInfo.Caption := charInttoterbilang(nil3);
+    lblHakUpah.Caption := charInttoterbilang(nil4);
+
+    refreshLogSMS;
 
     formMonitoring.panel3.Hide;
     formMonitoring.ListView1.Hide;

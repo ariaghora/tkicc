@@ -16,6 +16,7 @@ type
     Edit1: TEdit;
     Memo1: TMemo;
     SpeedButton1: TSpeedButton;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure SpeedButton1Click(Sender: TObject);
   private
     { private declarations }
@@ -52,5 +53,11 @@ begin
 
 end;
 
+procedure TformTestSMS.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  Edit1.Enabled := True;
+end;
+
 end.
+
 

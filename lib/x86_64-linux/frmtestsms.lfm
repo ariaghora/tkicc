@@ -9,6 +9,7 @@ object formTestSMS: TformTestSMS
   Color = clWhite
   Font.Height = -13
   Font.Name = 'Montserrat'
+  OnClose = FormClose
   Position = poMainFormCenter
   LCLVersion = '1.2.6.0'
   object Memo1: TMemo

@@ -161,11 +161,7 @@ begin
       ShowMessage('Pesan terkirim.');
       self.Close;
     end;
-
-
-
   end;
-
 end;
 
 end.

@@ -37,7 +37,7 @@ var
   pesan: string;
 begin
 
-  pesan := EncodeURLElement(Memo1.Text);
+  //pesan := EncodeURLElement(Memo1.Text);
   //if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + Edit1.Text + '/' +
   //  pesan) = '1' then
   if gammusendsms(edit1.Text, memo1.Text) = '1' then

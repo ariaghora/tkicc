@@ -108,8 +108,6 @@ begin
     pesan := 'Data TKI berhasil ditambahkan.';
   end;
 
-  ShowMessage(url);
-
   try
     if trim(TFPHTTPClient.SimpleGet(url)) = '1' then
     begin

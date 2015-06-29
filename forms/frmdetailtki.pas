@@ -18,11 +18,12 @@ type
     bar3: TBGRAFlashProgressBar;
     bar4: TBGRAFlashProgressBar;
     bar5: TBGRAFlashProgressBar;
+    Button1: TButton;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
+    lbl: TLabel;
     Label6: TLabel;
     lblHakInfo: TLabel;
     lblHakJamKerja: TLabel;
@@ -40,6 +41,7 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     Splitter1: TSplitter;
+    procedure Button1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
   private
@@ -47,8 +49,8 @@ type
   public
     jString: string;
     namaTKI: string;
-    idTKI: string;
-    nil1, nil2, nil3, nil4: string;
+    idTKI, nomorTelepon: string;
+    nil1, nil2, nil3, nil4, nil5: string;
     dataSMS: ansistring;
     procedure refreshLogSMS;
   end;
@@ -61,7 +63,7 @@ var
 implementation
 
 uses
-  frmMonitoring;
+  frmMonitoring, frmtestsms;
 
 {$R *.lfm}
 
@@ -75,6 +77,13 @@ begin
   formMonitoring.Panel3.Show;
   formMonitoring.ListView1.Show;
 
+end;
+
+procedure TformDetailTKI.Button1Click(Sender: TObject);
+begin
+  formTestSMS.Edit1.Enabled := False;
+  formTestSMS.Edit1.Text := nomorTelepon;
+  formTestSMS.ShowModal;
 end;
 
 procedure TformDetailTKI.SpeedButton2Click(Sender: TObject);

@@ -155,7 +155,7 @@ begin
   else
   begin
 
-    if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
+    if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST_DAN_POOL + '.php?pesan=' +
       pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
     begin
       ShowMessage('Pesan terkirim.');

@@ -83,7 +83,7 @@ object formDetailTKI: TformDetailTKI
       Top = 48
       Width = 928
       HorzScrollBar.Page = 747
-      VertScrollBar.Page = 289
+      VertScrollBar.Page = 337
       Align = alClient
       BorderStyle = bsNone
       ClientHeight = 387
@@ -244,7 +244,7 @@ object formDetailTKI: TformDetailTKI
           ParentColor = False
           ParentFont = False
         end
-        object Label5: TLabel
+        object lbl: TLabel
           Left = 34
           Height = 33
           Top = 256
@@ -294,6 +294,15 @@ object formDetailTKI: TformDetailTKI
           Font.Name = 'Montserrat'
           ParentColor = False
           ParentFont = False
+        end
+        object Button1: TButton
+          Left = 264
+          Height = 33
+          Top = 304
+          Width = 152
+          Caption = 'Kirim SMS'
+          OnClick = Button1Click
+          TabOrder = 0
         end
       end
       object Splitter1: TSplitter

@@ -75,11 +75,13 @@ begin
     begin
       namaTKI := formMonitoring.ListView1.Selected.Caption;
       idTKI := formMonitoring.ListView1.Selected.SubItems[0];
+      nomorTelepon := formMonitoring.ListView1.Selected.SubItems[2];
 
       nil1 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/1');
       nil2 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/2');
       nil3 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/3');
       nil4 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/4');
+      nil5 := TFPHTTPClient.SimpleGet(LINK_NILAI_TERBARU + '/' + idTKI + '/5');
       dataSMS := TFPHTTPClient.SimpleGet(LINK_LIST_SMS_BY_PENGIRIM + '/' + idTKI);
 
 
@@ -133,7 +135,7 @@ begin
     '2': Result := 'Buruk';
     '3': Result := 'Cukup Baik';
     '4': Result := 'Baik';
-    '5': Result := 'SangatBaik';
+    '5': Result := 'Sangat Baik';
   end;
 end;
 
@@ -148,11 +150,13 @@ begin
     bar2.Value := StrToInt(Trim(nil2));
     bar3.Value := StrToInt(Trim(nil3));
     bar4.Value := StrToInt(Trim(nil4));
+    bar5.Value := StrToInt(Trim(nil5));
 
     lblHakPRT.Caption := charInttoterbilang(nil1);
     lblHakJamKerja.Caption := charInttoterbilang(nil2);
     lblHakInfo.Caption := charInttoterbilang(nil3);
     lblHakUpah.Caption := charInttoterbilang(nil4);
+    lblHakKeselamatan.Caption := charInttoterbilang(nil5);
 
     refreshLogSMS;
 

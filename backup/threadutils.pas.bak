@@ -84,6 +84,7 @@ type
     procedure Execute; override;
     procedure doList;
   public
+    status: string;
     constructor Create(CreateSuspended: boolean);
     procedure preRun;
     procedure postRun;
@@ -192,6 +193,7 @@ begin
     kodeNegara := jObject.Get('kode_negara');
     kodeWilayah := jObject.Get('kode_wilayah');
     kodePeer := jObject.Get('peer');
+    status := jObject.Get('status');
 
     txtKodeTipe.Text := kodeTipe;
     txtNama.Text := nama;
@@ -200,6 +202,7 @@ begin
     txtKodeNegara.Text := kodeNegara;
     txtKodeWilayah.Text := kodeWilayah;
     txtKodePeer.Text := kodePeer;
+    cbStatus.Text := status;
   end;
 end;
 
@@ -217,13 +220,14 @@ end;
 procedure TRenderTkiThread.Execute;
 begin
   Synchronize(@preRun);
-  s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG);
+  s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG + '/' + status);
   Synchronize(@doList);
   Synchronize(@postRun);
 end;
 
 procedure TRenderTkiThread.doList;
 begin
+  ShowMessage(s);
   renderJSON2ListView(s, lv);
 end;
 
@@ -647,14 +651,14 @@ begin
 
   if ID_SIMPUL_CABANG = '0' then
   begin
-    formMain.Label3.Hide;
-    formMain.shapeIndicatorSMSD.Hide;
+    formMain.Label3.Show;
+    formMain.shapeIndicatorSMSD.Show;
     formSMSLokal.Timer1.Enabled := True;
   end
   else
   begin
-    formMain.Label3.Show;
-    formMain.shapeIndicatorSMSD.Show;
+    formMain.Label3.Hide;
+    formMain.shapeIndicatorSMSD.Hide;
   end;
 
 end;

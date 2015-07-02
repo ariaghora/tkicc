@@ -142,6 +142,7 @@
         <ComponentName Value="formManajemenTKI"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmanajementki"/>
       </Unit13>
       <Unit14>
         <Filename Value="forms/frmsmslokal.pas"/>
@@ -180,6 +181,7 @@
         <ComponentName Value="formIDBrowser"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmidbrowser"/>
       </Unit18>
     </Units>
   </ProjectOptions>

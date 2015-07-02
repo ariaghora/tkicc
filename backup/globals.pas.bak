@@ -39,6 +39,7 @@ var
   LINK_LIST_SMS_REMOTE: string;
   LINK_LIST_TKI: string;
   LINK_LIST_WILAYAH: string;
+  LINK_LIST_PEER: string;
   LINK_MASTER: string;
   LINK_NILAI_TERBARU: string;
   LINK_TAMBAH_TKI: string;
@@ -93,6 +94,7 @@ begin
   LINK_LIST_BROADCAST := HOST + 'listpesanbroadcast/';
   //LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast/';
   LINK_KIRIM_BROADCAST := HOST + 'kirimbroadcast';
+  LINK_KIRIM_BROADCAST_DAN_POOL := HOST + 'kirimbroadcastdanpool';
   LINK_JUMLAH_BROADCAST_POOL := HOST + 'jumlahbroadcastpool';
   LINK_JUMLAH_SMS_REMOTE := HOST + 'jumlahsmsremote';
   LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';

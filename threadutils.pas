@@ -84,6 +84,7 @@ type
     procedure Execute; override;
     procedure doList;
   public
+    status: string;
     constructor Create(CreateSuspended: boolean);
     procedure preRun;
     procedure postRun;
@@ -192,6 +193,7 @@ begin
     kodeNegara := jObject.Get('kode_negara');
     kodeWilayah := jObject.Get('kode_wilayah');
     kodePeer := jObject.Get('peer');
+    status := jObject.Get('status');
 
     txtKodeTipe.Text := kodeTipe;
     txtNama.Text := nama;
@@ -200,6 +202,7 @@ begin
     txtKodeNegara.Text := kodeNegara;
     txtKodeWilayah.Text := kodeWilayah;
     txtKodePeer.Text := kodePeer;
+    cbStatus.Text := status;
   end;
 end;
 
@@ -217,7 +220,7 @@ end;
 procedure TRenderTkiThread.Execute;
 begin
   Synchronize(@preRun);
-  s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG);
+  s := TFPHTTPClient.SimpleGet(LINK_LIST_TKI + '/' + ID_SIMPUL_CABANG + '/' + status);
   Synchronize(@doList);
   Synchronize(@postRun);
 end;

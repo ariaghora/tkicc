@@ -53,6 +53,8 @@ begin
         formEditDataTKI.txtKodeNegara.Text := outText;
       'KODE_WILAYAH':
         formEditDataTKI.txtKodeWilayah.Text := outText;
+      'KODE_PEER':
+        formEditDataTKI.txtKodePeer.Text := outText;
     end;
     //ShowMessage(IntToStr(ListView1.SelCount));
   end;
@@ -65,15 +67,15 @@ var
 begin
   case mode of
     'KODE_TIPE':
-      tabel := 'tipe_tki';
+      tabel := LINK_MASTER + '/tipe_tki';
     'KODE_NEGARA':
-      tabel := 'negara';
+      tabel := LINK_MASTER + '/negara';
     'KODE_WILAYAH':
-      tabel := 'wilayah';
+      tabel := LINK_MASTER + '/wilayah';
   end;
 
   try
-    json2lv.renderJSON2ListView(TFPHTTPClient.SimpleGet(LINK_MASTER + '/' + tabel),
+    json2lv.renderJSON2ListView(TFPHTTPClient.SimpleGet(tabel),
       ListView1);
   except
     on Exception do

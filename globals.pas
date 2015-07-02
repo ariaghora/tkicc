@@ -39,6 +39,7 @@ var
   LINK_LIST_SMS_REMOTE: string;
   LINK_LIST_TKI: string;
   LINK_LIST_WILAYAH: string;
+  LINK_LIST_PEER: string;
   LINK_MASTER: string;
   LINK_NILAI_TERBARU: string;
   LINK_TAMBAH_TKI: string;
@@ -105,6 +106,7 @@ begin
   LINK_LIST_NEGARA := HOST + 'listnegara';
   LINK_LIST_NOMOR_TELEPON := HOST + 'listnomortelepon';
   LINK_LIST_WILAYAH := HOST + 'listwilayah';
+  LINK_LIST_PEER := HOST + 'listpeer';
   LINK_MASTER := HOST + 'master';
   LINK_NILAI_TERBARU := HOST + 'nilaiterbaru';
   LINK_TAMBAH_TKI := HOST + 'tambahtki';

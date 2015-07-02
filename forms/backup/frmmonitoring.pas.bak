@@ -156,7 +156,7 @@ begin
     lblHakJamKerja.Caption := charInttoterbilang(nil2);
     lblHakInfo.Caption := charInttoterbilang(nil3);
     lblHakUpah.Caption := charInttoterbilang(nil4);
-    lblHakKeselamatan := charInttoterbilang(nil5);
+    lblHakKeselamatan.Caption := charInttoterbilang(nil5);
 
     refreshLogSMS;
 

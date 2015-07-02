@@ -13,6 +13,8 @@ type
   { TformManajemenTKI }
 
   TformManajemenTKI = class(TForm)
+    cbStatus: TComboBox;
+    Label1: TLabel;
     ListView1: TListView;
     MenuItem1: TMenuItem;
     Panel3: TPanel;
@@ -21,7 +23,7 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    procedure cbStatusChange(Sender: TObject);
     procedure ListView1DblClick(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
@@ -58,6 +60,11 @@ begin
   sunting;
 end;
 
+procedure TformManajemenTKI.cbStatusChange(Sender: TObject);
+begin
+  renderListview;
+end;
+
 procedure TformManajemenTKI.MenuItem1Click(Sender: TObject);
 begin
   ListView1DblClick(nil);
@@ -84,6 +91,7 @@ var
 begin
   thr := TRenderTkiThread.Create(True);
   thr.lv := ListView1;
+  thr.status := cbStatus.Text;
   thr.Start;
 end;
 
@@ -122,6 +130,8 @@ begin
     formEditDataTKI.idTKI := ListView1.Selected.Caption;
     formEditDataTKI.muatInformasi;
     formEditDataTKI.mode := 'EDIT';
+    formEditDataTKI.cbStatus.Visible := True;
+    formEditDataTKI.Label1.Visible := True;
     pnlContent.Hide;
   end;
 end;
@@ -133,6 +143,8 @@ begin
   formEditDataTKI.txtID.Hide;
   formEditDataTKI.clearForm;
   formEditDataTKI.mode := 'TAMBAH';
+  formEditDataTKI.cbStatus.Visible := False;
+  formEditDataTKI.Label1.Visible := False;
   pnlContent.Hide;
 end;
 

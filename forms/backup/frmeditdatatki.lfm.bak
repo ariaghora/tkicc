@@ -20,11 +20,11 @@ object formEditDataTKI: TformEditDataTKI
     OnResize = pnlContentResize
     object pnlTxtHolder: TPanel
       Left = 48
-      Height = 329
+      Height = 360
       Top = 56
       Width = 452
       BevelOuter = bvNone
-      ClientHeight = 329
+      ClientHeight = 360
       ClientWidth = 452
       Font.Height = -13
       Font.Name = 'Montserrat'
@@ -243,11 +243,38 @@ object formEditDataTKI: TformEditDataTKI
       object btnSubmit: TButton
         Left = 350
         Height = 25
-        Top = 296
+        Top = 328
         Width = 75
         Caption = 'Simpan'
         OnClick = btnSubmitClick
         TabOrder = 13
+      end
+      object cbStatus: TComboBox
+        Left = 128
+        Height = 25
+        Top = 272
+        Width = 120
+        BorderSpacing.Around = 10
+        Font.Height = -13
+        Font.Name = 'Montserrat'
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          'Aktif'
+          'Nonaktif'
+        )
+        ParentFont = False
+        Style = csDropDownList
+        TabOrder = 14
+        Text = 'Aktif'
+      end
+      object Label1: TLabel
+        Left = 67
+        Height = 17
+        Top = 276
+        Width = 40
+        Caption = 'Status'
+        ParentColor = False
       end
     end
     object Panel3: TPanel

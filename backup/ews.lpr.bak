@@ -32,7 +32,7 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
 {$R *.res}
 
 begin
-  init(False);
+  init(true);
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TformLogin, formLogin);

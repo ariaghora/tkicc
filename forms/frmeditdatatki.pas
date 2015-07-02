@@ -19,6 +19,8 @@ type
     btnBrowseKodeWilayah: TButton;
     btnBrowseKodePeer: TButton;
     btnSubmit: TButton;
+    cbStatus: TComboBox;
+    Label1: TLabel;
     Panel3: TPanel;
     SpeedButton1: TSpeedButton;
     txtID: TLabeledEdit;
@@ -38,7 +40,8 @@ type
   private
   public
     idTKI: string;
-    kodeTipe, nomorTelepon, nama, lokasiKerja, kodeNegara, kodeWilayah, kodePeer: string;
+    kodeTipe, nomorTelepon, nama, lokasiKerja, kodeNegara, kodeWilayah,
+    kodePeer, status: string;
     mode: string;
     procedure muatInformasi;
     procedure clearForm;
@@ -74,6 +77,7 @@ var
   akode_wilayah: string;
   apassword: string;
   akode_peer: string;
+  astatus: string;
 
   url: string;
   pesan: string;
@@ -88,6 +92,7 @@ begin
   akode_wilayah := EncodeURLElement(txtKodeWilayah.Text);
   apassword := 'asd';
   akode_peer := EncodeURLElement(txtKodePeer.Text);
+  astatus := EncodeURLElement(cbStatus.Text);
 
   if mode = 'EDIT' then
   begin
@@ -95,7 +100,7 @@ begin
       akode_tipe + '&nomor_telepon=' + anomor_telepon + '&nama=' +
       anama + '&lokasi_kerja=' + alokasi_kerja + '&virtual=' + aisvirtual +
       '&kode_negara=' + akode_negara + '&kode_wilayah=' + akode_wilayah +
-      '&password=' + apassword + '&kode_peer=' + akode_peer;
+      '&password=' + apassword + '&kode_peer=' + akode_peer + '&status=' + astatus;
     pesan := 'Data TKI berhasil diperbaharui.';
   end
   else
@@ -104,7 +109,7 @@ begin
       akode_tipe + '&nomor_telepon=' + anomor_telepon + '&nama=' +
       anama + '&lokasi_kerja=' + alokasi_kerja + '&virtual=' + aisvirtual +
       '&kode_negara=' + akode_negara + '&kode_wilayah=' + akode_wilayah +
-      '&password=' + apassword + '&kode_peer=' + akode_peer;
+      '&password=' + apassword + '&kode_peer=' + akode_peer + '&status';
     pesan := 'Data TKI berhasil ditambahkan.';
   end;
 
@@ -133,6 +138,8 @@ begin
       formIDBrowser.mode := 'KODE_NEGARA';
     'btnBrowseKodeWilayah':
       formIDBrowser.mode := 'KODE_WILAYAH';
+    'btnBrowseKodePeer':
+      formIDBrowser.mode := 'KODE_PEER';
   end;
 
   formIDBrowser.acuan := txtKodeTipe;

@@ -69,6 +69,7 @@
       <Unit3>
         <Filename Value="helper.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="helper"/>
       </Unit3>
       <Unit4>
         <Filename Value="globals.pas"/>

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ComCtrls, StdCtrls, Buttons, fphttpclient, fpjson, jsonparser,
-  globals, json2lv, threadutils;
+  globals, json2lv, threadutils, process;
 
 type
 
@@ -62,6 +62,7 @@ begin
 end;
 
 procedure TformOnDemand.Timer1Timer(Sender: TObject);
+var s:string;
 begin
   // tunggu thread sebelumnya selesai untuk efisiensi memori
   if not cekJumlah then
@@ -74,7 +75,12 @@ begin
   if jumlahPesanOnDemandRemote > jumlahPesanOnDemandSekarang then
   begin
     renderListview;
+    {$IFDEF LINUX}
+    RunCommand('notify-send "Pesan Darurat" "Mohon cek halaman Pesan On-Demand" -u critical -i emblem-important', s);
+    {$ENDIF}
+    {$IFDEF WINDOWS}
     MessageDlg('Pesan Darurat', 'Mohon cek halaman Pesan On-Demand', mtWarning, [mbOK], '');
+    {$ENDIF}
   end;
 end;
 

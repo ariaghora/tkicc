@@ -40,7 +40,8 @@ type
   private
   public
     idTKI: string;
-    kodeTipe, nomorTelepon, nama, lokasiKerja, kodeNegara, kodeWilayah, kodePeer, status: string;
+    kodeTipe, nomorTelepon, nama, lokasiKerja, kodeNegara, kodeWilayah,
+    kodePeer, status: string;
     mode: string;
     procedure muatInformasi;
     procedure clearForm;

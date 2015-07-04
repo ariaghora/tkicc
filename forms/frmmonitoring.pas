@@ -250,7 +250,7 @@ procedure TformMonitoring.ListView1CustomDrawItem(Sender: TCustomListView;
 var
   rct: TRect;
 begin
-  {$IFDEF UNIX}
+  {$IFDEF LINUX}
   DefaultDraw := False;
   {$ENDIF}
   rct := Item.DisplayRect(drLabel);

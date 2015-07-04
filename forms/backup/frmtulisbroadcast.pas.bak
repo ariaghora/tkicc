@@ -126,9 +126,6 @@ begin
     if TFPHTTPClient.SimpleGet(LINK_KIRIM_BROADCAST + '.php?pesan=' +
       pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
     begin
-      memo1.Clear;
-      self.Close;
-
       for i := 0 to kontak.Count - 1 do
       begin
         if gammusendsms(kontak[i], pesan) = '1' then
@@ -145,6 +142,9 @@ begin
 
       // refresh tabel pesan broadcast
       formMessaging.renderListView;
+            memo1.Clear;
+      self.Close;
+
     end
     else
     begin
@@ -159,13 +159,10 @@ begin
       pesanEncoded + '&id_stakeholder=' + USER_ID) = '1' then
     begin
       ShowMessage('Pesan terkirim.');
+      formMessaging.renderListView;
       self.Close;
     end;
-
-
-
   end;
-
 end;
 
 end.

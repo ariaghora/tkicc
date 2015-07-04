@@ -15,6 +15,7 @@ type
   { TformMain }
 
   TformMain = class(TForm)
+    Button1: TButton;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -44,6 +45,7 @@ type
     shapeIndicatorServer: TBGRAShape;
     Splitter1: TSplitter;
     guiTimer: TTimer;
+    procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -78,6 +80,7 @@ var
   cekIMEI: boolean = False;
   cekInternet: boolean = False;
   cekBroadcastPool: boolean = False;
+  cekPesanOndemandUnconfirmed: boolean = False;
   terkoneksiInternet: boolean = False;
 
   threadCount: integer = 0;
@@ -86,6 +89,7 @@ var
   pnlEnabled: boolean = True;
 
   kontak: TStringList;
+  kontakStakeholder: TStringList;
 
 
 
@@ -120,6 +124,7 @@ begin
     Abort;
 
 end;
+
 
 procedure TformMain.FormCreate(Sender: TObject);
 begin
@@ -297,7 +302,6 @@ begin
       // http request failed
     end;
   end;
-
 end;
 
 procedure procCekBroadcastPool;
@@ -305,7 +309,7 @@ var
   jParser: TJSONParser;
   jData: TJSONData;
   idSimpulCabang, pesan: string;
-  i:integer;
+  i: integer;
 begin
   try
     if StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_BROADCAST_POOL))) > 0 then
@@ -328,6 +332,108 @@ begin
   end;
 
   cekBroadcastPool := False;
+end;
+
+procedure listKontakStakeholder(idSimpulCabang: string);
+var
+  jData: TJSONData;
+  jParser: TJSONParser;
+  jString: string;
+  jmlData: integer;
+  i: integer;
+begin
+
+  try
+    jString := TFPHTTPClient.SimpleGet(LINK_LIST_NOMOR_TELEPON_STAKEHOLDER +
+      '/' + idSimpulCabang);
+
+    try
+      jParser := TJSONParser.Create(jString);
+      jData := jParser.Parse;
+
+      jmlData := TJSONArray(jData).Count;
+
+      kontakStakeholder := TStringList.Create;
+
+      for i := 0 to jmlData - 1 do
+      begin
+        kontakStakeholder.Add(TJSONObject(TJSONArray(jData).Items[i]).Get('nomor_telepon') + ':' + TJSONObject(TJSONArray(jData).Items[i]).Get('username'));
+      end;
+    except
+      on Exception do
+      begin
+        // json parsing error
+      end;
+    end;
+
+  except
+    on Exception do
+    begin
+      // http request failed
+    end;
+  end;
+
+end;
+
+procedure procCekPesanOndemandUnconfirmed;
+var
+  jParser: TJSONParser;
+  jData: TJSONData;
+  kodeWilayah, namaWilayah, pesan, nama, usernameStakeholder,
+  nomorStakeholder, teksSMS: string;
+  i: integer;
+begin
+  try
+    if StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_PESAN_ONDEMAND_UNCONFIRMED))) >
+      0 then
+    begin
+      // dapatkan informasi wilayah tiap-tiap pengirim
+      // pesan ondemand
+      jParser := TJSONParser.Create(TFPHTTPClient.SimpleGet(
+        LINK_POP_PESAN_ONDEMAND_UNCONFIRMED));
+      jData := jParser.Parse;
+      namaWilayah := TJSONObject(jData).Get('nama_wilayah');
+      kodeWilayah := TJSONObject(jData).Get('kode_wilayah');
+
+      // dapatkan pesan
+      pesan := TJSONObject(jData).Get('pesan');
+      nama := TJSONObject(jData).Get('nama');
+
+      // list nomor tujuan stakeholder
+      // berdasarkan kode wilayah pengirim pesan ondemand
+      listKontakStakeholder(kodeWilayah);
+
+      // teruskan SMS ondemand pada stakeholder
+      // penanggungjawab
+      for i := 0 to kontakStakeholder.Count - 1 do
+      begin
+        // dapatkan informasi tujuan SMS
+        usernameStakeholder :=
+          Copy(kontakStakeholder[i], pos(':', kontakStakeholder[i]) +
+          1, Length(kontakStakeholder[i]) - pos(':', kontakStakeholder[i]) + 1);
+        nomorStakeholder := copy(kontakStakeholder[i], 1,
+          pos(':', kontakStakeholder[i]) - 1);
+
+        teksSMS := 'Dear ' + usernameStakeholder + ', ada pesan on-demand dari ' +
+          nama + ', wilayah: ' + namaWilayah + ': ' + pesan;
+
+        // kirim SMS
+        gammusendsms(nomorStakeholder, teksSMS);
+      end;
+
+      cekPesanOndemandUnconfirmed := False;
+    end;
+  except
+    on Exception do
+    begin
+      cekPesanOndemandUnconfirmed := False;
+    end;
+  end;
+end;
+
+procedure TformMain.Button1Click(Sender: TObject);
+begin
+  procCekPesanOndemandUnconfirmed;
 end;
 
 procedure TformMain.mainTimerTimer(Sender: TObject);
@@ -384,14 +490,25 @@ begin
 
   end;
 
-  //*** cek broadcast pool
+  // cek broadcast pool.
+  // berikut aksi yang hanya bisa dilakukan oleh eksekutif
   if ID_SIMPUL_CABANG = '0' then
+  begin
+    // update pool broadcast
     if not cekBroadcastPool then
     begin
       BeginThread(TThreadFunc(@procCekBroadcastPool));
       cekBroadcastPool := True;
     end;
 
+    // update pesan ondemand yang belum terkonfirmasi
+    // setelah itu teruskan pesan pada stakeholder
+    if not cekPesanOndemandUnconfirmed then
+    begin
+      BeginThread(TThreadFunc(@procCekPesanOndemandUnconfirmed));
+      cekPesanOndemandUnconfirmed := True;
+    end;
+  end;
 
 end;
 

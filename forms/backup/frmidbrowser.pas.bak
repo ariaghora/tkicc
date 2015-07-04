@@ -73,7 +73,7 @@ begin
     'KODE_WILAYAH':
       tabel := LINK_MASTER + '/wilayah';
     'KODE_PEER':
-      tabel := LINK_LIST_PEER + '/' + ID_SIMPUL_CABANG;
+      tabel := LINK_LIST_PEER + '/' + formEditDataTKI.txtKodeWilayah.Text;
   end;
 
   try

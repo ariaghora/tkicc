@@ -23,6 +23,7 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     procedure cbStatusChange(Sender: TObject);
     procedure ListView1DblClick(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
@@ -77,8 +78,6 @@ end;
 
 procedure TformManajemenTKI.SpeedButton2Click(Sender: TObject);
 begin
-  formEditDataTKI.cbStatus.Visible:=false;
-  formEditDataTKI.l;
   tambah;
 end;
 
@@ -93,7 +92,7 @@ var
 begin
   thr := TRenderTkiThread.Create(True);
   thr.lv := ListView1;
-  thr.status:=cbStatus.Text;
+  thr.status := cbStatus.Text;
   thr.Start;
 end;
 
@@ -132,6 +131,8 @@ begin
     formEditDataTKI.idTKI := ListView1.Selected.Caption;
     formEditDataTKI.muatInformasi;
     formEditDataTKI.mode := 'EDIT';
+    formEditDataTKI.cbStatus.Visible := True;
+    formEditDataTKI.Label1.Visible := True;
     pnlContent.Hide;
   end;
 end;
@@ -143,6 +144,8 @@ begin
   formEditDataTKI.txtID.Hide;
   formEditDataTKI.clearForm;
   formEditDataTKI.mode := 'TAMBAH';
+  formEditDataTKI.cbStatus.Visible := False;
+  formEditDataTKI.Label1.Visible := False;
   pnlContent.Hide;
 end;
 

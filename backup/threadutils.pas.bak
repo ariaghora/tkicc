@@ -227,7 +227,6 @@ end;
 
 procedure TRenderTkiThread.doList;
 begin
-  ShowMessage(s);
   renderJSON2ListView(s, lv);
 end;
 

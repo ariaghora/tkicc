@@ -15,7 +15,6 @@ type
   { TformMain }
 
   TformMain = class(TForm)
-    Button1: TButton;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -45,7 +44,6 @@ type
     shapeIndicatorServer: TBGRAShape;
     Splitter1: TSplitter;
     guiTimer: TTimer;
-    procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -151,8 +149,8 @@ end;
 
 procedure TformMain.FormShow(Sender: TObject);
 begin
-  formMonitoring.pnlContent.Parent := pnlContent;
-  formMonitoring.renderListview;
+  //formMonitoring.pnlContent.Parent := pnlContent;
+  //formMonitoring.renderListview;
 
   pnlLeft.Width := 0;
   guiTimer.Enabled := True;
@@ -245,7 +243,7 @@ begin
   httpsender := THTTPSend.Create;
   httpsender.Headers.AddStrings(header);
   //httpsender.KeepAlive := False;
-  httpsender.Timeout := 5000;
+  httpsender.Timeout := 8000;
 
   try
     if trim(TFPHTTPClient.SimpleGet(LINK_TEST_KONEKSI_KE_SERVER)) =
@@ -415,7 +413,7 @@ begin
           pos(':', kontakStakeholder[i]) - 1);
 
         teksSMS := 'Dear ' + usernameStakeholder + ', ada pesan on-demand dari ' +
-          nama + ', wilayah: ' + namaWilayah + ': ' + pesan;
+          nama + ', wilayah ' + namaWilayah + ': ' + chr(13) + pesan;
 
         // kirim SMS
         gammusendsms(nomorStakeholder, teksSMS);
@@ -430,11 +428,6 @@ begin
     end;
   end;
   cekPesanOndemandUnconfirmed := False;
-end;
-
-procedure TformMain.Button1Click(Sender: TObject);
-begin
-  procCekPesanOndemandUnconfirmed;
 end;
 
 procedure TformMain.mainTimerTimer(Sender: TObject);

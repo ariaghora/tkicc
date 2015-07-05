@@ -71,7 +71,8 @@ begin
     'KODE_NEGARA':
       tabel := LINK_MASTER + '/negara';
     'KODE_WILAYAH':
-      tabel := LINK_MASTER + '/wilayah';
+      //tabel := LINK_MASTER + '/wilayah';
+      tabel := LINK_LIST_WILAYAH;
     'KODE_PEER':
       tabel := LINK_LIST_PEER + '/' + formEditDataTKI.txtKodeWilayah.Text;
   end;

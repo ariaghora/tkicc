@@ -19,9 +19,9 @@ object formMonitoring: TformMonitoring
     TabOrder = 0
     object ListView1: TListView
       Left = 10
-      Height = 273
+      Height = 269
       Top = 48
-      Width = 822
+      Width = 818
       Align = alClient
       BorderSpacing.Left = 10
       BorderSpacing.Right = 10
@@ -54,15 +54,15 @@ object formMonitoring: TformMonitoring
       Left = 0
       Height = 48
       Top = 0
-      Width = 842
+      Width = 838
       Align = alTop
       BevelOuter = bvNone
       ClientHeight = 48
-      ClientWidth = 842
+      ClientWidth = 838
       TabOrder = 1
       object ComboBox1: TComboBox
         Left = 10
-        Height = 28
+        Height = 24
         Top = 10
         Width = 230
         Align = alLeft
@@ -86,7 +86,7 @@ object formMonitoring: TformMonitoring
       end
       object SpeedButton1: TSpeedButton
         Left = 250
-        Height = 28
+        Height = 24
         Top = 10
         Width = 28
         Align = alLeft
@@ -130,8 +130,8 @@ object formMonitoring: TformMonitoring
         OnClick = SpeedButton1Click
       end
       object edtSearch: TEdit
-        Left = 624
-        Height = 28
+        Left = 616
+        Height = 24
         Top = 10
         Width = 180
         Align = alRight
@@ -144,8 +144,8 @@ object formMonitoring: TformMonitoring
         TabOrder = 1
       end
       object Image1: TImage
-        Left = 804
-        Height = 28
+        Left = 796
+        Height = 24
         Top = 10
         Width = 28
         Align = alRight

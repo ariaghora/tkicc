@@ -213,15 +213,6 @@ object formMain: TformMain
         ParentFont = False
         OnClick = Label1Click
       end
-      object Button1: TButton
-        Left = 24
-        Height = 25
-        Top = 30
-        Width = 75
-        Caption = 'Button1'
-        OnClick = Button1Click
-        TabOrder = 0
-      end
     end
     object imgAnimation: TBGRASpriteAnimation
       Left = 360

@@ -1,7 +1,7 @@
 object formPengaturan: TformPengaturan
-  Left = 526
+  Left = 573
   Height = 346
-  Top = 150
+  Top = 147
   Width = 587
   Caption = 'formPengaturan'
   ClientHeight = 346
@@ -9,7 +9,7 @@ object formPengaturan: TformPengaturan
   Color = clWhite
   Font.Height = -13
   Font.Name = 'Montserrat'
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '1.2.6.0'
   object pnlContent: TPanel
     Left = 0
     Height = 346
@@ -28,7 +28,7 @@ object formPengaturan: TformPengaturan
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Peralatan'
-      ClientHeight = 81
+      ClientHeight = 83
       ClientWidth = 563
       Font.Height = -13
       Font.Name = 'Montserrat'
@@ -66,7 +66,7 @@ object formPengaturan: TformPengaturan
         Height = 25
         Top = 40
         Width = 232
-        Caption = 'Log Output'
+        Caption = 'Toggle SMSD'
         OnClick = Button4Click
         TabOrder = 3
       end
@@ -79,7 +79,7 @@ object formPengaturan: TformPengaturan
       Align = alTop
       BorderSpacing.Around = 10
       Caption = 'Status'
-      ClientHeight = 108
+      ClientHeight = 110
       ClientWidth = 563
       Font.Height = -13
       Font.Name = 'Montserrat'
@@ -87,13 +87,13 @@ object formPengaturan: TformPengaturan
       TabOrder = 1
       object memoStatus: TMemo
         Left = 10
-        Height = 88
+        Height = 90
         Top = 10
         Width = 543
         Align = alClient
         BorderSpacing.Around = 10
         Color = clBlack
-        Font.Color = 4263345
+        Font.Color = clWhite
         Font.Height = -13
         Font.Name = 'Monospace'
         Font.Style = [fsBold]

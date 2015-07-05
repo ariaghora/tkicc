@@ -27,12 +27,12 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmlogoutput,
   frmondemand,
   frmeditdatatki,
-  frmidbrowser;
+  frmidbrowser, frmmasukkanpassword;
 
 {$R *.res}
 
 begin
-  init(False);
+  init(true);
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TformLogin, formLogin);
@@ -49,5 +49,6 @@ begin
   Application.CreateForm(TformOnDemand, formOnDemand);
   Application.CreateForm(TformEditDataTKI, formEditDataTKI);
   Application.CreateForm(TformIDBrowser, formIDBrowser);
+  Application.CreateForm(TformMasukkanPassword, formMasukkanPassword);
   Application.Run;
 end.

@@ -49,7 +49,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="19">
+    <Units Count="20">
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -184,6 +184,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmidbrowser"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="forms/frmmasukkanpassword.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formMasukkanPassword"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmmasukkanpassword"/>
+      </Unit19>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -57,7 +57,7 @@ const
 implementation
 
 uses
-  frmtestsms, frmMain, frmsmslokal, frmlogoutput;
+  frmtestsms, frmMain, frmsmslokal, frmlogoutput, frmmasukkanpassword;
 
 {$R *.lfm}
 
@@ -71,10 +71,12 @@ begin
   if Pos('is running', s) > 0 then
   begin
     statusSMSDService := TERSEDIA;
+    SMSD_AKTIF := True;
   end
   else
   begin
     statusSMSDService := TAK_TERSEDIA;
+    SMSD_AKTIF := False;
   end;
 
 end;
@@ -134,7 +136,10 @@ end;
 
 procedure TformPengaturan.Button4Click(Sender: TObject);
 begin
-  formLogOutput.Show;
+  if ID_SIMPUL_CABANG = '0' then
+    formMasukkanPassword.Show
+  else
+    ShowMessage('Fitur hanya untuk eksekutif');
 end;
 
 procedure TformPengaturan.Timer1Timer(Sender: TObject);

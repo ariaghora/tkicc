@@ -56,6 +56,7 @@ var
 
   // SHARED STATUS VARIABLE
   TERKONEKSI_KE_SERVER: boolean = False;
+  SMSD_AKTIF: boolean = False;
 
 
 procedure init(isOnline: boolean);

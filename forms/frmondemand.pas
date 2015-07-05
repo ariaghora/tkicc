@@ -75,7 +75,7 @@ begin
   if jumlahPesanOnDemandRemote > jumlahPesanOnDemandSekarang then
   begin
     renderListview;
-    {$IFDEF LINUX}
+    {$IFDEF UNIX}
     RunCommand('notify-send "Pesan Darurat" "Mohon cek halaman Pesan On-Demand" -u critical -i emblem-important', s);
     {$ENDIF}
     {$IFDEF WINDOWS}

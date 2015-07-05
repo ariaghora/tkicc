@@ -660,6 +660,8 @@ begin
     formMain.shapeIndicatorSMSD.Hide;
   end;
 
+  // set tampilan halaman awal
+  formMain.imgMonitorMouseDown(formMain.imgMonitor, mbLeft, [], 0, 0);
 end;
 
 procedure TLoginThread.onFailed;

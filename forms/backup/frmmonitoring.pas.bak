@@ -228,6 +228,7 @@ begin
     if jumlahSMSMonitorServer > jumlahSMSMonitor then
     begin
       // refresh tabel
+      ShowMessage('ZONK');
       renderListview;
       jumlahSMSMonitor := jumlahSMSMonitorServer;
     end;
@@ -250,7 +251,7 @@ procedure TformMonitoring.ListView1CustomDrawItem(Sender: TCustomListView;
 var
   rct: TRect;
 begin
-  {$IFDEF UNIX}
+  {$IFDEF LINUX}
   DefaultDraw := False;
   {$ENDIF}
   rct := Item.DisplayRect(drLabel);

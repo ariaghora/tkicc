@@ -228,7 +228,6 @@ begin
     if jumlahSMSMonitorServer > jumlahSMSMonitor then
     begin
       // refresh tabel
-      ShowMessage('ZONK');
       renderListview;
       jumlahSMSMonitor := jumlahSMSMonitorServer;
     end;

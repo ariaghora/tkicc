@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="ews.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
         <TopLine Value="31"/>
@@ -51,8 +50,8 @@
         <UnitName Value="globals"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="95"/>
-        <CursorPos X="77" Y="113"/>
+        <TopLine Value="99"/>
+        <CursorPos X="40" Y="106"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -77,10 +76,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmMonitoring"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="221"/>
-        <CursorPos X="29" Y="225"/>
+        <TopLine Value="201"/>
+        <CursorPos X="88" Y="202"/>
         <UsageCount Value="202"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -217,7 +217,7 @@
         <WindowIndex Value="1"/>
         <TopLine Value="132"/>
         <CursorPos X="3" Y="134"/>
-        <UsageCount Value="128"/>
+        <UsageCount Value="130"/>
       </Unit17>
       <Unit18>
         <Filename Value="forms/frmidbrowser.pas"/>
@@ -229,7 +229,7 @@
         <WindowIndex Value="1"/>
         <TopLine Value="67"/>
         <CursorPos X="34" Y="75"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="120"/>
       </Unit18>
       <Unit19>
         <Filename Value="forms/frmmasukkanpassword.pas"/>
@@ -242,7 +242,7 @@
         <WindowIndex Value="1"/>
         <TopLine Value="39"/>
         <CursorPos X="47" Y="51"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit19>
@@ -305,7 +305,7 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="20" HistoryIndex="19">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="forms/frmpengaturan.pas"/>
         <Caret Line="159" Column="76" TopLine="138"/>
@@ -383,9 +383,13 @@
         <Caret Line="408" Column="15" TopLine="393"/>
       </Position19>
       <Position20>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="335" Column="11" TopLine="336"/>
+        <Filename Value="forms/frmmonitoring.pas"/>
+        <Caret Line="225" Column="29" TopLine="221"/>
       </Position20>
+      <Position21>
+        <Filename Value="forms/frmmonitoring.pas"/>
+        <Caret Line="223" Column="3" TopLine="221"/>
+      </Position21>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>

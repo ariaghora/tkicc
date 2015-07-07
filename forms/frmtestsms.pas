@@ -38,18 +38,41 @@ var
   pesan: string;
 begin
 
-  //pesan := EncodeURLElement(Memo1.Text);
-  //if TFPHTTPClient.SimpleGet(LINK_TULIS_BROADCAST + Edit1.Text + '/' +
-  //  pesan) = '1' then
-  if gammusendsms(edit1.Text, memo1.Text) = '1' then
+  // pastikan pengirim adalah eksekutif
+  if ID_SIMPUL_CABANG = '0' then
   begin
-    ShowMessage('Pengiriman sedang berlangsung.');
-    Edit1.Clear;
-    Memo1.Clear;
-    Close;
+    if gammusendsms(edit1.Text, memo1.Text) = '1' then
+    begin
+      ShowMessage('Pengiriman sedang berlangsung.');
+      Edit1.Clear;
+      Memo1.Clear;
+      Close;
+    end;
+  end
+
+  else
+  begin
+    try
+      if trim(TFPHTTPClient.SimpleGet(LINK_POOL_SMS + '?pesan=' +
+        EncodeURLElement(Memo1.Text) + '&nomor_tujuan=' +
+        EncodeURLElement(Edit1.Text))) = '0' then
+      begin
+        ShowMessage('Pengiriman gagal. Cek koneksi internet');
+      end
+      else
+      begin
+        ShowMessage('Pengiriman sedang berlangsung');
+        Close;
+      end;
+    except
+      on Exception do
+      begin
+      end;
+    end;
   end;
 
   //gammusendsms('085785437367', memo1.Text);
+
 
 end;
 
@@ -59,5 +82,3 @@ begin
 end;
 
 end.
-
-

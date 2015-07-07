@@ -25,6 +25,7 @@ var
   LINK_JUMLAH_SMS_REMOTE: string;
   LINK_JUMLAH_PESAN_ONDEMAND: string;
   LINK_JUMLAH_SMS_MONITOR: string;
+  LINK_JUMLAH_SMS_POOL: string;
   LINK_JUMLAH_BROADCAST_POOL: string;
   LINK_JUMLAH_PESAN_ONDEMAND_UNCONFIRMED: string;
   LINK_KIRIM_BROADCAST: string;
@@ -48,8 +49,10 @@ var
   LINK_TULIS_BROADCAST: string;
   LINK_TEST_KONEKSI_KE_SERVER: string;
   LINK_POP_SMS_LOKAL: string;
+  LINK_POP_SMS_POOL: string;
   LINK_POP_BROADCAST_POOL: string;
   LINK_POP_PESAN_ONDEMAND_UNCONFIRMED: string;
+  LINK_POOL_SMS: string;
 
   //** SESSION VARIABLES **//
   USER_ID, USER_NAME, USER_PASSWORD, ID_SIMPUL_CABANG, NAMA_WILAYAH: string;
@@ -104,6 +107,7 @@ begin
   LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';
   LINK_JUMLAH_PESAN_ONDEMAND_UNCONFIRMED := HOST + 'jumlahpesanondemandunconfirmed';
   LINK_JUMLAH_SMS_MONITOR := HOST + 'jumlahsmsmonitor';
+  LINK_JUMLAH_SMS_POOL := HOST + 'jumlahsmspool';
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_BY_PENGIRIM := HOST + 'listsmsbypengirim';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
@@ -118,6 +122,8 @@ begin
   LINK_TAMBAH_TKI := HOST + 'tambahtki';
   LINK_POP_BROADCAST_POOL := HOST + 'popbroadcastpool';
   LINK_POP_PESAN_ONDEMAND_UNCONFIRMED := HOST + 'poppesanondemandunconfirmed';
+  LINK_POP_SMS_POOL := HOST + 'popsmspool';
+  LINK_POOL_SMS := HOST + 'poolsms';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 

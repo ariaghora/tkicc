@@ -79,6 +79,7 @@ var
   cekInternet: boolean = False;
   cekBroadcastPool: boolean = False;
   cekPesanOndemandUnconfirmed: boolean = False;
+  cekSMSPool: boolean = False;
   terkoneksiInternet: boolean = False;
 
   threadCount: integer = 0;
@@ -430,6 +431,35 @@ begin
   cekPesanOndemandUnconfirmed := False;
 end;
 
+procedure procCekSMSPool;
+var
+  jmlSMSPool: integer;
+  jData: TJSONData;
+  jParser: TJSONParser;
+  pesan, nomorTujuan: ansistring;
+begin
+  try
+    jmlSMSPool := StrToInt(trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_POOL)));
+    if jmlSMSPool > 0 then
+    begin
+      jParser := TJSONParser.Create(TFPHTTPClient.SimpleGet(LINK_POP_SMS_POOL));
+      jData := jParser.Parse;
+      pesan := TJSONObject(jData).Get('pesan');
+      nomorTujuan := TJSONObject(jData).Get('nomor_tujuan');
+
+      // kemudian kirim SMS
+      gammusendsms(nomorTujuan, pesan);
+    end;
+    cekSMSPool := False;
+  except
+    on Exception do
+    begin
+      cekSMSPool := False;
+    end;
+  end;
+  cekSMSPool := False;
+end;
+
 procedure TformMain.mainTimerTimer(Sender: TObject);
 var
   thrConn: TCekKoneksiServerThread;
@@ -502,8 +532,14 @@ begin
       BeginThread(TThreadFunc(@procCekPesanOndemandUnconfirmed));
       cekPesanOndemandUnconfirmed := True;
     end;
-  end;
 
+    // cek SMS pool
+    if not cekSMSPool then
+    begin
+      BeginThread(TThreadFunc(@procCekSMSPool));
+      cekSMSPool := True;
+    end;
+  end;
 end;
 
 

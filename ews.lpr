@@ -27,7 +27,8 @@ uses {$DEFINE UseCThreads} {$IFDEF UNIX} {$IFDEF UseCThreads}
   frmlogoutput,
   frmondemand,
   frmeditdatatki,
-  frmidbrowser, frmmasukkanpassword;
+  frmidbrowser,
+  frmmasukkanpassword;
 
 {$R *.res}
 

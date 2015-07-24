@@ -163,6 +163,8 @@ begin
     formMonitoring.panel3.Hide;
     formMonitoring.ListView1.Hide;
 
+    refreshGrafik;
+
   end;
 end;
 

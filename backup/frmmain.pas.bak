@@ -130,7 +130,7 @@ begin
   Top := 0;
   Left := 0;
   Width := 1024;
-  Height := 600;
+  Height := 680;
 
   //WindowState := wsMaximized;
 
@@ -446,6 +446,9 @@ begin
       jData := jParser.Parse;
       pesan := TJSONObject(jData).Get('pesan');
       nomorTujuan := TJSONObject(jData).Get('nomor_tujuan');
+
+      // kemudian kirim SMS
+      gammusendsms(nomorTujuan, pesan);
     end;
     cekSMSPool := False;
   except

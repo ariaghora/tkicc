@@ -19,6 +19,7 @@ var
   LINK_COMMIT_SMS_LOKAL: string;
   LINK_DELETE_SMS_LOKAL: string;
   LINK_DETAIL_TKI: string;
+  LINK_DATA_GRAFIK: string;
   LINK_EDIT_DATA_TKI: string;
   LINK_HAPUS_DATA_TKI: string;
   LINK_JUMLAH_SMS_LOKAL: string;
@@ -93,6 +94,7 @@ begin
   HOST := HOST + API_DIR;
 
   LINK_COMMIT_SMS_LOKAL := HOST + 'commitsmslokal';
+  LINK_DATA_GRAFIK := HOST + 'datagrafik';
   LINK_DETAIL_TKI := HOST + 'detailtki';
   LINK_EDIT_DATA_TKI := HOST + 'editdatatki';
   LINK_HAPUS_DATA_TKI := HOST + 'hapustki';

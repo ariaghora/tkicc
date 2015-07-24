@@ -207,7 +207,7 @@ procedure procCekSMSMonitor;
 begin
   try
     jumlahSMSMonitorServer := StrToInt(
-      trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_MONITOR)));
+      trim(TFPHTTPClient.SimpleGet(LINK_JUMLAH_SMS_MONITOR + '/' + ID_SIMPUL_CABANG)));
   except
     on Exception do
     begin

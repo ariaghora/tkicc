@@ -130,7 +130,7 @@ begin
   Top := 0;
   Left := 0;
   Width := 1024;
-  Height := 600;
+  Height := 780;
 
   //WindowState := wsMaximized;
 

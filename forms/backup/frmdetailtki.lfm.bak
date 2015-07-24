@@ -1,22 +1,22 @@
 object formDetailTKI: TformDetailTKI
-  Left = 262
-  Height = 435
-  Top = 201
+  Left = 240
+  Height = 700
+  Top = 126
   Width = 928
   Caption = 'formDetailTKI'
-  ClientHeight = 435
+  ClientHeight = 700
   ClientWidth = 928
   Font.Height = -13
   Font.Name = 'Montserrat'
   LCLVersion = '1.2.6.0'
   object pnlContent: TPanel
     Left = 0
-    Height = 435
+    Height = 700
     Top = 0
     Width = 928
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 435
+    ClientHeight = 700
     ClientWidth = 928
     TabOrder = 0
     object Panel3: TPanel
@@ -79,25 +79,25 @@ object formDetailTKI: TformDetailTKI
     end
     object ScrollBox1: TScrollBox
       Left = 0
-      Height = 387
+      Height = 652
       Top = 48
       Width = 928
-      HorzScrollBar.Page = 747
-      VertScrollBar.Page = 337
+      HorzScrollBar.Page = 735
+      VertScrollBar.Page = 545
       Align = alClient
       BorderStyle = bsNone
-      ClientHeight = 387
+      ClientHeight = 652
       ClientWidth = 928
       TabOrder = 1
       object Panel1: TPanel
         Left = 0
-        Height = 387
+        Height = 652
         Top = 0
-        Width = 472
+        Width = 456
         Align = alLeft
         BevelOuter = bvNone
-        ClientHeight = 387
-        ClientWidth = 472
+        ClientHeight = 652
+        ClientWidth = 456
         TabOrder = 0
         object lblNama: TLabel
           Left = 34
@@ -113,47 +113,47 @@ object formDetailTKI: TformDetailTKI
         object bar1: TBGRAFlashProgressBar
           Left = 264
           Height = 33
-          Top = 64
+          Top = 48
           Width = 152
           MinValue = 1
           MaxValue = 5
           Value = 3
-          Color = 4591294
+          Color = 10263708
         end
         object bar2: TBGRAFlashProgressBar
           Left = 264
           Height = 33
-          Top = 112
+          Top = 96
           Width = 152
           MinValue = 1
           MaxValue = 5
           Value = 2
-          Color = 4591294
+          Color = 10263708
         end
         object bar3: TBGRAFlashProgressBar
           Left = 264
           Height = 33
-          Top = 160
+          Top = 144
           Width = 152
           MinValue = 1
           MaxValue = 5
           Value = 3
-          Color = 4591294
+          Color = 10263708
         end
         object bar4: TBGRAFlashProgressBar
           Left = 264
           Height = 33
-          Top = 208
+          Top = 192
           Width = 152
           MinValue = 1
           MaxValue = 5
           Value = 2
-          Color = 4591294
+          Color = 10263708
         end
         object Label1: TLabel
           Left = 34
           Height = 33
-          Top = 64
+          Top = 48
           Width = 214
           AutoSize = False
           Caption = 'Hak Pekerja Rumah Tangga'
@@ -166,7 +166,7 @@ object formDetailTKI: TformDetailTKI
         object Label2: TLabel
           Left = 34
           Height = 33
-          Top = 112
+          Top = 96
           Width = 214
           AutoSize = False
           Caption = 'Hak Jam Kerja'
@@ -179,7 +179,7 @@ object formDetailTKI: TformDetailTKI
         object Label3: TLabel
           Left = 34
           Height = 33
-          Top = 160
+          Top = 144
           Width = 214
           AutoSize = False
           Caption = 'Hak Perolehan Informasi Pekerjaan'
@@ -192,7 +192,7 @@ object formDetailTKI: TformDetailTKI
         object Label4: TLabel
           Left = 34
           Height = 33
-          Top = 208
+          Top = 192
           Width = 214
           AutoSize = False
           Caption = 'Hak Pengupahan'
@@ -205,7 +205,7 @@ object formDetailTKI: TformDetailTKI
         object lblHakJamKerja: TLabel
           Left = 280
           Height = 17
-          Top = 120
+          Top = 104
           Width = 120
           Alignment = taCenter
           AutoSize = False
@@ -219,7 +219,7 @@ object formDetailTKI: TformDetailTKI
         object lblHakInfo: TLabel
           Left = 280
           Height = 17
-          Top = 168
+          Top = 152
           Width = 120
           Alignment = taCenter
           AutoSize = False
@@ -233,7 +233,7 @@ object formDetailTKI: TformDetailTKI
         object lblHakUpah: TLabel
           Left = 280
           Height = 17
-          Top = 216
+          Top = 200
           Width = 120
           Alignment = taCenter
           AutoSize = False
@@ -244,10 +244,10 @@ object formDetailTKI: TformDetailTKI
           ParentColor = False
           ParentFont = False
         end
-        object Label5: TLabel
+        object lbl: TLabel
           Left = 34
           Height = 33
-          Top = 256
+          Top = 240
           Width = 214
           AutoSize = False
           Caption = 'Hak Keselamatan, kesehatan kerja, dan jaminan sosial'
@@ -260,17 +260,17 @@ object formDetailTKI: TformDetailTKI
         object bar5: TBGRAFlashProgressBar
           Left = 264
           Height = 33
-          Top = 256
+          Top = 240
           Width = 152
           MinValue = 1
           MaxValue = 5
           Value = 5
-          Color = 4591294
+          Color = 10263708
         end
         object lblHakKeselamatan: TLabel
           Left = 280
           Height = 17
-          Top = 264
+          Top = 248
           Width = 120
           Alignment = taCenter
           AutoSize = False
@@ -284,7 +284,7 @@ object formDetailTKI: TformDetailTKI
         object lblHakPRT: TLabel
           Left = 280
           Height = 17
-          Top = 71
+          Top = 55
           Width = 120
           Alignment = taCenter
           AutoSize = False
@@ -298,36 +298,188 @@ object formDetailTKI: TformDetailTKI
         object Button1: TButton
           Left = 264
           Height = 33
-          Top = 304
+          Top = 512
           Width = 152
           Caption = 'Kirim SMS'
           OnClick = Button1Click
           TabOrder = 0
         end
+        object Button2: TButton
+          Left = 408
+          Height = 25
+          Top = 280
+          Width = 75
+          Caption = 'Button2'
+          TabOrder = 1
+        end
+        object Chart1: TChart
+          Left = 34
+          Height = 128
+          Top = 288
+          Width = 384
+          AntialiasingMode = amOn
+          AxisList = <          
+            item
+              Intervals.Count = 1
+              Intervals.NiceSteps = '0.5|1.0'
+              Minors = <>
+              Range.Max = 5
+              Range.Min = 1
+              Range.UseMax = True
+              Range.UseMin = True
+              Title.LabelFont.Orientation = 900
+            end          
+            item
+              Alignment = calBottom
+              Minors = <>
+            end>
+          BackColor = clWhite
+          Foot.Brush.Color = clBtnFace
+          Foot.Font.Color = clBlue
+          Legend.Alignment = laBottomCenter
+          Legend.ColumnCount = 2
+          Legend.Font.Height = -11
+          Legend.Font.Name = 'Sans'
+          Legend.Frame.Style = psClear
+          Legend.SymbolWidth = 10
+          Title.Brush.Color = clBtnFace
+          Title.Font.Color = clBlue
+          Title.Text.Strings = (
+            'TAChart'
+          )
+          Color = clWhite
+          ParentColor = False
+          object seriesPRT: TLineSeries
+            Legend.Format = 'Hak Pekerja Rumah Tangga'
+            LinePen.Color = clRed
+            LinePen.Width = 2
+          end
+          object seriesJK: TLineSeries
+            Legend.Format = 'Hak Jam Kerja'
+            LinePen.Color = 1283274
+            LinePen.Width = 2
+          end
+          object seriesPIP: TLineSeries
+            Legend.Format = 'Hak Perolehan Informasi Pekerjaan'
+            LinePen.Color = clYellow
+            LinePen.Width = 2
+          end
+          object seriesUpah: TLineSeries
+            Legend.Format = 'Hak Pengupahan'
+            LinePen.Color = 4171862
+            LinePen.Width = 2
+          end
+          object seriesKK: TLineSeries
+            Legend.Format = 'Hak Keselamatan Kerja'
+            LinePen.Color = 14252086
+            LinePen.Width = 2
+          end
+        end
+        object cb1: TCheckBox
+          Left = 32
+          Height = 21
+          Top = 416
+          Width = 171
+          Caption = 'Hak Pekerja Rumah Tangga'
+          Checked = True
+          Color = clDefault
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'Montserrat'
+          OnChange = cb1Change
+          ParentColor = False
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 3
+        end
+        object cb2: TCheckBox
+          Left = 32
+          Height = 21
+          Top = 440
+          Width = 100
+          Caption = 'Hak Jam Kerja'
+          Checked = True
+          Font.Color = 1283274
+          Font.Height = -11
+          Font.Name = 'Montserrat'
+          OnChange = cb1Change
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 4
+        end
+        object cb3: TCheckBox
+          Left = 32
+          Height = 21
+          Top = 464
+          Width = 154
+          Caption = 'Hak Perolehan Informasi'
+          Checked = True
+          Color = clDefault
+          Font.Color = 2539455
+          Font.Height = -11
+          Font.Name = 'Montserrat'
+          OnChange = cb1Change
+          ParentColor = False
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 5
+        end
+        object cb4: TCheckBox
+          Left = 232
+          Height = 21
+          Top = 416
+          Width = 115
+          Caption = 'Hak Pengupahan'
+          Checked = True
+          Color = clDefault
+          Font.Color = clGreen
+          Font.Height = -11
+          Font.Name = 'Montserrat'
+          OnChange = cb1Change
+          ParentColor = False
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 6
+        end
+        object cb5: TCheckBox
+          Left = 232
+          Height = 21
+          Top = 440
+          Width = 220
+          Caption = 'Hak Keselamatan, Kesehatan, Jamsos'
+          Checked = True
+          Font.Color = clBlue
+          Font.Height = -11
+          Font.Name = 'Montserrat'
+          OnChange = cb1Change
+          ParentFont = False
+          State = cbChecked
+          TabOrder = 7
+        end
       end
       object Splitter1: TSplitter
-        Left = 472
-        Height = 387
+        Left = 456
+        Height = 652
         Top = 0
-        Width = 5
+        Width = 9
         Color = clWhite
         ParentColor = False
       end
       object Panel2: TPanel
-        Left = 477
-        Height = 387
+        Left = 465
+        Height = 652
         Top = 0
-        Width = 451
+        Width = 463
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 387
-        ClientWidth = 451
+        ClientHeight = 652
+        ClientWidth = 463
         TabOrder = 2
         object ListView1: TListView
           Left = 10
-          Height = 329
+          Height = 594
           Top = 48
-          Width = 431
+          Width = 443
           Align = alClient
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
@@ -340,12 +492,12 @@ object formDetailTKI: TformDetailTKI
           Left = 0
           Height = 48
           Top = 0
-          Width = 451
+          Width = 463
           Align = alTop
           Alignment = taLeftJustify
           BevelOuter = bvNone
           ClientHeight = 48
-          ClientWidth = 451
+          ClientWidth = 463
           TabOrder = 1
           object Label6: TLabel
             Left = 14
@@ -358,7 +510,7 @@ object formDetailTKI: TformDetailTKI
             ParentColor = False
           end
           object SpeedButton2: TSpeedButton
-            Left = 413
+            Left = 425
             Height = 28
             Top = 10
             Width = 28

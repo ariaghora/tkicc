@@ -19,6 +19,7 @@ var
   LINK_COMMIT_SMS_LOKAL: string;
   LINK_DELETE_SMS_LOKAL: string;
   LINK_DETAIL_TKI: string;
+  LINK_DATA_GRAFIK: string;
   LINK_EDIT_DATA_TKI: string;
   LINK_HAPUS_DATA_TKI: string;
   LINK_JUMLAH_SMS_LOKAL: string;
@@ -107,6 +108,7 @@ begin
   LINK_JUMLAH_PESAN_ONDEMAND := HOST + 'jumlahpesanondemand/';
   LINK_JUMLAH_PESAN_ONDEMAND_UNCONFIRMED := HOST + 'jumlahpesanondemandunconfirmed';
   LINK_JUMLAH_SMS_MONITOR := HOST + 'jumlahsmsmonitor';
+  LINK_JUMLAH_SMS_POOL := HOST + 'jumlahsmspool';
   LINK_LIST_PESAN_ONDEMAND := HOST + 'listpesanondemand';
   LINK_LIST_SMS_BY_PENGIRIM := HOST + 'listsmsbypengirim';
   LINK_LIST_SMS_REMOTE := HOST + 'listsmsremote';
@@ -121,6 +123,8 @@ begin
   LINK_TAMBAH_TKI := HOST + 'tambahtki';
   LINK_POP_BROADCAST_POOL := HOST + 'popbroadcastpool';
   LINK_POP_PESAN_ONDEMAND_UNCONFIRMED := HOST + 'poppesanondemandunconfirmed';
+  LINK_POP_SMS_POOL := HOST + 'popsmspool';
+  LINK_POOL_SMS := HOST + 'poolsms';
 
   LINK_TEST_KONEKSI_KE_SERVER := HOST + 'testkoneksi';
 
